@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurantes — Stade Français 1929</title>
+  <style>
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Light.ttf'); font-weight: 300; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Regular.ttf'); font-weight: 400; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Bold.ttf'); font-weight: 700; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-ExtraBold.ttf'); font-weight: 800; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Black.ttf'); font-weight: 900; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --azul:#29285C; --azul-dark:#1A1A2E; --rojo:#E31E27; --dorado:#F6AA0C; --blanco:#FFFFFF; --gris:#F5F5F7; --gris-mid:#6b7280; --t:0.35s cubic-bezier(.4,0,.2,1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'SonnyVol2', sans-serif; color: var(--azul); background: var(--blanco); overflow-x: hidden; }
+
+    /* NAV */
+    .top-stripe { height: 4px; position: fixed; top: 0; left: 0; right: 0; z-index: 1100; background: linear-gradient(90deg, var(--azul) 60%, var(--rojo) 60% 80%, var(--dorado) 80%); }
+    nav { position: fixed; top: 4px; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 68px; transition: background var(--t), box-shadow var(--t); }
+    nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
+    .nav-links li { position: relative; }
+    .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: 100%; padding-top: 6px; left: 0; background: var(--azul); border-top: 2px solid var(--rojo); border-radius: 0 0 6px 6px; padding: 6px; min-width: 180px; box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-links .dropdown-menu a { font-size: 11px; text-transform: none; letter-spacing: 0; padding: 10px 12px; }
+    .nav-cta { background: var(--rojo) !important; color: var(--blanco) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 10px 18px !important; }
+    .nav-portal { background: var(--blanco) !important; color: var(--azul) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 8px 16px !important; border: 2px solid var(--blanco) !important; }
+    .nav-portal:hover { background: var(--azul) !important; color: var(--blanco) !important; border-color: var(--azul) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--blanco); border-radius: 2px; }
+
+    /* HERO */
+    .page-hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('RESTAURANTES/rest-sdm-1.png'); }
+    .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.98) 0%, rgba(26,26,46,.6) 40%, rgba(41,40,92,.15) 100%); }
+    .page-hero-content { position: relative; z-index: 2; padding: 64px; max-width: 1200px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: flex-end; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; }
+    .breadcrumb a { color: rgba(255,255,255,.4); text-decoration: none; } .breadcrumb a:hover { color: var(--dorado); }
+    .breadcrumb-sep { color: var(--rojo); }
+    .page-hero-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dorado); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
+    .page-hero h1 { font-size: clamp(52px, 8.5vw, 108px); font-weight: 900; color: var(--blanco); line-height: .88; text-transform: uppercase; letter-spacing: -.02em; margin-bottom: 18px; }
+    .page-hero h1 em { color: var(--dorado); font-style: normal; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
+    .hero-quick-facts { display: flex; flex-direction: column; gap: 16px; min-width: 190px; }
+    .hqf { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 18px 20px; text-align: center; }
+    .hqf-num { font-size: 26px; font-weight: 900; color: var(--dorado); line-height: 1; }
+    .hqf-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 4px; }
+
+    /* STATS BAR */
+    .stats-bar { background: var(--rojo); padding: 20px 40px; }
+    .stats-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 22px; font-weight: 900; color: var(--blanco); line-height: 1; }
+    .stat-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 3px; }
+
+    /* SECTIONS */
+    section { padding: 88px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .section-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; display: block; width: 32px; height: 2px; background: var(--rojo); }
+    .section-label.light { color: var(--dorado); } .section-label.light::after { background: var(--dorado); }
+    .section-title { font-size: clamp(26px, 3.5vw, 44px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .section-title.light { color: var(--blanco); }
+    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
+
+    /* FEATURE GRID */
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 64px rgba(41,40,92,.12); margin-top: 56px; }
+    .feature-img { position: relative; min-height: 480px; overflow: hidden; }
+    .feature-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+    .feature-grid:hover .feature-img img { transform: scale(1.04); }
+    .feature-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(41,40,92,.3), transparent); }
+    .feature-content { background: var(--azul); padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
+    .feature-content.light { background: var(--gris); }
+    .feature-tag { font-size: 9px; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; color: var(--dorado); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .feature-tag::after { content: ''; display: block; width: 28px; height: 2px; background: var(--dorado); }
+    .feature-tag.dark { color: var(--rojo); }
+    .feature-tag.dark::after { background: var(--rojo); }
+    .feature-content h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin-bottom: 18px; }
+    .feature-content.light h2 { color: var(--azul); }
+    .feature-content p { font-size: 15px; color: rgba(255,255,255,.65); line-height: 1.85; font-weight: 400; margin-bottom: 24px; }
+    .feature-content.light p { color: var(--gris-mid); }
+    .feature-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
+    .fspec { background: rgba(255,255,255,.07); border-radius: 6px; padding: 14px 16px; }
+    .feature-content.light .fspec { background: var(--blanco); }
+    .fspec-ico { font-size: 20px; margin-bottom: 4px; }
+    .fspec-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+    .feature-content.light .fspec-label { color: var(--gris-mid); }
+    .fspec-val { font-size: 14px; font-weight: 900; color: var(--blanco); margin-top: 2px; }
+    .feature-content.light .fspec-val { color: var(--azul); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--rojo); color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 14px 28px; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; transition: background var(--t), transform var(--t); }
+    .btn-primary:hover { background: #c0161e; transform: translateY(-2px); }
+    .btn-secondary { display: inline-block; background: transparent; color: var(--azul); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 14px 28px; border-radius: 4px; text-decoration: none; border: 2px solid rgba(41,40,92,.25); cursor: pointer; transition: all var(--t); }
+    .btn-secondary:hover { border-color: var(--azul); background: var(--azul); color: var(--blanco); }
+
+    /* PHOTO STRIP */
+    .photo-strip { display: grid; grid-template-columns: repeat(4, 1fr); height: 300px; margin-top: 56px; border-radius: 10px; overflow: hidden; gap: 4px; }
+    .strip-photo { overflow: hidden; position: relative; }
+    .strip-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .strip-photo:hover img { transform: scale(1.06); }
+    .strip-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.7) 0%, transparent 60%); }
+    .strip-label { position: absolute; bottom: 14px; left: 14px; z-index: 2; font-size: 10px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .08em; }
+    .strip-label span { display: block; font-size: 9px; font-weight: 400; color: var(--dorado); }
+
+    /* BENEFICIO */
+    #beneficio { background: var(--azul); }
+    .beneficio-grid { display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: center; }
+    .beneficio-grid h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin-bottom: 18px; }
+    .beneficio-grid p { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; max-width: 500px; margin-bottom: 24px; }
+    .beneficio-list { display: flex; flex-direction: column; gap: 10px; }
+    .beneficio-item { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.7); }
+    .beneficio-item::before { content: '✓'; display: inline-flex; width: 22px; height: 22px; background: rgba(246,170,12,.15); border: 1px solid rgba(246,170,12,.3); border-radius: 50%; align-items: center; justify-content: center; font-size: 10px; color: var(--dorado); flex-shrink: 0; }
+    .beneficio-badge { background: var(--dorado); border-radius: 12px; padding: 36px 44px; text-align: center; }
+    .beneficio-pct { font-size: 80px; font-weight: 900; color: var(--azul); line-height: 1; }
+    .beneficio-pct-label { font-size: 12px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .08em; margin-top: 2px; }
+    .beneficio-pct-sub { font-size: 10px; color: rgba(41,40,92,.6); font-weight: 400; margin-top: 6px; }
+
+    /* GALERIA SECTION */
+    #galeria { background: var(--azul-dark); padding: 80px 0; }
+
+    /* CONTACTO STRIP */
+    #contacto { background: var(--rojo); padding: 64px 0; }
+    .contacto-strip { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .contacto-strip h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .contacto-strip p { font-size: 14px; color: rgba(255,255,255,.65); margin-top: 8px; font-weight: 300; }
+    .contacto-btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--blanco); color: var(--rojo); font-family: 'SonnyVol2', sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 14px 22px; border-radius: 4px; text-decoration: none; white-space: nowrap; transition: transform var(--t), box-shadow var(--t); }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+
+    /* FOOTER */
+    footer { background: var(--azul-dark); border-top: 1px solid rgba(255,255,255,.06); padding: 48px 40px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand img { height: 36px; filter: brightness(0) invert(1); margin-bottom: 14px; }
+    .footer-brand p { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.8; max-width: 220px; }
+    .footer-col h5 { font-size: 9px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--dorado); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,.4); text-decoration: none; margin-bottom: 8px; transition: color var(--t); }
+    .footer-col a:hover { color: var(--blanco); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 10px; color: rgba(255,255,255,.2); }
+    .footer-stripe { display: flex; gap: 2px; }
+    .footer-stripe span { width: 20px; height: 3px; border-radius: 1px; }
+    .footer-stripe span:nth-child(1) { background: var(--azul); width: 40px; }
+    .footer-stripe span:nth-child(2) { background: var(--rojo); }
+    .footer-stripe span:nth-child(3) { background: var(--dorado); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .page-hero-content { grid-template-columns: 1fr; padding: 32px 24px; }
+      .hero-quick-facts { flex-direction: row; }
+      .stats-inner { flex-wrap: wrap; gap: 16px; justify-content: center; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .strip-photo { height: 180px; }
+      .beneficio-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contacto-strip { flex-direction: column; text-align: center; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="Logo_stade.png" alt="Stade Français" />
+    <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li class="dropdown">
+      <a href="nosotros.html">Nosotros</a>
+      <ul class="dropdown-menu">
+        <li><a href="nosotros.html#historia">Historia</a></li>
+        <li><a href="nosotros.html#directiva">Directiva</a></li>
+        <li><a href="nosotros.html#instalaciones">Instalaciones</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#">Ramas</a>
+      <ul class="dropdown-menu">
+        <li><a href="rugby.html">Rugby</a></li>
+        <li><a href="tenis.html">Tenis</a></li>
+        <li><a href="natacion.html">Natación</a></li>
+      </ul>
+    </li>
+    <li><a href="deportes.html">Deportes</a></li>
+    <li><a href="gimnasio.html">Gimnasio</a></li>
+    <li><a href="arriendos.html">Arriendos</a></li>
+    <li><a href="restaurantes.html" class="active">Restaurantes</a></li>
+    <li><a href="beneficios.html">Beneficios</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="hazte-socio.html" class="nav-cta">Hazte Socio</a></li>
+    <li><a href="https://mistade.cl/Account/Login" target="_blank" rel="noopener" class="nav-portal">Portal de Socios</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="hero-left">
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-sep">›</span>
+        Restaurantes
+      </div>
+      <div class="page-hero-label">La Maison · Sabores del Mundo</div>
+      <h1>GASTRONOMÍA<br/>EN EL<br/><em>STADE</em></h1>
+      <p>Dos propuestas para disfrutar dentro del club: la tradición francesa de La Maison y la cocina internacional de Sabores del Mundo.</p>
+    </div>
+    <div class="hero-quick-facts">
+      <div class="hqf">
+        <div class="hqf-num">2</div>
+        <div class="hqf-label">Restaurantes</div>
+      </div>
+      <div class="hqf">
+        <div class="hqf-num">15%</div>
+        <div class="hqf-label">Descuento socios</div>
+      </div>
+      <div class="hqf">
+        <div class="hqf-num">95</div>
+        <div class="hqf-label">Años de historia</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">La Maison</div>
+      <div class="stat-label">Cafetería y pastelería francesa</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Sabores del Mundo</div>
+      <div class="stat-label">Cocina internacional</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">15% OFF</div>
+      <div class="stat-label">Descuento para socios activos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Badajoz 115</div>
+      <div class="stat-label">Las Condes, Santiago</div>
+    </div>
+  </div>
+</div>
+
+<!-- LA MAISON -->
+<section id="lamaison" style="background: var(--blanco);">
+  <div class="container">
+    <div class="section-label reveal">Restaurante</div>
+    <h2 class="section-title reveal reveal-delay-1">La Maison</h2>
+    <p class="section-sub reveal reveal-delay-2">Inspirado en la esencia francesa que da nombre a nuestro club. Café, pastelería y preparaciones para cualquier momento del día.</p>
+  </div>
+  <div class="container">
+    <div class="feature-grid reveal">
+      <div class="feature-img">
+        <img src="RESTAURANTES/rest-sdm-1.png" alt="La Maison — Stade Français" />
+        <div class="feature-img-overlay"></div>
+      </div>
+      <div class="feature-content">
+        <div class="feature-tag">🇫🇷 Cafetería · Pastelería</div>
+        <h2>La Maison</h2>
+        <p>Un espacio acogedor inspirado en la tradición francesa, ideal para una pausa con café, para desayunar o compartir con amigos en un entorno privilegiado dentro del club.</p>
+        <div class="feature-specs">
+          <div class="fspec">
+            <div class="fspec-ico">🕐</div>
+            <div class="fspec-label">Horario</div>
+            <div class="fspec-val">Consultar</div>
+          </div>
+          <div class="fspec">
+            <div class="fspec-ico">🎟</div>
+            <div class="fspec-label">Descuento socios</div>
+            <div class="fspec-val">15% OFF</div>
+          </div>
+          <div class="fspec">
+            <div class="fspec-ico">☕</div>
+            <div class="fspec-label">Especialidad</div>
+            <div class="fspec-val">Café y pastelería</div>
+          </div>
+          <div class="fspec">
+            <div class="fspec-ico">📍</div>
+            <div class="fspec-label">Ubicación</div>
+            <div class="fspec-val">Dentro del Club</div>
+          </div>
+        </div>
+        <a href="https://www.instagram.com/lamaisonstadefrancais" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @lamaisonstadefrancais
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-label light reveal">Nuestros platos</div>
+    <h2 class="section-title light reveal reveal-delay-1">Lo Mejor de Nuestra Mesa</h2>
+    <div class="photo-strip reveal reveal-delay-2">
+      <div class="strip-photo">
+        <img src="RESTAURANTES/rest-sdm-1.png" alt="La Maison" />
+        <div class="strip-label">Desayuno <span>La Maison</span></div>
+      </div>
+      <div class="strip-photo">
+        <img src="RESTAURANTES/rest-lm-1.png" alt="Sabores del Mundo" />
+        <div class="strip-label">Clásico <span>Sabores del Mundo</span></div>
+      </div>
+      <div class="strip-photo">
+        <img src="FOTOS NUEVAS/terraza maison.jpg" alt="La Maison" />
+        <div class="strip-label">Terraza <span>La Maison</span></div>
+      </div>
+      <div class="strip-photo">
+        <img src="RESTAURANTES/rest-lm-2.png" alt="Sabores del Mundo" />
+        <div class="strip-label">Especialidad <span>Sabores del Mundo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SABORES DEL MUNDO -->
+<section id="sabores" style="background: var(--gris);">
+  <div class="container">
+    <div class="section-label reveal">Restaurante</div>
+    <h2 class="section-title reveal reveal-delay-1">Sabores del Mundo</h2>
+    <p class="section-sub reveal reveal-delay-2">Gastronomía internacional con ingredientes frescos y platos contundentes para toda la familia, después del deporte o en cualquier momento.</p>
+  </div>
+  <div class="container">
+    <div class="feature-grid reveal" style="direction: rtl;">
+      <div class="feature-img" style="direction: ltr;">
+        <img src="RESTAURANTES/rest-lm-1.png" alt="Sabores del Mundo — Stade Français" />
+        <div class="feature-img-overlay"></div>
+      </div>
+      <div class="feature-content light" style="direction: ltr;">
+        <div class="feature-tag dark">🌍 Cocina internacional</div>
+        <h2>Sabores del Mundo</h2>
+        <p>Una propuesta variada que reúne cocinas del mundo con ingredientes frescos. El lugar perfecto para un almuerzo en familia o una comida después de entrenar.</p>
+        <div class="feature-specs">
+          <div class="fspec">
+            <div class="fspec-ico">🕐</div>
+            <div class="fspec-label">Horario</div>
+            <div class="fspec-val">Consultar</div>
+          </div>
+          <div class="fspec">
+            <div class="fspec-ico">🎟</div>
+            <div class="fspec-label">Descuento socios</div>
+            <div class="fspec-val">15% OFF</div>
+          </div>
+          <div class="fspec">
+            <div class="fspec-ico">🍽️</div>
+            <div class="fspec-label">Especialidad</div>
+            <div class="fspec-val">Internacional</div>
+          </div>
+          <div class="fspec">
+            <div class="fspec-ico">📍</div>
+            <div class="fspec-label">Ubicación</div>
+            <div class="fspec-val">Dentro del Club</div>
+          </div>
+        </div>
+        <a href="https://www.instagram.com/lossaboresdelmundo.cl" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @lossaboresdelmundo.cl
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIO SOCIOS -->
+<section id="beneficio">
+  <div class="container">
+    <div class="beneficio-grid reveal">
+      <div>
+        <div class="section-label light" style="margin-bottom: 14px;">Club de beneficios</div>
+        <h2>Como Socio,<br/>Comes Mejor</h2>
+        <p>Tu membresía incluye descuento directo en ambos restaurantes del club. Solo presenta tu carnet de socio activo al momento de pagar.</p>
+        <div class="beneficio-list">
+          <div class="beneficio-item">La Maison — cafetería y pastelería francesa</div>
+          <div class="beneficio-item">Sabores del Mundo — cocina internacional</div>
+          <div class="beneficio-item">Válido todos los días con carnet activo</div>
+        </div>
+      </div>
+      <div class="beneficio-badge">
+        <div class="beneficio-pct">15%</div>
+        <div class="beneficio-pct-label">Descuento</div>
+        <div class="beneficio-pct-sub">para socios activos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" style="padding: 0;">
+  <div style="background: var(--rojo); padding: 64px 0;">
+    <div class="contacto-strip">
+      <div>
+        <h2>Síguenos en Instagram</h2>
+        <p>Horarios, menús y novedades de ambos restaurantes en nuestras redes sociales.</p>
+      </div>
+      <div class="contacto-btns">
+        <a href="https://www.instagram.com/lamaisonstadefrancais" target="_blank" rel="noopener" class="btn-white">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @lamaisonstadefrancais
+        </a>
+        <a href="https://www.instagram.com/lossaboresdelmundo.cl" target="_blank" rel="noopener" class="btn-white">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @lossaboresdelmundo.cl
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="Logo_stade.png" alt="Stade Français" />
+        <p>Club deportivo y social en el corazón de Las Condes, Santiago. Desde 1929, formando atletas y comunidad.</p>
+      </div>
+      <div class="footer-col">
+        <h5>El Club</h5>
+        <a href="nosotros.html">Nuestra Historia</a>
+        <a href="nosotros.html#directiva">Directiva</a>
+        <a href="nosotros.html#instalaciones">Instalaciones</a>
+        <a href="hazte-socio.html">Hazte Socio</a>
+      </div>
+      <div class="footer-col">
+        <h5>Deportes</h5>
+        <a href="rugby.html">Rugby</a>
+        <a href="tenis.html">Tenis</a>
+        <a href="natacion.html">Natación</a>
+        <a href="deportes.html">Todos los Deportes</a>
+        <a href="gimnasio.html">Gimnasio</a>
+      </div>
+      <div class="footer-col">
+        <h5>Club</h5>
+        <a href="arriendos.html">Arriendos</a>
+        <a href="restaurantes.html">Restaurantes</a>
+        <a href="hazte-socio.html">Beneficios</a>
+        <a href="hazte-socio.html">Hazte Socio</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Stade Français — Club Deportivo Las Condes. Todos los derechos reservados.</p>
+      <div class="footer-stripe">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  document.getElementById('hamburger').addEventListener('click', () =>
+    document.getElementById('nav-links').classList.toggle('open'));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

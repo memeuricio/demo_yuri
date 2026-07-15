@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — Stade Français 1929</title>
+  <style>
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Light.ttf'); font-weight: 300; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Regular.ttf'); font-weight: 400; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Bold.ttf'); font-weight: 700; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-ExtraBold.ttf'); font-weight: 800; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Black.ttf'); font-weight: 900; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --azul:#29285C; --azul-dark:#1A1A2E; --rojo:#E31E27; --dorado:#F6AA0C; --blanco:#FFFFFF; --gris:#F5F5F7; --gris-mid:#6b7280; --t:0.35s cubic-bezier(.4,0,.2,1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'SonnyVol2', sans-serif; color: var(--azul); background: var(--blanco); overflow-x: hidden; }
+
+    /* NAV */
+    .top-stripe { height: 4px; position: fixed; top: 0; left: 0; right: 0; z-index: 1100; background: linear-gradient(90deg, var(--azul) 60%, var(--rojo) 60% 80%, var(--dorado) 80%); }
+    nav { position: fixed; top: 4px; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 68px; transition: background var(--t), box-shadow var(--t); }
+    nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
+    .nav-links li { position: relative; }
+    .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: 100%; padding-top: 6px; left: 0; background: var(--azul); border-top: 2px solid var(--rojo); border-radius: 0 0 6px 6px; padding: 6px; min-width: 180px; box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-links .dropdown-menu a { font-size: 11px; text-transform: none; letter-spacing: 0; padding: 10px 12px; }
+    .nav-cta { background: var(--rojo) !important; color: var(--blanco) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 10px 18px !important; }
+    .nav-portal { background: var(--blanco) !important; color: var(--azul) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 8px 16px !important; border: 2px solid var(--blanco) !important; }
+    .nav-portal:hover { background: var(--azul) !important; color: var(--blanco) !important; border-color: var(--azul) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--blanco); border-radius: 2px; }
+
+    /* HERO */
+    .page-hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 30%; background-image: url('05_terraza.webp'); }
+    .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.98) 0%, rgba(26,26,46,.6) 40%, rgba(41,40,92,.15) 100%); }
+    .page-hero-content { position: relative; z-index: 2; padding: 64px; max-width: 1200px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: flex-end; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; }
+    .breadcrumb a { color: rgba(255,255,255,.4); text-decoration: none; } .breadcrumb a:hover { color: var(--dorado); }
+    .breadcrumb-sep { color: var(--rojo); }
+    .page-hero-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dorado); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
+    .page-hero h1 { font-size: clamp(52px, 8.5vw, 108px); font-weight: 900; color: var(--blanco); line-height: .88; text-transform: uppercase; letter-spacing: -.02em; margin-bottom: 18px; }
+    .page-hero h1 em { color: var(--dorado); font-style: normal; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
+    .hero-quick-facts { display: flex; flex-direction: column; gap: 16px; min-width: 190px; }
+    .hqf { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 18px 20px; text-align: center; }
+    .hqf-num { font-size: 22px; font-weight: 900; color: var(--dorado); line-height: 1; }
+    .hqf-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 4px; }
+
+    /* STATS BAR */
+    .stats-bar { background: var(--rojo); padding: 20px 40px; }
+    .stats-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .stat-link { display: flex; align-items: center; gap: 10px; text-decoration: none; transition: opacity var(--t); }
+    .stat-link:hover { opacity: .75; }
+    .stat-ico { font-size: 20px; }
+    .stat-text-num { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1; }
+    .stat-text-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 2px; }
+
+    /* SECTIONS */
+    section { padding: 88px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .section-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; display: block; width: 32px; height: 2px; background: var(--rojo); }
+    .section-label.light { color: var(--dorado); } .section-label.light::after { background: var(--dorado); }
+    .section-title { font-size: clamp(26px, 3.5vw, 44px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .section-title.light { color: var(--blanco); }
+    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
+
+    /* CONTACTO PRINCIPAL */
+    #contacto-main { background: var(--azul-dark); }
+    .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .contacto-info h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 18px; line-height: 1; }
+    .contacto-info p { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; margin-bottom: 32px; }
+    .contacto-detail { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+    .cdetail { display: flex; align-items: flex-start; gap: 14px; text-decoration: none; transition: opacity var(--t); }
+    .cdetail:hover { opacity: .75; }
+    .cdetail-ico { width: 44px; min-width: 44px; height: 44px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .cdetail-text strong { display: block; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--dorado); margin-bottom: 3px; }
+    .cdetail-text span { font-size: 14px; color: rgba(255,255,255,.7); font-weight: 400; }
+    .social-row { display: flex; gap: 12px; margin-top: 8px; }
+    .social-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.7); font-family: 'SonnyVol2', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 10px 16px; border-radius: 4px; text-decoration: none; transition: background var(--t), color var(--t); }
+    .social-btn:hover { background: rgba(255,255,255,.14); color: var(--blanco); }
+    .social-btn svg { flex-shrink: 0; }
+
+    /* FORM */
+    .form-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 40px 36px; }
+    .form-card h3 { font-size: 16px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    label { display: block; font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 7px; }
+    input, select, textarea { width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 5px; color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 14px; font-weight: 400; padding: 12px 14px; outline: none; transition: border-color var(--t); }
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,.25); }
+    input:focus, select:focus, textarea:focus { border-color: var(--dorado); }
+    select { appearance: none; }
+    select option { background: var(--azul-dark); color: var(--blanco); }
+    textarea { resize: vertical; min-height: 110px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--rojo); color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 14px 28px; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; width: 100%; justify-content: center; transition: background var(--t), transform var(--t); margin-top: 8px; }
+    .btn-primary:hover { background: #c0161e; transform: translateY(-2px); }
+
+    /* DEPARTAMENTOS */
+    #departamentos { background: var(--gris); }
+    .dep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 48px; }
+    .dep-card { background: var(--blanco); border-radius: 10px; padding: 28px 24px; border-top: 4px solid var(--azul); transition: transform var(--t), box-shadow var(--t), border-color var(--t); }
+    .dep-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(41,40,92,.12); border-top-color: var(--rojo); }
+    .dep-ico { font-size: 36px; margin-bottom: 14px; }
+    .dep-card h3 { font-size: 14px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
+    .dep-contacts { display: flex; flex-direction: column; gap: 8px; }
+    .dep-contact { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--gris-mid); text-decoration: none; transition: color var(--t); }
+    .dep-contact:hover { color: var(--rojo); }
+    .dep-contact-ico { font-size: 13px; min-width: 18px; }
+    .dep-person { font-size: 11px; font-weight: 700; color: var(--azul); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+
+    /* MAPA */
+    #mapa { background: var(--azul-dark); padding: 80px 0 0; }
+    .mapa-header { padding-bottom: 48px; }
+    .map-embed { width: 100%; height: 440px; border: none; display: block; filter: grayscale(20%) contrast(1.05); }
+
+    /* RRSS STRIP */
+    #rrss { background: var(--azul); padding: 64px 0; }
+    .rrss-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .rrss-inner h2 { font-size: clamp(22px, 2.5vw, 36px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .rrss-inner p { font-size: 14px; color: rgba(255,255,255,.5); margin-top: 8px; font-weight: 300; }
+    .rrss-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .rrss-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 12px 20px; border-radius: 4px; text-decoration: none; transition: background var(--t), transform var(--t); }
+    .rrss-btn:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--azul-dark); border-top: 1px solid rgba(255,255,255,.06); padding: 48px 40px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand img { height: 36px; filter: brightness(0) invert(1); margin-bottom: 14px; }
+    .footer-brand p { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.8; max-width: 220px; }
+    .footer-col h5 { font-size: 9px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--dorado); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,.4); text-decoration: none; margin-bottom: 8px; transition: color var(--t); }
+    .footer-col a:hover { color: var(--blanco); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 10px; color: rgba(255,255,255,.2); }
+    .footer-stripe { display: flex; gap: 2px; }
+    .footer-stripe span { width: 20px; height: 3px; border-radius: 1px; }
+    .footer-stripe span:nth-child(1) { background: var(--azul); width: 40px; }
+    .footer-stripe span:nth-child(2) { background: var(--rojo); }
+    .footer-stripe span:nth-child(3) { background: var(--dorado); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .page-hero-content { grid-template-columns: 1fr; padding: 32px 24px; }
+      .hero-quick-facts { flex-direction: row; }
+      .stats-inner { gap: 12px; }
+      .contacto-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .dep-grid { grid-template-columns: 1fr; }
+      .rrss-inner { flex-direction: column; text-align: center; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .map-embed { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="Logo_stade.png" alt="Stade Français" />
+    <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li class="dropdown">
+      <a href="nosotros.html">Nosotros</a>
+      <ul class="dropdown-menu">
+        <li><a href="nosotros.html#historia">Historia</a></li>
+        <li><a href="nosotros.html#directiva">Directiva</a></li>
+        <li><a href="nosotros.html#instalaciones">Instalaciones</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#">Ramas</a>
+      <ul class="dropdown-menu">
+        <li><a href="rugby.html">Rugby</a></li>
+        <li><a href="tenis.html">Tenis</a></li>
+        <li><a href="natacion.html">Natación</a></li>
+      </ul>
+    </li>
+    <li><a href="deportes.html">Deportes</a></li>
+    <li><a href="gimnasio.html">Gimnasio</a></li>
+    <li><a href="arriendos.html">Arriendos</a></li>
+    <li><a href="restaurantes.html">Restaurantes</a></li>
+    <li><a href="beneficios.html">Beneficios</a></li>
+    <li><a href="contacto.html" class="active">Contacto</a></li>
+    <li><a href="hazte-socio.html" class="nav-cta">Hazte Socio</a></li>
+    <li><a href="https://mistade.cl/Account/Login" target="_blank" rel="noopener" class="nav-portal">Portal de Socios</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="hero-left">
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-sep">›</span>
+        Contacto
+      </div>
+      <div class="page-hero-label">Estamos para ayudarte</div>
+      <h1>PONTE EN<br/>CONTACTO<br/>CON EL <em>STADE</em></h1>
+      <p>Escríbenos, llámanos o visítanos. Tenemos equipos especializados para cada área del club.</p>
+    </div>
+    <div class="hero-quick-facts">
+      <div class="hqf">
+        <div class="hqf-num">+56 22 848 7760</div>
+        <div class="hqf-label">Teléfono principal</div>
+      </div>
+      <div class="hqf">
+        <div class="hqf-num">WhatsApp</div>
+        <div class="hqf-label">+56 9 9021 0287</div>
+      </div>
+      <div class="hqf">
+        <div class="hqf-num">Las Condes</div>
+        <div class="hqf-label">Sánchez Fontecilla #498</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <a href="tel:+56228487760" class="stat-link">
+      <div class="stat-ico">📞</div>
+      <div>
+        <div class="stat-text-num">+56 22 848 7760</div>
+        <div class="stat-text-label">Teléfono</div>
+      </div>
+    </a>
+    <a href="https://wa.me/56990210287" target="_blank" rel="noopener" class="stat-link">
+      <div class="stat-ico">💬</div>
+      <div>
+        <div class="stat-text-num">+56 9 9021 0287</div>
+        <div class="stat-text-label">WhatsApp</div>
+      </div>
+    </a>
+    <a href="mailto:informaciones@stadefrancais.cl" class="stat-link">
+      <div class="stat-ico">✉️</div>
+      <div>
+        <div class="stat-text-num">informaciones@stadefrancais.cl</div>
+        <div class="stat-text-label">Correo general</div>
+      </div>
+    </a>
+    <a href="#mapa" class="stat-link">
+      <div class="stat-ico">📍</div>
+      <div>
+        <div class="stat-text-num">Sánchez Fontecilla #498</div>
+        <div class="stat-text-label">Las Condes, Santiago</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACTO PRINCIPAL + FORMULARIO -->
+<section id="contacto-main">
+  <div class="container">
+    <div class="contacto-grid">
+      <div class="contacto-info reveal">
+        <div class="section-label light">Contáctanos</div>
+        <h2>Estamos Aquí para Ayudarte</h2>
+        <p>Nuestro equipo está disponible para responder tus consultas sobre membresías, deportes, arriendos, restaurantes y más.</p>
+
+        <div class="contacto-detail">
+          <a href="tel:+56228487760" class="cdetail">
+            <div class="cdetail-ico">📞</div>
+            <div class="cdetail-text">
+              <strong>Teléfono</strong>
+              <span>(+56) 22 848 77 60</span>
+            </div>
+          </a>
+          <a href="https://wa.me/56990210287" target="_blank" rel="noopener" class="cdetail">
+            <div class="cdetail-ico">💬</div>
+            <div class="cdetail-text">
+              <strong>WhatsApp</strong>
+              <span>+56 9 9021 0287</span>
+            </div>
+          </a>
+          <a href="mailto:informaciones@stadefrancais.cl" class="cdetail">
+            <div class="cdetail-ico">✉️</div>
+            <div class="cdetail-text">
+              <strong>Correo electrónico</strong>
+              <span>informaciones@stadefrancais.cl</span>
+            </div>
+          </a>
+          <a href="#mapa" class="cdetail">
+            <div class="cdetail-ico">📍</div>
+            <div class="cdetail-text">
+              <strong>Dirección</strong>
+              <span>Av. Mariano Sánchez Fontecilla #498, Las Condes, Santiago</span>
+            </div>
+          </a>
+          <a href="https://mistade.cl/Account/Login" target="_blank" rel="noopener" class="cdetail">
+            <div class="cdetail-ico">🔐</div>
+            <div class="cdetail-text">
+              <strong>Portal de socios</strong>
+              <span>mistade.cl</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="social-row">
+          <a href="https://www.instagram.com/stadefrancaiscl" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/stadefrancaiscl" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.youtube.com/channel/UCbT5HrSuWZLCcCMMyvhqUdQ" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YouTube
+          </a>
+        </div>
+      </div>
+
+      <div class="form-card reveal reveal-delay-1">
+        <h3>Escríbenos</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" placeholder="Tu nombre" />
+          </div>
+          <div class="form-group">
+            <label>Apellido</label>
+            <input type="text" placeholder="Tu apellido" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="correo@ejemplo.cl" />
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="+56 9 XXXX XXXX" />
+        </div>
+        <div class="form-group">
+          <label>Área de consulta</label>
+          <select>
+            <option value="" disabled selected>Selecciona un área</option>
+            <option>Membresías / Hazte Socio</option>
+            <option>Arriendos y Eventos</option>
+            <option>Escuela de Tenis</option>
+            <option>Canchas y Pádel</option>
+            <option>Gimnasio</option>
+            <option>Natación</option>
+            <option>Rugby</option>
+            <option>Restaurantes</option>
+            <option>Beneficios</option>
+            <option>Otra consulta</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea placeholder="Escribe tu consulta o mensaje aquí..."></textarea>
+        </div>
+        <button class="btn-primary" onclick="alert('¡Mensaje enviado! Te contactaremos a la brevedad.')">Enviar mensaje →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTAMENTOS -->
+<section id="departamentos">
+  <div class="container">
+    <div class="section-label reveal">Contactos directos</div>
+    <h2 class="section-title reveal reveal-delay-1">Equipos Especializados</h2>
+    <p class="section-sub reveal reveal-delay-2">Cada área del club tiene su propio equipo. Contáctalos directamente para respuestas más rápidas.</p>
+    <div class="dep-grid">
+
+      <div class="dep-card reveal">
+        <div class="dep-ico">🎉</div>
+        <h3>Arriendo de Espacios y Eventos</h3>
+        <div class="dep-person">Benjamín Leiva</div>
+        <div class="dep-contacts">
+          <a href="mailto:eventos@stadefrancais.cl" class="dep-contact"><span class="dep-contact-ico">✉️</span> eventos@stadefrancais.cl</a>
+          <a href="tel:+56990209720" class="dep-contact"><span class="dep-contact-ico">📞</span> +56 9 9020 9720</a>
+        </div>
+      </div>
+
+      <div class="dep-card reveal reveal-delay-1">
+        <div class="dep-ico">🎾</div>
+        <h3>Escuela de Tenis</h3>
+        <div class="dep-contacts">
+          <a href="tel:+56934885162" class="dep-contact"><span class="dep-contact-ico">📞</span> +56 9 3488 5162</a>
+          <a href="mailto:adm.academiadetenis@gmail.com" class="dep-contact"><span class="dep-contact-ico">✉️</span> adm.academiadetenis@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="dep-card reveal reveal-delay-2">
+        <div class="dep-ico">🏓</div>
+        <h3>Canchas y Pádel</h3>
+        <div class="dep-contacts">
+          <a href="tel:+56947986455" class="dep-contact"><span class="dep-contact-ico">📞</span> +56 9 4798 6455</a>
+          <a href="mailto:tenis@stadefrancais.cl" class="dep-contact"><span class="dep-contact-ico">✉️</span> tenis@stadefrancais.cl</a>
+        </div>
+      </div>
+
+      <div class="dep-card reveal">
+        <div class="dep-ico">💪</div>
+        <h3>Gimnasio</h3>
+        <div class="dep-contacts">
+          <a href="mailto:gimnasiostade@stadefrancais.cl" class="dep-contact"><span class="dep-contact-ico">✉️</span> gimnasiostade@stadefrancais.cl</a>
+        </div>
+      </div>
+
+      <div class="dep-card reveal reveal-delay-1">
+        <div class="dep-ico">🏋️</div>
+        <h3>CrossFit</h3>
+        <div class="dep-person">Cristóbal Sabal</div>
+        <div class="dep-contacts">
+          <a href="https://www.instagram.com/cftobalaba" target="_blank" rel="noopener" class="dep-contact"><span class="dep-contact-ico">📷</span> @cftobalaba</a>
+        </div>
+      </div>
+
+      <div class="dep-card reveal reveal-delay-2">
+        <div class="dep-ico">☕</div>
+        <h3>La Maison</h3>
+        <div class="dep-contacts">
+          <a href="tel:+56957938199" class="dep-contact"><span class="dep-contact-ico">📞</span> +56 9 5793 8199</a>
+          <a href="mailto:administradormaison@stadefrancais.cl" class="dep-contact"><span class="dep-contact-ico">✉️</span> administradormaison@stadefrancais.cl</a>
+        </div>
+      </div>
+
+      <div class="dep-card reveal">
+        <div class="dep-ico">🌍</div>
+        <h3>Sabores del Mundo</h3>
+        <div class="dep-person">José Solis</div>
+        <div class="dep-contacts">
+          <a href="mailto:stadefrances@cestsibon.cl" class="dep-contact"><span class="dep-contact-ico">✉️</span> stadefrances@cestsibon.cl</a>
+        </div>
+      </div>
+
+      <div class="dep-card reveal reveal-delay-1">
+        <div class="dep-ico">🔐</div>
+        <h3>Portal de Socios</h3>
+        <div class="dep-contacts">
+          <a href="https://mistade.cl/Account/Login" target="_blank" rel="noopener" class="dep-contact"><span class="dep-contact-ico">🌐</span> mistade.cl</a>
+          <a href="mailto:informaciones@stadefrancais.cl" class="dep-contact"><span class="dep-contact-ico">✉️</span> informaciones@stadefrancais.cl</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section id="mapa" style="padding: 0;">
+  <div style="background: var(--azul-dark); padding: 72px 0 0;">
+    <div class="container mapa-header reveal">
+      <div class="section-label light">Cómo llegar</div>
+      <h2 class="section-title light">Encuéntranos</h2>
+      <p style="color: rgba(255,255,255,.5); font-size: 15px; line-height: 1.8; margin-top: 8px;">Av. Mariano Sánchez Fontecilla #498, Las Condes, Santiago, Chile</p>
+    </div>
+    <iframe
+      class="map-embed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.5!2d-70.5805!3d-33.4025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf6f20a3d1a5%3A0x1!2sAv.%20Mari%C3%A1no%20S%C3%A1nchez%20Fontecilla%20498%2C%20Las%20Condes%2C%20Santiago!5e0!3m2!1ses!2scl!4v1689000000000!5m2!1ses!2scl"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación Stade Français">
+    </iframe>
+  </div>
+</section>
+
+<!-- RRSS -->
+<section id="rrss" style="padding: 0;">
+  <div style="background: var(--azul); padding: 64px 0;">
+    <div class="rrss-inner">
+      <div>
+        <h2>Síguenos en Redes Sociales</h2>
+        <p>Entérate de todo lo que pasa en el club: torneos, eventos, noticias y más.</p>
+      </div>
+      <div class="rrss-btns">
+        <a href="https://www.instagram.com/stadefrancaiscl" target="_blank" rel="noopener" class="rrss-btn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @stadefrancaiscl
+        </a>
+        <a href="https://www.facebook.com/stadefrancaiscl" target="_blank" rel="noopener" class="rrss-btn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.youtube.com/channel/UCbT5HrSuWZLCcCMMyvhqUdQ" target="_blank" rel="noopener" class="rrss-btn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="Logo_stade.png" alt="Stade Français" />
+        <p>Club deportivo y social en el corazón de Las Condes, Santiago. Desde 1929, formando atletas y comunidad.</p>
+      </div>
+      <div class="footer-col">
+        <h5>El Club</h5>
+        <a href="nosotros.html">Nuestra Historia</a>
+        <a href="nosotros.html#directiva">Directiva</a>
+        <a href="nosotros.html#instalaciones">Instalaciones</a>
+        <a href="hazte-socio.html">Hazte Socio</a>
+      </div>
+      <div class="footer-col">
+        <h5>Deportes</h5>
+        <a href="rugby.html">Rugby</a>
+        <a href="tenis.html">Tenis</a>
+        <a href="natacion.html">Natación</a>
+        <a href="deportes.html">Todos los Deportes</a>
+        <a href="gimnasio.html">Gimnasio</a>
+      </div>
+      <div class="footer-col">
+        <h5>Club</h5>
+        <a href="arriendos.html">Arriendos</a>
+        <a href="restaurantes.html">Restaurantes</a>
+        <a href="beneficios.html">Beneficios</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="hazte-socio.html">Hazte Socio</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Stade Français — Club Deportivo Las Condes. Todos los derechos reservados.</p>
+      <div class="footer-stripe"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  document.getElementById('hamburger').addEventListener('click', () =>
+    document.getElementById('nav-links').classList.toggle('open'));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rugby — Stade Français 1929</title>
+  <style>
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Light.ttf'); font-weight: 300; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Regular.ttf'); font-weight: 400; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Bold.ttf'); font-weight: 700; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-ExtraBold.ttf'); font-weight: 800; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Black.ttf'); font-weight: 900; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --azul:#29285C; --azul-dark:#1A1A2E; --rojo:#E31E27; --dorado:#F6AA0C; --blanco:#FFFFFF; --gris:#F5F5F7; --gris-mid:#6b7280; --t:0.35s cubic-bezier(.4,0,.2,1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'SonnyVol2', sans-serif; color: var(--azul); background: var(--blanco); overflow-x: hidden; }
+    .top-stripe { height: 4px; position: fixed; top: 0; left: 0; right: 0; z-index: 1100; background: linear-gradient(90deg, var(--azul) 60%, var(--rojo) 60% 80%, var(--dorado) 80%); }
+    nav { position: fixed; top: 4px; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 68px; transition: background var(--t), box-shadow var(--t); }
+    nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t), background var(--t); }
+    .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
+    .nav-links li { position: relative; }
+    .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: 100%; padding-top: 6px; left: 0; background: var(--azul); border-top: 2px solid var(--rojo); border-radius: 0 0 6px 6px; padding: 6px; min-width: 180px; box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-links .dropdown-menu a { font-size: 11px; text-transform: none; letter-spacing: 0; padding: 10px 12px; }
+    .nav-cta { background: var(--rojo) !important; color: var(--blanco) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 10px 18px !important; }
+    .nav-portal { background: var(--blanco) !important; color: var(--azul) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 8px 16px !important; border: 2px solid var(--blanco) !important; }
+    .nav-portal:hover { background: var(--azul) !important; color: var(--blanco) !important; border-color: var(--azul) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--blanco); border-radius: 2px; }
+
+    /* HERO */
+    .page-hero { position: relative; height: 80vh; min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 30%; background-image: url('0Y3A3750.jpg'); }
+    .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.97) 0%, rgba(41,40,92,.7) 40%, rgba(41,40,92,.3) 100%); }
+    .page-hero-content { position: relative; z-index: 2; padding: 56px 64px; max-width: 1200px; width: 100%; margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 16px; }
+    .breadcrumb a { color: rgba(255,255,255,.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--dorado); }
+    .breadcrumb-sep { color: var(--rojo); }
+    .page-hero-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dorado); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
+    .page-hero h1 { font-size: clamp(52px, 8vw, 96px); font-weight: 900; color: var(--blanco); line-height: .9; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 16px; }
+    .page-hero h1 span { color: var(--rojo); }
+    .page-hero p { font-size: 16px; color: rgba(255,255,255,.65); font-weight: 300; line-height: 1.75; max-width: 560px; }
+
+    /* CONTENT */
+    section { padding: 80px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; display: block; width: 32px; height: 2px; background: var(--rojo); }
+    .section-title { font-size: clamp(24px, 3.5vw, 40px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.75; max-width: 540px; font-weight: 400; }
+
+    /* SOBRE LA RAMA */
+    #sobre { background: var(--gris); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .sobre-img { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; }
+    .sobre-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+    .sobre-text p { font-size: 15px; color: #374151; line-height: 1.85; margin-bottom: 18px; font-weight: 400; }
+    .stats-inline { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+    .stat-box { background: var(--azul); border-radius: 8px; padding: 20px 16px; text-align: center; }
+    .stat-box-num { font-size: 30px; font-weight: 900; color: var(--dorado); line-height: 1; }
+    .stat-box-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-top: 4px; }
+
+    /* CATEGORÍAS */
+    #categorias { background: var(--blanco); }
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 20px; margin-top: 40px; }
+    .cat-card { border-radius: 8px; overflow: hidden; border-top: 4px solid var(--azul); background: var(--gris); transition: transform var(--t), box-shadow var(--t); }
+    .cat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(41,40,92,.12); border-top-color: var(--rojo); }
+    .cat-card-body { padding: 22px 18px; }
+    .cat-age { display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dorado); border: 1px solid rgba(246,170,12,.4); padding: 3px 8px; border-radius: 2px; margin-bottom: 10px; }
+    .cat-card h3 { font-size: 16px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+    .cat-card p { font-size: 12px; color: var(--gris-mid); line-height: 1.6; font-weight: 400; }
+    .cat-schedule { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.08); font-size: 11px; font-weight: 700; color: var(--azul); letter-spacing: .04em; }
+
+    /* CUERPO TÉCNICO */
+    #cuerpo { background: var(--azul); }
+    #cuerpo .section-label { color: var(--dorado); }
+    #cuerpo .section-label::after { background: var(--dorado); }
+    #cuerpo .section-title { color: var(--blanco); }
+    .staff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 24px; margin-top: 40px; }
+    .staff-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; overflow: hidden; transition: transform var(--t); }
+    .staff-card:hover { transform: translateY(-4px); }
+    .staff-photo { aspect-ratio: 1; background: rgba(255,255,255,.05); display: flex; align-items: center; justify-content: center; font-size: 56px; border-bottom: 3px solid var(--rojo); }
+    .staff-body { padding: 20px 18px; }
+    .staff-role { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); margin-bottom: 6px; }
+    .staff-card h4 { font-size: 16px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+    .staff-card p { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.6; font-weight: 400; }
+    .dir-rama-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 20px; margin-top: 36px; }
+    .dir-rama-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 28px 18px; text-align: center; transition: transform var(--t), background var(--t); }
+    .dir-rama-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.1); }
+    .dir-rama-initial { width: 64px; height: 64px; border-radius: 50%; background: var(--rojo); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: var(--blanco); margin: 0 auto 16px; }
+    .dir-rama-role { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); margin-bottom: 6px; }
+    .dir-rama-card h4 { font-size: 14px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .03em; line-height: 1.2; }
+
+    /* INSCRIPCIÓN */
+    #inscripcion { background: var(--gris); }
+    .inscripcion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .inscripcion-info h3 { font-size: 20px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 16px; margin-top: 32px; }
+    .inscripcion-info h3:first-child { margin-top: 0; }
+    .inscripcion-info p { font-size: 14px; color: var(--gris-mid); line-height: 1.75; margin-bottom: 12px; font-weight: 400; }
+    .req-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .req-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #374151; font-weight: 400; line-height: 1.5; }
+    .req-list li::before { content: ''; width: 14px; min-width: 14px; height: 14px; border-radius: 2px; background: var(--rojo); margin-top: 2px; }
+    .contact-form { background: var(--blanco); border-radius: 8px; padding: 36px; border-top: 4px solid var(--rojo); box-shadow: 0 4px 24px rgba(41,40,92,.08); display: flex; flex-direction: column; gap: 14px; }
+    .contact-form h3 { font-size: 18px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(41,40,92,.5); }
+    .form-group input, .form-group textarea, .form-group select { background: var(--gris); border: 1px solid rgba(41,40,92,.12); border-radius: 4px; padding: 12px 14px; font-size: 13px; font-family: 'SonnyVol2', sans-serif; color: var(--azul); outline: none; transition: border-color var(--t); font-weight: 400; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--rojo); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .btn-primary { background: var(--rojo); color: var(--blanco); font-weight: 900; font-family: 'SonnyVol2', sans-serif; padding: 15px 32px; border-radius: 4px; border: none; cursor: pointer; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; transition: var(--t); align-self: flex-start; }
+    .btn-primary:hover { background: #c0181f; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--azul-dark); border-top: 3px solid var(--rojo); padding: 36px 32px; text-align: center; }
+    .footer-logo-img { height: 36px; filter: brightness(0) invert(1); margin-bottom: 12px; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 14px 0; }
+    .footer-links a { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color var(--t); }
+    .footer-links a:hover { color: var(--dorado); }
+    .footer-copy { font-size: 10px; color: rgba(255,255,255,.2); font-weight: 400; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; } .reveal-delay-2 { transition-delay: .2s; } .reveal-delay-3 { transition-delay: .3s; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .sobre-grid, .inscripcion-grid { grid-template-columns: 1fr; gap: 36px; }
+      .page-hero-content { padding: 36px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .stats-inline { grid-template-columns: repeat(3,1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="top-stripe"></div>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="Logo_stade.png" alt="Stade Français" />
+    <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li class="dropdown">
+      <a href="#" class="active">Ramas</a>
+      <ul class="dropdown-menu">
+        <li><a href="rugby.html" class="active">Rugby</a></li>
+        <li><a href="tenis.html">Tenis</a></li>
+        <li><a href="natacion.html">Natación</a></li>
+      </ul>
+    </li>
+    <li><a href="deportes.html">Deportes</a></li>
+    <li><a href="gimnasio.html">Gimnasio</a></li>
+    <li><a href="arriendos.html">Arriendos</a></li>
+    <li><a href="restaurantes.html">Restaurantes</a></li>
+    <li><a href="beneficios.html">Beneficios</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="hazte-socio.html" class="nav-cta">Hazte Socio</a></li>
+    <li><a href="https://mistade.cl/Account/Login" target="_blank" rel="noopener" class="nav-portal">Portal de Socios</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span class="breadcrumb-sep">›</span>Ramas<span class="breadcrumb-sep">›</span>Rugby</div>
+    <div class="page-hero-label">Rama Deportiva</div>
+    <h1>EL<br/><span>GALLO</span><br/>RUGBY</h1>
+    <p>Tradición, disciplina y pasión. El rugby de Stade Français lleva décadas formando jugadores y personas en Las Condes, Santiago.</p>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img reveal">
+        <img src="FOTOS NUEVAS/cancha rugby.jpg" alt="Rugby Stade Français" />
+      </div>
+      <div class="sobre-text">
+        <div class="section-label reveal">Nuestra Rama</div>
+        <h2 class="section-title reveal reveal-delay-1">Rugby con Identidad Propia</h2>
+        <p class="reveal reveal-delay-2">La rama de rugby de Stade Français es una de las más tradicionales del rugby chileno. Formamos jugadores desde categorías infantiles hasta el primer equipo adulto, con un enfoque en el desarrollo integral de la persona.</p>
+        <p class="reveal reveal-delay-2">Entrenamos en las instalaciones del club con cancha de césped natural, bajo la dirección de un cuerpo técnico experimentado comprometido con la excelencia deportiva.</p>
+        <div class="stats-inline reveal reveal-delay-3">
+          <div class="stat-box"><div class="stat-box-num">6</div><div class="stat-box-label">Categorías</div></div>
+          <div class="stat-box"><div class="stat-box-num">3x</div><div class="stat-box-label">Por semana</div></div>
+          <div class="stat-box"><div class="stat-box-num">Todo</div><div class="stat-box-label">El año</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORÍAS -->
+<section id="categorias">
+  <div class="container">
+    <div class="section-label reveal">Divisiones</div>
+    <h2 class="section-title reveal reveal-delay-1">Categorías</h2>
+    <p class="section-sub reveal reveal-delay-2">Tenemos lugar para todos, desde los más jóvenes hasta el equipo adulto. Ven a entrenar con nosotros.</p>
+    <div class="cat-grid">
+      <div class="cat-card reveal">
+        <div class="cat-card-body">
+          <span class="cat-age">6–9 años</span>
+          <h3>Mini Rugby</h3>
+          <p>Iniciación al rugby con foco en la diversión, coordinación y trabajo en equipo.</p>
+          <div class="cat-schedule">🕐 Sábados · 9:00–10:30</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-1">
+        <div class="cat-card-body">
+          <span class="cat-age">10–12 años</span>
+          <h3>M12 — Escuelita</h3>
+          <p>Introducción a la técnica y táctica básica del rugby. Entrenamientos 2 veces por semana.</p>
+          <div class="cat-schedule">🕐 Mar y Jue · 17:00–18:30</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-2">
+        <div class="cat-card-body">
+          <span class="cat-age">13–15 años</span>
+          <h3>M14 — Infantil</h3>
+          <p>Desarrollo técnico y primeras competencias interclubes. Campeonato ARUSA.</p>
+          <div class="cat-schedule">🕐 Lun, Mié y Vie · 17:30–19:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-3">
+        <div class="cat-card-body">
+          <span class="cat-age">16–18 años</span>
+          <h3>M18 — Juvenil</h3>
+          <p>Competencia de alto nivel. Formación táctica avanzada y representación del club.</p>
+          <div class="cat-schedule">🕐 Lun, Mié y Vie · 18:00–20:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-card-body">
+          <span class="cat-age">18+ años</span>
+          <h3>Primera División</h3>
+          <p>Equipo representativo del club. Compite en el torneo nacional de primera división.</p>
+          <div class="cat-schedule">🕐 Mar, Jue y Sáb · 19:00–21:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-1">
+        <div class="cat-card-body">
+          <span class="cat-age">30+ años</span>
+          <h3>Old Boys</h3>
+          <p>Para ex jugadores y amantes del rugby que quieren mantenerse activos y conectados al club.</p>
+          <div class="cat-schedule">🕐 Sábados · 10:00–12:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTIVA -->
+<section id="cuerpo">
+  <div class="container">
+    <div class="section-label reveal">Staff</div>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--blanco)">Directiva de la Rama</h2>
+    <div class="dir-rama-grid">
+      <div class="dir-rama-card reveal">
+        <div class="dir-rama-initial">RC</div>
+        <div class="dir-rama-role">Presidente</div>
+        <h4>Rodrigo Del Castillo</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-1">
+        <div class="dir-rama-initial">AL</div>
+        <div class="dir-rama-role">Vice Presidente</div>
+        <h4>Antonio Leiva</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-2">
+        <div class="dir-rama-initial">JO</div>
+        <div class="dir-rama-role">Secretario</div>
+        <h4>Jaime Ossandón</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-3">
+        <div class="dir-rama-initial">CM</div>
+        <div class="dir-rama-role">Tesorero</div>
+        <h4>Cristian Mann</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-1">
+        <div class="dir-rama-initial">JL</div>
+        <div class="dir-rama-role">Director Adultos</div>
+        <h4>Juan Ignacio Letelier</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-2">
+        <div class="dir-rama-initial">RG</div>
+        <div class="dir-rama-role">Director Menores</div>
+        <h4>Rodrigo González</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-3">
+        <div class="dir-rama-initial">CM</div>
+        <div class="dir-rama-role">Director Escuela</div>
+        <h4>Cristian Mann</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-1">
+        <div class="dir-rama-initial">HB</div>
+        <div class="dir-rama-role">Director Galas</div>
+        <h4>Hernán Baeza</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-2">
+        <div class="dir-rama-initial">JF</div>
+        <div class="dir-rama-role">Director Galos</div>
+        <h4>Juan Carlos Figueroa</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-3">
+        <div class="dir-rama-initial">DO</div>
+        <div class="dir-rama-role">Director Eventos</div>
+        <h4>Daniel Ortúzar</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-1">
+        <div class="dir-rama-initial">JS</div>
+        <div class="dir-rama-role">Director Legal y ARUSA</div>
+        <h4>José Tomás Santander</h4>
+      </div>
+      <div class="dir-rama-card reveal reveal-delay-2">
+        <div class="dir-rama-initial">CH</div>
+        <div class="dir-rama-role">Director · Gerente</div>
+        <h4>Christian Huerta</h4>
+      </div>
+    </div>
+
+    <div style="margin-top:64px; padding-top:56px; border-top:1px solid rgba(255,255,255,.1)">
+      <div class="section-label reveal">Cuerpo Técnico</div>
+      <h2 class="section-title reveal reveal-delay-1" style="color:var(--blanco)">Staff Técnico</h2>
+      <div class="dir-rama-grid">
+        <div class="dir-rama-card reveal">
+          <div class="dir-rama-initial">MC</div>
+          <div class="dir-rama-role">Head Coach</div>
+          <h4>Mark Cross</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-1">
+          <div class="dir-rama-initial">ES</div>
+          <div class="dir-rama-role">Entrenador de Forwards</div>
+          <h4>Elías Santillán</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-2">
+          <div class="dir-rama-initial">SA</div>
+          <div class="dir-rama-role">Entrenador de Forwards</div>
+          <h4>Sergio Arizcain</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-3">
+          <div class="dir-rama-initial">ST</div>
+          <div class="dir-rama-role">Entrenador de Backs</div>
+          <h4>Sebastián Tellechea</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-1">
+          <div class="dir-rama-initial">FL</div>
+          <div class="dir-rama-role">Entrenador de Destrezas</div>
+          <h4>Francisco Lhullier</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-2">
+          <div class="dir-rama-initial">DB</div>
+          <div class="dir-rama-role">Jefe de Performance / Preparador Físico</div>
+          <h4>Diego Bustos</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-3">
+          <div class="dir-rama-initial">CH</div>
+          <div class="dir-rama-role">Manager</div>
+          <h4>Christian Huerta</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-1">
+          <div class="dir-rama-initial">NS</div>
+          <div class="dir-rama-role">Kinesiólogo</div>
+          <h4>Nicolás Suazo</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPCIÓN -->
+<section id="inscripcion">
+  <div class="container">
+    <div class="inscripcion-grid">
+      <div class="inscripcion-info">
+        <div class="section-label reveal">Intégrate</div>
+        <h2 class="section-title reveal reveal-delay-1">Únete al Gallo</h2>
+        <p class="section-sub reveal reveal-delay-2" style="max-width:100%">¿Quieres ser parte de la familia del rugby Stade Français? Completa el formulario y nos ponemos en contacto contigo.</p>
+        <h3 class="reveal reveal-delay-2">Requisitos</h3>
+        <ul class="req-list reveal reveal-delay-3">
+          <li>Ser socio del club o estar en proceso de serlo</li>
+          <li>No tener restricciones médicas para el deporte de contacto</li>
+          <li>Traer ropa deportiva y cabuchones a la primera práctica</li>
+          <li>Llenar el formulario médico del club antes de comenzar</li>
+        </ul>
+        <h3 class="reveal reveal-delay-2">Primera Práctica</h3>
+        <p class="reveal reveal-delay-3">La primera sesión de prueba es gratuita y sin compromiso. Te invitamos a conocer el equipo, el entrenador y las instalaciones.</p>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <h3>Formulario de Inscripción</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
+          <div class="form-group"><label>Apellido</label><input type="text" placeholder="Tu apellido" required /></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com" required /></div>
+        <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+56 9 XXXX XXXX" /></div>
+        <div class="form-group">
+          <label>Categoría de interés</label>
+          <select>
+            <option value="">Selecciona una categoría</option>
+            <option>Mini Rugby (6–9 años)</option>
+            <option>M12 — Escuelita (10–12 años)</option>
+            <option>M14 — Infantil (13–15 años)</option>
+            <option>M18 — Juvenil (16–18 años)</option>
+            <option>Primera División (18+)</option>
+            <option>Old Boys (30+)</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Experiencia previa</label><textarea placeholder="¿Has jugado rugby antes? Cuéntanos un poco sobre tu experiencia..."></textarea></div>
+        <button type="submit" class="btn-primary" onclick="this.textContent='✓ Enviado'; this.style.background='#27ae60'; setTimeout(()=>{this.textContent='Enviar Inscripción';this.style.background='';},3000)">Enviar Inscripción</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="max-width:1200px;margin:0 auto">
+    <img src="Logo_stade.png" alt="Stade Français" class="footer-logo-img" />
+    <div class="footer-links">
+      <a href="index.html">Inicio</a><a href="rugby.html">Rugby</a>
+      <a href="tenis.html">Tenis</a><a href="natacion.html">Natación</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="footer-copy">© 2026 Club Stade Français · Las Condes, Santiago</div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+</script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenis — Stade Français 1929</title>
+  <style>
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Light.ttf'); font-weight: 300; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Regular.ttf'); font-weight: 400; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Bold.ttf'); font-weight: 700; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-ExtraBold.ttf'); font-weight: 800; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Black.ttf'); font-weight: 900; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --azul:#29285C; --azul-dark:#1A1A2E; --rojo:#E31E27; --dorado:#F6AA0C; --blanco:#FFFFFF; --gris:#F5F5F7; --gris-mid:#6b7280; --t:0.35s cubic-bezier(.4,0,.2,1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'SonnyVol2', sans-serif; color: var(--azul); background: var(--blanco); overflow-x: hidden; }
+    .top-stripe { height: 4px; position: fixed; top: 0; left: 0; right: 0; z-index: 1100; background: linear-gradient(90deg, var(--azul) 60%, var(--rojo) 60% 80%, var(--dorado) 80%); }
+    nav { position: fixed; top: 4px; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 68px; transition: background var(--t), box-shadow var(--t); }
+    nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
+    .nav-links li { position: relative; }
+    .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: 100%; padding-top: 6px; left: 0; background: var(--azul); border-top: 2px solid var(--rojo); border-radius: 0 0 6px 6px; padding: 6px; min-width: 180px; box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-links .dropdown-menu a { font-size: 11px; text-transform: none; letter-spacing: 0; padding: 10px 12px; }
+    .nav-cta { background: var(--rojo) !important; color: var(--blanco) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 10px 18px !important; }
+    .nav-portal { background: var(--blanco) !important; color: var(--azul) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 8px 16px !important; border: 2px solid var(--blanco) !important; }
+    .nav-portal:hover { background: var(--azul) !important; color: var(--blanco) !important; border-color: var(--azul) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--blanco); border-radius: 2px; }
+
+    .page-hero { position: relative; height: 80vh; min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('0Y3A3206.jpg'); }
+    .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.97) 0%, rgba(41,40,92,.65) 40%, rgba(41,40,92,.25) 100%); }
+    .page-hero-content { position: relative; z-index: 2; padding: 56px 64px; max-width: 1200px; width: 100%; margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 16px; }
+    .breadcrumb a { color: rgba(255,255,255,.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--dorado); }
+    .breadcrumb-sep { color: var(--rojo); }
+    .page-hero-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dorado); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
+    .page-hero h1 { font-size: clamp(52px, 8vw, 96px); font-weight: 900; color: var(--blanco); line-height: .9; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 16px; }
+    .page-hero h1 span { color: var(--dorado); }
+    .page-hero p { font-size: 16px; color: rgba(255,255,255,.65); font-weight: 300; line-height: 1.75; max-width: 560px; }
+
+    section { padding: 80px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; display: block; width: 32px; height: 2px; background: var(--rojo); }
+    .section-title { font-size: clamp(24px, 3.5vw, 40px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.75; max-width: 540px; font-weight: 400; }
+
+    #sobre { background: var(--gris); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .sobre-img { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; }
+    .sobre-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sobre-text p { font-size: 15px; color: #374151; line-height: 1.85; margin-bottom: 18px; font-weight: 400; }
+    .stats-inline { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+    .stat-box { background: var(--azul); border-radius: 8px; padding: 20px 16px; text-align: center; }
+    .stat-box-num { font-size: 30px; font-weight: 900; color: var(--dorado); line-height: 1; }
+    .stat-box-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-top: 4px; }
+
+    /* GALERÍA FOTOS ACCIÓN */
+    #galeria-tenis { background: var(--blanco); }
+    .photo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 40px; }
+    .photo-item { border-radius: 6px; overflow: hidden; aspect-ratio: 3/4; }
+    .photo-item img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; transition: transform 0.5s ease; }
+    .photo-item:hover img { transform: scale(1.05); }
+
+    #categorias { background: var(--gris); }
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 20px; margin-top: 40px; }
+    .cat-card { border-radius: 8px; overflow: hidden; border-top: 4px solid var(--azul); background: var(--blanco); transition: transform var(--t), box-shadow var(--t); }
+    .cat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(41,40,92,.12); border-top-color: var(--rojo); }
+    .cat-card-body { padding: 22px 18px; }
+    .cat-age { display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dorado); border: 1px solid rgba(246,170,12,.4); padding: 3px 8px; border-radius: 2px; margin-bottom: 10px; }
+    .cat-card h3 { font-size: 16px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+    .cat-card p { font-size: 12px; color: var(--gris-mid); line-height: 1.6; font-weight: 400; }
+    .cat-schedule { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.08); font-size: 11px; font-weight: 700; color: var(--azul); letter-spacing: .04em; }
+
+    #academia { background: var(--blanco); }
+    .academia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .academia-img { border-radius: 8px; overflow: hidden; aspect-ratio: 2/3; }
+    .academia-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .academia-text p { font-size: 15px; color: #374151; line-height: 1.85; margin-bottom: 18px; font-weight: 400; }
+    .academia-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--azul); color: var(--blanco); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 10px 18px; border-radius: 4px; margin-top: 8px; }
+    .academia-badge span { color: var(--dorado); }
+
+    #cuerpo { background: var(--azul); }
+    .staff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 24px; margin-top: 40px; }
+    .staff-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; overflow: hidden; transition: transform var(--t); }
+    .staff-card:hover { transform: translateY(-4px); }
+    .staff-photo { aspect-ratio: 1; background: rgba(255,255,255,.05); display: flex; align-items: center; justify-content: center; font-size: 56px; border-bottom: 3px solid var(--rojo); }
+    .staff-body { padding: 20px 18px; }
+    .staff-role { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); margin-bottom: 6px; }
+    .staff-card h4 { font-size: 16px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+    .staff-card p { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.6; font-weight: 400; }
+
+    .directiva-sub { margin-top: 64px; padding-top: 56px; border-top: 1px solid rgba(255,255,255,.1); }
+    .directiva-sub .section-label { color: var(--dorado); }
+    .directiva-sub .section-label::after { background: var(--dorado); }
+    .directiva-sub .section-title { color: var(--blanco); }
+    .dir-rama-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 20px; margin-top: 36px; }
+    .dir-rama-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 24px 18px; text-align: center; transition: transform var(--t), background var(--t); }
+    .dir-rama-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.1); }
+    .dir-rama-initial { width: 64px; height: 64px; border-radius: 50%; background: var(--rojo); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: var(--blanco); margin: 0 auto 16px; letter-spacing: .02em; }
+    .dir-rama-role { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); margin-bottom: 6px; }
+    .dir-rama-card h4 { font-size: 14px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .03em; line-height: 1.2; }
+
+    #inscripcion { background: var(--gris); }
+    .inscripcion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .inscripcion-info h3 { font-size: 20px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 16px; margin-top: 32px; }
+    .inscripcion-info h3:first-child { margin-top: 0; }
+    .inscripcion-info p { font-size: 14px; color: var(--gris-mid); line-height: 1.75; margin-bottom: 12px; font-weight: 400; }
+    .req-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .req-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #374151; font-weight: 400; line-height: 1.5; }
+    .req-list li::before { content: ''; width: 14px; min-width: 14px; height: 14px; border-radius: 2px; background: var(--rojo); margin-top: 2px; }
+    .contact-form { background: var(--blanco); border-radius: 8px; padding: 36px; border-top: 4px solid var(--rojo); box-shadow: 0 4px 24px rgba(41,40,92,.08); display: flex; flex-direction: column; gap: 14px; }
+    .contact-form h3 { font-size: 18px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(41,40,92,.5); }
+    .form-group input, .form-group textarea, .form-group select { background: var(--gris); border: 1px solid rgba(41,40,92,.12); border-radius: 4px; padding: 12px 14px; font-size: 13px; font-family: 'SonnyVol2', sans-serif; color: var(--azul); outline: none; transition: border-color var(--t); font-weight: 400; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--rojo); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .btn-primary { background: var(--rojo); color: var(--blanco); font-weight: 900; font-family: 'SonnyVol2', sans-serif; padding: 15px 32px; border-radius: 4px; border: none; cursor: pointer; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; transition: var(--t); align-self: flex-start; }
+    .btn-primary:hover { background: #c0181f; transform: translateY(-2px); }
+
+    footer { background: var(--azul-dark); border-top: 3px solid var(--rojo); padding: 36px 32px; text-align: center; }
+    .footer-logo-img { height: 36px; filter: brightness(0) invert(1); margin-bottom: 12px; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 14px 0; }
+    .footer-links a { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color var(--t); }
+    .footer-links a:hover { color: var(--dorado); }
+    .footer-copy { font-size: 10px; color: rgba(255,255,255,.2); font-weight: 400; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; } .reveal-delay-2 { transition-delay: .2s; } .reveal-delay-3 { transition-delay: .3s; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .sobre-grid, .inscripcion-grid, .academia-grid { grid-template-columns: 1fr; gap: 36px; }
+      .page-hero-content { padding: 36px 24px; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="top-stripe"></div>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="Logo_stade.png" alt="Stade Français" />
+    <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li class="dropdown">
+      <a href="#" class="active">Ramas</a>
+      <ul class="dropdown-menu">
+        <li><a href="rugby.html">Rugby</a></li>
+        <li><a href="tenis.html" class="active">Tenis</a></li>
+        <li><a href="natacion.html">Natación</a></li>
+      </ul>
+    </li>
+    <li><a href="deportes.html">Deportes</a></li>
+    <li><a href="gimnasio.html">Gimnasio</a></li>
+    <li><a href="arriendos.html">Arriendos</a></li>
+    <li><a href="restaurantes.html">Restaurantes</a></li>
+    <li><a href="beneficios.html">Beneficios</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="hazte-socio.html" class="nav-cta">Hazte Socio</a></li>
+    <li><a href="https://mistade.cl/Account/Login" target="_blank" rel="noopener" class="nav-portal">Portal de Socios</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span class="breadcrumb-sep">›</span>Ramas<span class="breadcrumb-sep">›</span>Tenis</div>
+    <div class="page-hero-label">Rama Deportiva</div>
+    <h1>TENIS<br/><span>STADE</span></h1>
+    <p>Canchas de arcilla en el corazón de Las Condes. Torneos interclubes, academia y una comunidad apasionada por el tenis.</p>
+  </div>
+</div>
+
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img reveal">
+        <img src="FOTOS NUEVAS/canchas tenis.jpg" alt="Tenis Stade Français" />
+      </div>
+      <div class="sobre-text">
+        <div class="section-label reveal">Nuestra Rama</div>
+        <h2 class="section-title reveal reveal-delay-1">Tenis de Alto Nivel en Las Condes</h2>
+        <p class="reveal reveal-delay-2">La rama de tenis de Stade Français cuenta con canchas de arcilla de primer nivel y una tradición de torneos interclubes que nos posiciona como uno de los clubes de tenis más reconocidos de Santiago.</p>
+        <p class="reveal reveal-delay-2">Ofrecemos programas para todos los niveles, desde niños aprendiendo sus primeros golpes hasta jugadores competitivos que representan al club en campeonatos nacionales.</p>
+        <div class="stats-inline reveal reveal-delay-3">
+          <div class="stat-box"><div class="stat-box-num">8+</div><div class="stat-box-label">Canchas</div></div>
+          <div class="stat-box"><div class="stat-box-num">4</div><div class="stat-box-label">Torneos / año</div></div>
+          <div class="stat-box"><div class="stat-box-num">Todo</div><div class="stat-box-label">El año</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria-tenis">
+  <div class="container">
+    <div class="section-label reveal">En Acción</div>
+    <h2 class="section-title reveal reveal-delay-1">Tenis Stade Français</h2>
+    <div class="photo-grid">
+      <div class="photo-item reveal"><img src="FOTOS NUEVAS/cancha tenis 2.jpg" alt="Tenis" /></div>
+      <div class="photo-item reveal reveal-delay-1"><img src="FOTOS NUEVAS/cancha tenis 4.jpg" alt="Tenis" /></div>
+      <div class="photo-item reveal reveal-delay-2"><img src="FOTOS NUEVAS/canchas tenis.jpg" alt="Tenis" style="object-position:center"/></div>
+    </div>
+  </div>
+</section>
+
+<section id="categorias">
+  <div class="container">
+    <div class="section-label reveal">Divisiones</div>
+    <h2 class="section-title reveal reveal-delay-1">Categorías y Programas</h2>
+    <p class="section-sub reveal reveal-delay-2">Desde la iniciación infantil hasta el circuito competitivo adulto. Encuentra tu nivel.</p>
+    <div class="cat-grid">
+      <div class="cat-card reveal">
+        <div class="cat-card-body">
+          <span class="cat-age">6–10 años</span>
+          <h3>Mini Tenis</h3>
+          <p>Iniciación lúdica con pelotas de baja presión. Desarrollo motor y amor por el deporte.</p>
+          <div class="cat-schedule">🕐 Sáb y Dom · 9:00–10:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-1">
+        <div class="cat-card-body">
+          <span class="cat-age">10–14 años</span>
+          <h3>Academia Infantil</h3>
+          <p>Técnica, táctica y competencia. Preparación para torneos Federación de Tenis de Chile.</p>
+          <div class="cat-schedule">🕐 Lun a Vie · 16:00–18:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-2">
+        <div class="cat-card-body">
+          <span class="cat-age">14–18 años</span>
+          <h3>Academia Juvenil</h3>
+          <p>Alto rendimiento juvenil. Circuito nacional e internacional de juniors.</p>
+          <div class="cat-schedule">🕐 Lun a Vie · 8:00–10:00 y 16:00–19:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-card-body">
+          <span class="cat-age">18+ años</span>
+          <h3>Interclub Adulto</h3>
+          <p>Competencia interclubes, parejas y torneos internos. Clasificados por nivel de juego.</p>
+          <div class="cat-schedule">🕐 Mar, Jue y Sáb · horario variable</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-1">
+        <div class="cat-card-body">
+          <span class="cat-age">Todos</span>
+          <h3>Clases Particulares</h3>
+          <p>Clases individuales o en duplas con nuestros profesores certificados. Todos los niveles.</p>
+          <div class="cat-schedule">🕐 Bajo reserva · app EasyCancha</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-2">
+        <div class="cat-card-body">
+          <span class="cat-age">Externo</span>
+          <h3>Arriendo de Canchas</h3>
+          <p>Usuarios externos pueden reservar canchas a través de la app EasyCancha.</p>
+          <div class="cat-schedule">🕐 Descarga EasyCancha</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="academia">
+  <div class="container">
+    <div class="academia-grid">
+      <div class="academia-img reveal">
+        <img src="FOTOS NUEVAS/academia tenis.jpg" alt="Academia W-Tenis Pro Stade Français" />
+      </div>
+      <div class="academia-text">
+        <div class="section-label reveal">Clases de Tenis</div>
+        <h2 class="section-title reveal reveal-delay-1">Academia W-Tenis Pro</h2>
+        <p class="reveal reveal-delay-2">Nuestra academia de tenis ofrece un programa estructurado para niños y jóvenes que quieren aprender y mejorar en canchas de arcilla de primer nivel en Las Condes.</p>
+        <p class="reveal reveal-delay-2">Con metodología progresiva, grupos reducidos y entrenadores certificados, W-Tenis Pro forma jugadores con bases sólidas técnicas y tácticas desde temprana edad.</p>
+        <div class="academia-badge reveal reveal-delay-3">Escuela de Tenis <span>Stade Français</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cuerpo">
+  <div class="container">
+    <div class="directiva-sub" style="margin-top:0; padding-top:0; border-top:none;">
+      <div class="section-label reveal">Directiva</div>
+      <h2 class="section-title reveal reveal-delay-1">Directiva de la Rama</h2>
+      <div class="dir-rama-grid">
+        <div class="dir-rama-card reveal">
+          <div class="dir-rama-initial">PH</div>
+          <div class="dir-rama-role">Presidenta</div>
+          <h4>Patricia Hernández</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-1">
+          <div class="dir-rama-initial">JG</div>
+          <div class="dir-rama-role">Secretario</div>
+          <h4>Joaquín Guerra</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-2">
+          <div class="dir-rama-initial">JR</div>
+          <div class="dir-rama-role">Tesorero</div>
+          <h4>Jose Luis Reyes</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-3">
+          <div class="dir-rama-initial">SR</div>
+          <div class="dir-rama-role">Directora</div>
+          <h4>Sofia Rojas</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-1">
+          <div class="dir-rama-initial">SN</div>
+          <div class="dir-rama-role">Director</div>
+          <h4>Sergio Negrete</h4>
+        </div>
+        <div class="dir-rama-card reveal reveal-delay-2">
+          <div class="dir-rama-initial">RB</div>
+          <div class="dir-rama-role">Director</div>
+          <h4>Rafael Bustos</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inscripcion">
+  <div class="container">
+    <div class="inscripcion-grid">
+      <div class="inscripcion-info">
+        <div class="section-label reveal">Intégrate</div>
+        <h2 class="section-title reveal reveal-delay-1">Juega con Nosotros</h2>
+        <p class="section-sub reveal reveal-delay-2" style="max-width:100%">Completa el formulario y un integrante de nuestro equipo te contactará para coordinar tu primera clase de prueba.</p>
+        <h3 class="reveal reveal-delay-2">Requisitos</h3>
+        <ul class="req-list reveal reveal-delay-3">
+          <li>Ser socio del club o estar en proceso de serlo</li>
+          <li>Raqueta y ropa deportiva adecuada</li>
+          <li>Para menores, autorización firmada por apoderado</li>
+          <li>Inscripción previa al inicio de cada temporada</li>
+        </ul>
+        <h3 class="reveal reveal-delay-2">Canchas EasyCancha</h3>
+        <p class="reveal reveal-delay-3">Usuarios externos pueden reservar nuestras canchas a través de la app EasyCancha. Descárgala y busca "Stade Français" para ver disponibilidad y tarifas.</p>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <h3>Formulario de Inscripción</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
+          <div class="form-group"><label>Apellido</label><input type="text" placeholder="Tu apellido" required /></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com" required /></div>
+        <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+56 9 XXXX XXXX" /></div>
+        <div class="form-group">
+          <label>Programa de interés</label>
+          <select>
+            <option value="">Selecciona un programa</option>
+            <option>Mini Tenis (6–10 años)</option>
+            <option>Academia Infantil (10–14 años)</option>
+            <option>Academia Juvenil (14–18 años)</option>
+            <option>Interclub Adulto (18+)</option>
+            <option>Clases Particulares</option>
+            <option>Arriendo de Canchas</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Nivel de juego</label><select><option>Selecciona tu nivel</option><option>Principiante</option><option>Intermedio</option><option>Avanzado</option><option>Competitivo</option></select></div>
+        <div class="form-group"><label>Mensaje (opcional)</label><textarea placeholder="¿Tienes alguna pregunta o comentario?"></textarea></div>
+        <button type="button" class="btn-primary" onclick="this.textContent='✓ Enviado';this.style.background='#27ae60';setTimeout(()=>{this.textContent='Enviar Inscripción';this.style.background='';},3000)">Enviar Inscripción</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:1200px;margin:0 auto">
+    <img src="Logo_stade.png" alt="Stade Français" class="footer-logo-img" />
+    <div class="footer-links">
+      <a href="index.html">Inicio</a><a href="rugby.html">Rugby</a>
+      <a href="tenis.html">Tenis</a><a href="natacion.html">Natación</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="footer-copy">© 2026 Club Stade Français · Las Condes, Santiago</div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natación — Stade Français 1929</title>
+  <style>
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Light.ttf'); font-weight: 300; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Regular.ttf'); font-weight: 400; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Bold.ttf'); font-weight: 700; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-ExtraBold.ttf'); font-weight: 800; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Black.ttf'); font-weight: 900; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --azul:#29285C; --azul-dark:#1A1A2E; --rojo:#E31E27; --dorado:#F6AA0C; --blanco:#FFFFFF; --gris:#F5F5F7; --gris-mid:#6b7280; --t:0.35s cubic-bezier(.4,0,.2,1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'SonnyVol2', sans-serif; color: var(--azul); background: var(--blanco); overflow-x: hidden; }
+    .top-stripe { height: 4px; position: fixed; top: 0; left: 0; right: 0; z-index: 1100; background: linear-gradient(90deg, var(--azul) 60%, var(--rojo) 60% 80%, var(--dorado) 80%); }
+    nav { position: fixed; top: 4px; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 68px; transition: background var(--t), box-shadow var(--t); }
+    nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
+    .nav-links li { position: relative; }
+    .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: 100%; padding-top: 6px; left: 0; background: var(--azul); border-top: 2px solid var(--rojo); border-radius: 0 0 6px 6px; padding: 6px; min-width: 180px; box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-links .dropdown-menu a { font-size: 11px; text-transform: none; letter-spacing: 0; padding: 10px 12px; }
+    .nav-cta { background: var(--rojo) !important; color: var(--blanco) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 10px 18px !important; }
+    .nav-portal { background: var(--blanco) !important; color: var(--azul) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 8px 16px !important; border: 2px solid var(--blanco) !important; }
+    .nav-portal:hover { background: var(--azul) !important; color: var(--blanco) !important; border-color: var(--azul) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--blanco); border-radius: 2px; }
+
+    .page-hero { position: relative; height: 80vh; min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 40%; background-image: url('FOTOS NUEVAS/piscina 2.jpg'); }
+    .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.97) 0%, rgba(41,40,92,.6) 45%, rgba(41,40,92,.2) 100%); }
+    .page-hero-content { position: relative; z-index: 2; padding: 56px 64px; max-width: 1200px; width: 100%; margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 16px; }
+    .breadcrumb a { color: rgba(255,255,255,.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--dorado); }
+    .breadcrumb-sep { color: var(--rojo); }
+    .page-hero-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dorado); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
+    .page-hero h1 { font-size: clamp(52px, 8vw, 96px); font-weight: 900; color: var(--blanco); line-height: .9; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 16px; }
+    .page-hero h1 span { color: var(--dorado); }
+    .page-hero p { font-size: 16px; color: rgba(255,255,255,.65); font-weight: 300; line-height: 1.75; max-width: 560px; }
+
+    section { padding: 80px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; display: block; width: 32px; height: 2px; background: var(--rojo); }
+    .section-title { font-size: clamp(24px, 3.5vw, 40px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.75; max-width: 540px; font-weight: 400; }
+
+    #sobre { background: var(--gris); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .sobre-img { border-radius: 8px; overflow: hidden; aspect-ratio: 16/10; }
+    .sobre-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+    .sobre-text p { font-size: 15px; color: #374151; line-height: 1.85; margin-bottom: 18px; font-weight: 400; }
+    .stats-inline { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+    .stat-box { background: var(--azul); border-radius: 8px; padding: 20px 16px; text-align: center; }
+    .stat-box-num { font-size: 30px; font-weight: 900; color: var(--dorado); line-height: 1; }
+    .stat-box-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-top: 4px; }
+
+    #galeria-natacion { background: var(--blanco); }
+    .photo-feature { border-radius: 8px; overflow: hidden; height: 420px; margin-top: 40px; }
+    .photo-feature img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
+
+    #categorias { background: var(--gris); }
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 20px; margin-top: 40px; }
+    .cat-card { border-radius: 8px; overflow: hidden; border-top: 4px solid var(--azul); background: var(--blanco); transition: transform var(--t), box-shadow var(--t); }
+    .cat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(41,40,92,.12); border-top-color: var(--rojo); }
+    .cat-card-body { padding: 22px 18px; }
+    .cat-age { display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dorado); border: 1px solid rgba(246,170,12,.4); padding: 3px 8px; border-radius: 2px; margin-bottom: 10px; }
+    .cat-card h3 { font-size: 16px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+    .cat-card p { font-size: 12px; color: var(--gris-mid); line-height: 1.6; font-weight: 400; }
+    .cat-schedule { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.08); font-size: 11px; font-weight: 700; color: var(--azul); letter-spacing: .04em; }
+
+    #cuerpo { background: var(--azul); }
+    .staff-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; margin-top: 40px; }
+    .staff-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; overflow: hidden; transition: transform var(--t); }
+    .staff-card:hover { transform: translateY(-4px); }
+    .staff-header { padding: 28px 28px 20px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .staff-role { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); margin-bottom: 8px; }
+    .staff-card h4 { font-size: 22px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .04em; line-height: 1.1; }
+    .staff-body { padding: 20px 28px 28px; }
+    .staff-body p { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.7; font-weight: 400; margin-bottom: 16px; }
+    .staff-logros { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .staff-logros li { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: rgba(255,255,255,.75); font-weight: 400; line-height: 1.5; }
+    .staff-logros li::before { content: ''; width: 6px; height: 6px; min-width: 6px; border-radius: 50%; background: var(--dorado); margin-top: 6px; }
+    @media (max-width: 900px) { .staff-grid { grid-template-columns: 1fr; } }
+
+    #inscripcion { background: var(--gris); }
+    .inscripcion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .inscripcion-info h3 { font-size: 20px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 16px; margin-top: 32px; }
+    .inscripcion-info h3:first-child { margin-top: 0; }
+    .inscripcion-info p { font-size: 14px; color: var(--gris-mid); line-height: 1.75; margin-bottom: 12px; font-weight: 400; }
+    .req-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .req-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #374151; font-weight: 400; line-height: 1.5; }
+    .req-list li::before { content: ''; width: 14px; min-width: 14px; height: 14px; border-radius: 2px; background: var(--rojo); margin-top: 2px; }
+    .contact-form { background: var(--blanco); border-radius: 8px; padding: 36px; border-top: 4px solid var(--rojo); box-shadow: 0 4px 24px rgba(41,40,92,.08); display: flex; flex-direction: column; gap: 14px; }
+    .contact-form h3 { font-size: 18px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(41,40,92,.5); }
+    .form-group input, .form-group textarea, .form-group select { background: var(--gris); border: 1px solid rgba(41,40,92,.12); border-radius: 4px; padding: 12px 14px; font-size: 13px; font-family: 'SonnyVol2', sans-serif; color: var(--azul); outline: none; transition: border-color var(--t); font-weight: 400; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--rojo); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .btn-primary { background: var(--rojo); color: var(--blanco); font-weight: 900; font-family: 'SonnyVol2', sans-serif; padding: 15px 32px; border-radius: 4px; border: none; cursor: pointer; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; transition: var(--t); align-self: flex-start; }
+    .btn-primary:hover { background: #c0181f; transform: translateY(-2px); }
+
+    footer { background: var(--azul-dark); border-top: 3px solid var(--rojo); padding: 36px 32px; text-align: center; }
+    .footer-logo-img { height: 36px; filter: brightness(0) invert(1); margin-bottom: 12px; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 14px 0; }
+    .footer-links a { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color var(--t); }
+    .footer-links a:hover { color: var(--dorado); }
+    .footer-copy { font-size: 10px; color: rgba(255,255,255,.2); font-weight: 400; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; } .reveal-delay-2 { transition-delay: .2s; } .reveal-delay-3 { transition-delay: .3s; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .sobre-grid, .inscripcion-grid { grid-template-columns: 1fr; gap: 36px; }
+      .page-hero-content { padding: 36px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="top-stripe"></div>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="Logo_stade.png" alt="Stade Français" />
+    <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li class="dropdown">
+      <a href="#" class="active">Ramas</a>
+      <ul class="dropdown-menu">
+        <li><a href="rugby.html">Rugby</a></li>
+        <li><a href="tenis.html">Tenis</a></li>
+        <li><a href="natacion.html" class="active">Natación</a></li>
+      </ul>
+    </li>
+    <li><a href="deportes.html">Deportes</a></li>
+    <li><a href="gimnasio.html">Gimnasio</a></li>
+    <li><a href="arriendos.html">Arriendos</a></li>
+    <li><a href="restaurantes.html">Restaurantes</a></li>
+    <li><a href="beneficios.html">Beneficios</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="hazte-socio.html" class="nav-cta">Hazte Socio</a></li>
+    <li><a href="https://mistade.cl/Account/Login" target="_blank" rel="noopener" class="nav-portal">Portal de Socios</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span class="breadcrumb-sep">›</span>Ramas<span class="breadcrumb-sep">›</span>Natación</div>
+    <div class="page-hero-label">Rama Deportiva</div>
+    <h1>NATA<span>CIÓN</span></h1>
+    <p>Piscinas olímpicas y un programa de alto rendimiento que forma nadadores desde los primeros chapoteos hasta la competencia nacional.</p>
+  </div>
+</div>
+
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img reveal">
+        <img src="FOTOS NUEVAS/piscina.jpg" alt="Natación Stade Français" />
+      </div>
+      <div class="sobre-text">
+        <div class="section-label reveal">Nuestra Rama</div>
+        <h2 class="section-title reveal reveal-delay-1">Excelencia Acuática en Stade</h2>
+        <p class="reveal reveal-delay-2">La rama de natación de Stade Français cuenta con instalaciones de primer nivel: piscinas temperadas de 25 metros con carriles para entrenamiento y competencia, y una piscina exterior para actividades recreativas en temporada de verano.</p>
+        <p class="reveal reveal-delay-2">Nuestro programa cubre desde la iniciación infantil —aprende a flotar, a bracear, a amar el agua— hasta el alto rendimiento competitivo que participa en campeonatos nacionales.</p>
+        <div class="stats-inline reveal reveal-delay-3">
+          <div class="stat-box"><div class="stat-box-num">2</div><div class="stat-box-label">Piscinas</div></div>
+          <div class="stat-box"><div class="stat-box-num">25m</div><div class="stat-box-label">Piscina Olímpica</div></div>
+          <div class="stat-box"><div class="stat-box-num">12°C</div><div class="stat-box-label">Temp. todo el año</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria-natacion">
+  <div class="container">
+    <div class="section-label reveal">En el Agua</div>
+    <h2 class="section-title reveal reveal-delay-1">Partida en Stade</h2>
+    <div class="photo-feature reveal reveal-delay-2">
+      <img src="FOTOS NUEVAS/piscina 2.jpg" alt="Nadador Stade Français" />
+    </div>
+  </div>
+</section>
+
+<section id="categorias">
+  <div class="container">
+    <div class="section-label reveal">Divisiones</div>
+    <h2 class="section-title reveal reveal-delay-1">Categorías y Programas</h2>
+    <p class="section-sub reveal reveal-delay-2">Un programa para cada edad y nivel. Desde la escuelita hasta la alta competencia.</p>
+    <div class="cat-grid">
+      <div class="cat-card reveal">
+        <div class="cat-card-body">
+          <span class="cat-age">3–5 años</span>
+          <h3>Bebés Acuáticos</h3>
+          <p>Adaptación al medio acuático con acompañamiento de padres o apoderados. Confianza y diversión en el agua.</p>
+          <div class="cat-schedule">🕐 Sáb · 9:00–10:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-1">
+        <div class="cat-card-body">
+          <span class="cat-age">5–8 años</span>
+          <h3>Escuelita</h3>
+          <p>Aprendizaje de los cuatro estilos básicos: crol, espalda, pecho y mariposa. Grupos reducidos por nivel.</p>
+          <div class="cat-schedule">🕐 Lun, Mié, Vie · 16:30–17:30</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-2">
+        <div class="cat-card-body">
+          <span class="cat-age">8–14 años</span>
+          <h3>Competitivo Infantil</h3>
+          <p>Preparación para competencia interescolar e interclubes. Técnica, fuerza y resistencia aeróbica.</p>
+          <div class="cat-schedule">🕐 Lun a Vie · 7:00–8:30 y 16:00–18:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-card-body">
+          <span class="cat-age">14–18 años</span>
+          <h3>Competitivo Juvenil</h3>
+          <p>Alto rendimiento juvenil. Circuito nacional FENS. Periodización de cargas y análisis de marcas.</p>
+          <div class="cat-schedule">🕐 Lun a Sáb · 6:00–8:00 y 17:00–19:00</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-1">
+        <div class="cat-card-body">
+          <span class="cat-age">18+ años</span>
+          <h3>Adulto / Masters</h3>
+          <p>Entrenamiento técnico y físico para adultos. Grupos según nivel y objetivo (fitness o competencia Masters).</p>
+          <div class="cat-schedule">🕐 Lun, Mié, Vie · 7:00–8:30</div>
+        </div>
+      </div>
+      <div class="cat-card reveal reveal-delay-2">
+        <div class="cat-card-body">
+          <span class="cat-age">Todos</span>
+          <h3>Nado Libre</h3>
+          <p>Carriles abiertos para socios que deseen entrenar o nadar de manera recreativa en horario libre.</p>
+          <div class="cat-schedule">🕐 Lun a Dom · Horario visible en recepción</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cuerpo">
+  <div class="container">
+    <div class="section-label reveal" style="color:var(--dorado)">Staff</div>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--blanco)">Cuerpo Técnico</h2>
+    <p class="section-sub reveal reveal-delay-2" style="color:rgba(255,255,255,.55)">Entrenadores certificados por la Federación de Natación y con experiencia en alto rendimiento nacional e internacional.</p>
+    <div class="staff-grid">
+      <div class="staff-card reveal">
+        <div class="staff-header">
+          <div class="staff-role">Head Coach · Equipo Juvenil</div>
+          <h4>Johndry Segovia</h4>
+        </div>
+        <div class="staff-body">
+          <p>Seleccionado Nacional de Venezuela por más de 15 años. Especialista en aguas abiertas con una trayectoria internacional de élite.</p>
+          <ul class="staff-logros">
+            <li>2 veces Preolímpico</li>
+            <li>5 Mundiales FINA</li>
+            <li>Múltiple Campeón Nacional en 5km y 10km</li>
+            <li>Campeón Bolivariano 10km</li>
+            <li>Campeón Centroamericano 5km y 10km</li>
+            <li>Campeón Suramericano 5km</li>
+            <li>Subcampeón Suramericano 10km</li>
+            <li>Récord vigente del Cruce a nado Orinoco-Caroní (3.100m)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="staff-card reveal reveal-delay-1">
+        <div class="staff-header">
+          <div class="staff-role">Entrenadora Menores y Juveniles</div>
+          <h4>Paola Pérez</h4>
+        </div>
+        <div class="staff-body">
+          <p>Seleccionada Venezolana de Natación Clásica y Aguas Abiertas. Una de las nadadoras más laureadas del continente a nivel internacional.</p>
+          <ul class="staff-logros">
+            <li>2 Juegos Olímpicos</li>
+            <li>2 Juegos Panamericanos</li>
+            <li>3 Campeonatos Mundiales de Natación Clásica</li>
+            <li>5 Copas Mundiales de Aguas Abiertas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inscripcion">
+  <div class="container">
+    <div class="inscripcion-grid">
+      <div class="inscripcion-info">
+        <div class="section-label reveal">Únete</div>
+        <h2 class="section-title reveal reveal-delay-1">Entra al Agua</h2>
+        <p class="section-sub reveal reveal-delay-2" style="max-width:100%">Completa el formulario y un entrenador te contactará para evaluar tu nivel y asignarte al grupo más adecuado.</p>
+        <h3 class="reveal reveal-delay-2">Requisitos</h3>
+        <ul class="req-list reveal reveal-delay-3">
+          <li>Ser socio del club (o estar en proceso de incorporación)</li>
+          <li>Traje de baño y gorro de silicona obligatorio</li>
+          <li>Antiparras recomendadas para entrenamiento</li>
+          <li>Evaluación técnica previa para grupos competitivos</li>
+          <li>Para menores de 14 años, autorización del apoderado</li>
+        </ul>
+        <h3 class="reveal reveal-delay-2">Temporadas</h3>
+        <p class="reveal reveal-delay-3">El programa funciona todo el año en piscina temperada. Las inscripciones se realizan en marzo (temporada invierno) y octubre (temporada verano). Nuevos ingresos previo cupo disponible.</p>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <h3>Formulario de Inscripción</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
+          <div class="form-group"><label>Apellido</label><input type="text" placeholder="Tu apellido" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Fecha de nacimiento</label><input type="date" /></div>
+          <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+56 9 XXXX XXXX" /></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com" required /></div>
+        <div class="form-group">
+          <label>Programa de interés</label>
+          <select>
+            <option value="">Selecciona un programa</option>
+            <option>Bebés Acuáticos (3–5 años)</option>
+            <option>Escuelita (5–8 años)</option>
+            <option>Competitivo Infantil (8–14 años)</option>
+            <option>Competitivo Juvenil (14–18 años)</option>
+            <option>Adulto / Masters (18+)</option>
+            <option>Nado Libre</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Nivel de natación</label><select><option>Selecciona tu nivel</option><option>No sé nadar</option><option>Principiante (flotar / bracear)</option><option>Intermedio (domino los estilos básicos)</option><option>Avanzado (competitivo)</option></select></div>
+        <div class="form-group"><label>Mensaje (opcional)</label><textarea placeholder="¿Alguna pregunta sobre el programa?"></textarea></div>
+        <button type="button" class="btn-primary" onclick="this.textContent='✓ Enviado';this.style.background='#27ae60';setTimeout(()=>{this.textContent='Enviar Inscripción';this.style.background='';},3000)">Enviar Inscripción</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:1200px;margin:0 auto">
+    <img src="Logo_stade.png" alt="Stade Français" class="footer-logo-img" />
+    <div class="footer-links">
+      <a href="index.html">Inicio</a><a href="rugby.html">Rugby</a>
+      <a href="tenis.html">Tenis</a><a href="natacion.html">Natación</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="footer-copy">© 2026 Club Stade Français · Las Condes, Santiago</div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+</script>
+</body>
+</html>

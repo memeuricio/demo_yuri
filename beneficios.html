@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beneficios Socios — Stade Français 1929</title>
+  <style>
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Light.ttf'); font-weight: 300; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Regular.ttf'); font-weight: 400; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Bold.ttf'); font-weight: 700; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-ExtraBold.ttf'); font-weight: 800; }
+    @font-face { font-family: 'SonnyVol2'; src: url('sonny_font/SonnyVol2-Black.ttf'); font-weight: 900; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --azul:#29285C; --azul-dark:#1A1A2E; --rojo:#E31E27; --dorado:#F6AA0C; --blanco:#FFFFFF; --gris:#F5F5F7; --gris-mid:#6b7280; --t:0.35s cubic-bezier(.4,0,.2,1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'SonnyVol2', sans-serif; color: var(--azul); background: var(--blanco); overflow-x: hidden; }
+
+    /* NAV */
+    .top-stripe { height: 4px; position: fixed; top: 0; left: 0; right: 0; z-index: 1100; background: linear-gradient(90deg, var(--azul) 60%, var(--rojo) 60% 80%, var(--dorado) 80%); }
+    nav { position: fixed; top: 4px; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 68px; transition: background var(--t), box-shadow var(--t); }
+    nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
+    .nav-links li { position: relative; }
+    .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: 100%; padding-top: 6px; left: 0; background: var(--azul); border-top: 2px solid var(--rojo); border-radius: 0 0 6px 6px; padding: 6px; min-width: 180px; box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-links .dropdown-menu a { font-size: 11px; text-transform: none; letter-spacing: 0; padding: 10px 12px; }
+    .nav-cta { background: var(--rojo) !important; color: var(--blanco) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 10px 18px !important; }
+    .nav-portal { background: var(--blanco) !important; color: var(--azul) !important; font-weight: 800 !important; border-radius: 4px !important; padding: 8px 16px !important; border: 2px solid var(--blanco) !important; }
+    .nav-portal:hover { background: var(--azul) !important; color: var(--blanco) !important; border-color: var(--azul) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--blanco); border-radius: 2px; }
+
+    /* HERO */
+    .page-hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('BENEFICIOS 2.png'); }
+    .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.98) 0%, rgba(26,26,46,.6) 40%, rgba(41,40,92,.15) 100%); }
+    .page-hero-content { position: relative; z-index: 2; padding: 64px; max-width: 1200px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: flex-end; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; }
+    .breadcrumb a { color: rgba(255,255,255,.4); text-decoration: none; } .breadcrumb a:hover { color: var(--dorado); }
+    .breadcrumb-sep { color: var(--rojo); }
+    .page-hero-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dorado); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
+    .page-hero h1 { font-size: clamp(52px, 8.5vw, 108px); font-weight: 900; color: var(--blanco); line-height: .88; text-transform: uppercase; letter-spacing: -.02em; margin-bottom: 18px; }
+    .page-hero h1 em { color: var(--dorado); font-style: normal; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
+    .hero-quick-facts { display: flex; flex-direction: column; gap: 16px; min-width: 190px; }
+    .hqf { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 18px 20px; text-align: center; }
+    .hqf-num { font-size: 26px; font-weight: 900; color: var(--dorado); line-height: 1; }
+    .hqf-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 4px; }
+
+    /* STATS BAR */
+    .stats-bar { background: var(--rojo); padding: 20px 40px; }
+    .stats-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 22px; font-weight: 900; color: var(--blanco); line-height: 1; }
+    .stat-label { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 3px; }
+
+    /* SECTIONS */
+    section { padding: 88px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .section-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .section-label::after { content: ''; display: block; width: 32px; height: 2px; background: var(--rojo); }
+    .section-label.light { color: var(--dorado); } .section-label.light::after { background: var(--dorado); }
+    .section-title { font-size: clamp(26px, 3.5vw, 44px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .section-title.light { color: var(--blanco); }
+    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
+
+    /* FEATURE GRID */
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 64px rgba(41,40,92,.12); margin-top: 56px; }
+    .feature-img { position: relative; min-height: 480px; overflow: hidden; }
+    .feature-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+    .feature-grid:hover .feature-img img { transform: scale(1.04); }
+    .feature-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(41,40,92,.3), transparent); }
+    .feature-content { background: var(--azul); padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
+    .feature-content.light { background: var(--gris); }
+    .feature-tag { font-size: 9px; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; color: var(--dorado); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .feature-tag::after { content: ''; display: block; width: 28px; height: 2px; background: var(--dorado); }
+    .feature-tag.dark { color: var(--rojo); }
+    .feature-tag.dark::after { background: var(--rojo); }
+    .feature-content h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin-bottom: 18px; }
+    .feature-content.light h2 { color: var(--azul); }
+    .feature-content > p { font-size: 15px; color: rgba(255,255,255,.65); line-height: 1.85; font-weight: 400; margin-bottom: 24px; }
+    .feature-content.light > p { color: var(--gris-mid); }
+    .feature-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
+    .fspec { background: rgba(255,255,255,.07); border-radius: 6px; padding: 14px 16px; }
+    .feature-content.light .fspec { background: var(--blanco); }
+    .fspec-ico { font-size: 20px; margin-bottom: 4px; }
+    .fspec-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+    .feature-content.light .fspec-label { color: var(--gris-mid); }
+    .fspec-val { font-size: 14px; font-weight: 900; color: var(--blanco); margin-top: 2px; }
+    .feature-content.light .fspec-val { color: var(--azul); }
+
+    /* DESCUENTOS LIST */
+    .desc-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+    .desc-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.5; }
+    .desc-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--dorado); flex-shrink: 0; margin-top: 5px; }
+    .feature-content.light .desc-item { color: var(--gris-mid); }
+    .feature-content.light .desc-item::before { background: var(--rojo); }
+
+    /* DESCUENTO BADGE */
+    .desc-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--dorado); color: var(--azul); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; padding: 10px 18px; border-radius: 4px; margin-bottom: 24px; }
+    .desc-badge-pct { font-size: 22px; font-weight: 900; }
+    .feature-content.light .desc-badge { background: var(--azul); color: var(--blanco); }
+
+    /* BTN */
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--rojo); color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 14px 28px; border-radius: 4px; text-decoration: none; transition: background var(--t), transform var(--t); }
+    .btn-primary:hover { background: #c0161e; transform: translateY(-2px); }
+
+    /* INSTITUTO STRIP */
+    #instituto { background: var(--azul-dark); }
+    .instituto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.3); margin-top: 56px; }
+    .instituto-img { position: relative; min-height: 460px; overflow: hidden; }
+    .instituto-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+    .instituto-grid:hover .instituto-img img { transform: scale(1.04); }
+    .instituto-content { padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-left: none; }
+    .curso-item { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .curso-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .curso-tag { font-size: 9px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--dorado); margin-bottom: 8px; }
+    .curso-item h4 { font-size: 16px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+    .curso-item p { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.75; }
+    .curso-meta { display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
+    .curso-meta-item { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.35); letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
+    .curso-meta-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--dorado); display: block; }
+
+    /* RESTAURANTES STRIP */
+    #rest-beneficio { background: var(--azul); padding: 72px 0; }
+    .rest-ben-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .rest-ben-inner h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin-bottom: 16px; }
+    .rest-ben-inner p { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; max-width: 500px; margin-bottom: 24px; }
+    .rest-tags { display: flex; flex-direction: column; gap: 10px; }
+    .rest-tag-item { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.7); }
+    .rest-tag-item::before { content: '✓'; display: inline-flex; width: 22px; height: 22px; background: rgba(246,170,12,.15); border: 1px solid rgba(246,170,12,.3); border-radius: 50%; align-items: center; justify-content: center; font-size: 10px; color: var(--dorado); flex-shrink: 0; }
+    .rest-badge { background: var(--dorado); border-radius: 12px; padding: 36px 44px; text-align: center; flex-shrink: 0; }
+    .rest-badge-pct { font-size: 80px; font-weight: 900; color: var(--azul); line-height: 1; }
+    .rest-badge-label { font-size: 12px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .08em; margin-top: 2px; }
+    .rest-badge-sub { font-size: 10px; color: rgba(41,40,92,.6); font-weight: 400; margin-top: 6px; }
+
+    /* CTA STRIP */
+    #cta { background: var(--rojo); padding: 64px 0; }
+    .cta-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .cta-inner h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+    .cta-inner p { font-size: 14px; color: rgba(255,255,255,.65); margin-top: 8px; font-weight: 300; }
+    .btn-white { display: inline-block; background: var(--blanco); color: var(--rojo); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 16px 32px; border-radius: 4px; text-decoration: none; white-space: nowrap; transition: transform var(--t), box-shadow var(--t); }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+
+    /* FOOTER */
+    footer { background: var(--azul-dark); border-top: 1px solid rgba(255,255,255,.06); padding: 48px 40px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand img { height: 36px; filter: brightness(0) invert(1); margin-bottom: 14px; }
+    .footer-brand p { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.8; max-width: 220px; }
+    .footer-col h5 { font-size: 9px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--dorado); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,.4); text-decoration: none; margin-bottom: 8px; transition: color var(--t); }
+    .footer-col a:hover { color: var(--blanco); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 10px; color: rgba(255,255,255,.2); }
+    .footer-stripe { display: flex; gap: 2px; }
+    .footer-stripe span { width: 20px; height: 3px; border-radius: 1px; }
+    .footer-stripe span:nth-child(1) { background: var(--azul); width: 40px; }
+    .footer-stripe span:nth-child(2) { background: var(--rojo); }
+    .footer-stripe span:nth-child(3) { background: var(--dorado); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .page-hero-content { grid-template-columns: 1fr; padding: 32px 24px; }
+      .hero-quick-facts { flex-direction: row; }
+      .stats-inner { flex-wrap: wrap; gap: 16px; justify-content: center; }
+      .feature-grid, .instituto-grid { grid-template-columns: 1fr; }
+      .rest-ben-inner { grid-template-columns: 1fr; }
+      .cta-inner { flex-direction: column; text-align: center; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="Logo_stade.png" alt="Stade Français" />
+    <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li class="dropdown">
+      <a href="nosotros.html">Nosotros</a>
+      <ul class="dropdown-menu">
+        <li><a href="nosotros.html#historia">Historia</a></li>
+        <li><a href="nosotros.html#directiva">Directiva</a></li>
+        <li><a href="nosotros.html#instalaciones">Instalaciones</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#">Ramas</a>
+      <ul class="dropdown-menu">
+        <li><a href="rugby.html">Rugby</a></li>
+        <li><a href="tenis.html">Tenis</a></li>
+        <li><a href="natacion.html">Natación</a></li>
+      </ul>
+    </li>
+    <li><a href="deportes.html">Deportes</a></li>
+    <li><a href="gimnasio.html">Gimnasio</a></li>
+    <li><a href="arriendos.html">Arriendos</a></li>
+    <li><a href="restaurantes.html">Restaurantes</a></li>
+    <li><a href="beneficios.html" class="active">Beneficios</a></li>
+    <li><a href="#cta">Contacto</a></li>
+    <li><a href="hazte-socio.html" class="nav-cta">Hazte Socio</a></li>
+    <li><a href="https://mistade.cl/Account/Login" target="_blank" rel="noopener" class="nav-portal">Portal de Socios</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="hero-left">
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a>
+        <span class="breadcrumb-sep">›</span>
+        Beneficios
+      </div>
+      <div class="page-hero-label">Club de Beneficios · Socios Activos</div>
+      <h1>BENEFICIOS<br/>PARA<br/><em>SOCIOS</em></h1>
+      <p>Tu membresía en el Stade Français te da acceso a descuentos exclusivos en salud, cultura y gastronomía con nuestros socios estratégicos.</p>
+    </div>
+    <div class="hero-quick-facts">
+      <div class="hqf">
+        <div class="hqf-num">3+</div>
+        <div class="hqf-label">Socios estratégicos</div>
+      </div>
+      <div class="hqf">
+        <div class="hqf-num">30%</div>
+        <div class="hqf-label">Descuento máximo</div>
+      </div>
+      <div class="hqf">
+        <div class="hqf-num">15%</div>
+        <div class="hqf-label">En restaurantes</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">Care+</div>
+      <div class="stat-label">30% descuento dental y estética</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">MEDS</div>
+      <div class="stat-label">20% descuento medicina deportiva</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Institut Français</div>
+      <div class="stat-label">Descuento preferencial en cursos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Restaurantes</div>
+      <div class="stat-label">15% descuento La Maison y Sabores</div>
+    </div>
+  </div>
+</div>
+
+<!-- CARE+ -->
+<section id="careplus" style="background: var(--blanco);">
+  <div class="container">
+    <div class="section-label reveal">Salud · Bienestar</div>
+    <h2 class="section-title reveal reveal-delay-1">Clínica Care+</h2>
+    <p class="section-sub reveal reveal-delay-2">Atención médica y dental integral, innovadora y compasiva para toda la comunidad del Stade.</p>
+  </div>
+  <div class="container">
+    <div class="feature-grid reveal">
+      <div class="feature-img">
+        <img src="BENEFICIOS 2.png" alt="Clínica Care+" />
+        <div class="feature-img-overlay"></div>
+      </div>
+      <div class="feature-content">
+        <div class="feature-tag">🦷 Salud dental y estética</div>
+        <h2>Clínica Care+</h2>
+        <p>En Care+, el propósito es transformar la salud y el bienestar de nuestra comunidad a través de una atención médica y dental integral. Un entorno donde cada paciente se siente valorado.</p>
+        <div class="desc-badge">
+          <span class="desc-badge-pct">30%</span>
+          <span>de descuento para socios</span>
+        </div>
+        <div class="desc-list">
+          <div class="desc-item">Ortodoncia y Odontopediatría</div>
+          <div class="desc-item">Periodoncia e Implantología quirúrgica</div>
+          <div class="desc-item">Cirugía bucal e Implantología</div>
+          <div class="desc-item">Rehabilitación oral y Endodoncia</div>
+          <div class="desc-item">Atención domiciliaria</div>
+          <div class="desc-item">Tratamientos capilares, corporales y medicina estética</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDS -->
+<section id="meds" style="background: var(--gris);">
+  <div class="container">
+    <div class="section-label reveal">Medicina deportiva</div>
+    <h2 class="section-title reveal reveal-delay-1">Clínica MEDS</h2>
+    <p class="section-sub reveal reveal-delay-2">Especialistas en salud deportiva con infraestructura de primer nivel para la recuperación y el rendimiento.</p>
+  </div>
+  <div class="container">
+    <div class="feature-grid reveal" style="direction: rtl;">
+      <div class="feature-img" style="direction: ltr;">
+        <img src="BENEFICIOS 3.png" alt="Clínica MEDS" />
+        <div class="feature-img-overlay"></div>
+      </div>
+      <div class="feature-content light" style="direction: ltr;">
+        <div class="feature-tag dark">🏃 Medicina deportiva</div>
+        <h2>Clínica MEDS</h2>
+        <p>Una empresa que presta servicios de salud ambulatorios y hospitalarios con amplia gama de especialidades médicas y equipamiento médico-quirúrgico de excelencia.</p>
+        <div class="desc-badge">
+          <span class="desc-badge-pct">20%</span>
+          <span>de descuento para socios</span>
+        </div>
+        <div class="desc-list">
+          <div class="desc-item">Imagenología, Laboratorio Clínico y Cardiología</div>
+          <div class="desc-item">Programa Check Up Deportivo</div>
+          <div class="desc-item">Fisiología, Biomecánica Footscan y Plantillas</div>
+          <div class="desc-item">Masoterapia — masajes de relajación y descontracturante</div>
+          <div class="desc-item">MEDS Healthy — programa ejercicio terapéutico (20%)</div>
+          <div class="desc-item">MEDS Healthy Online (15%)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTITUT FRANÇAIS -->
+<section id="instituto">
+  <div class="container">
+    <div class="section-label light reveal">Cultura · Idioma</div>
+    <h2 class="section-title light reveal reveal-delay-1">Institut Français de Chile</h2>
+    <p class="section-sub reveal reveal-delay-2" style="color: rgba(255,255,255,.5);">Parte de la red mundial de 96 Instituts français dependiente del Ministerio de Europa y de Asuntos Exteriores de Francia.</p>
+  </div>
+  <div class="container">
+    <div class="instituto-grid reveal">
+      <div class="instituto-img">
+        <img src="BENEFICIOS 1.png" alt="Institut Français de Chile" />
+      </div>
+      <div class="instituto-content">
+        <div class="feature-tag" style="margin-bottom: 24px;">🇫🇷 Cultura y lengua francesa</div>
+        <div class="curso-item">
+          <div class="curso-tag">Curso disponible</div>
+          <h4>Francés Básico</h4>
+          <p>Introducción integral a los fundamentos del idioma para quienes no tienen conocimientos previos. Cubre gramática, vocabulario, pronunciación y comunicación cotidiana.</p>
+          <div class="curso-meta">
+            <div class="curso-meta-item">30 horas</div>
+            <div class="curso-meta-item">Online o presencial</div>
+            <div class="curso-meta-item">Precio preferencial socios</div>
+          </div>
+        </div>
+        <div class="curso-item">
+          <div class="curso-tag">Curso disponible</div>
+          <h4>Taller de Conversación</h4>
+          <p>Para socios con conocimientos previos de francés. Niveles A2, B1 y B2 en sesiones dinámicas y colaborativas presenciales.</p>
+          <div class="curso-meta">
+            <div class="curso-meta-item">20 horas</div>
+            <div class="curso-meta-item">Presencial</div>
+            <div class="curso-meta-item">Niveles A2 · B1 · B2</div>
+          </div>
+        </div>
+        <a href="mailto:contacto@stadefrancais.club" class="btn-primary" style="margin-top: 8px; align-self: flex-start;">Consultar precios →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANTES -->
+<section id="rest-beneficio" style="padding: 72px 0;">
+  <div class="rest-ben-inner">
+    <div>
+      <div class="section-label light reveal" style="margin-bottom: 14px;">Gastronomía</div>
+      <h2 class="reveal reveal-delay-1" style="font-size: clamp(28px,3.5vw,46px); font-weight:900; color:var(--blanco); text-transform:uppercase; letter-spacing:-.01em; line-height:1; margin-bottom:16px;">Come Mejor<br/>como Socio</h2>
+      <p class="reveal reveal-delay-2" style="font-size:15px; color:rgba(255,255,255,.5); line-height:1.85; font-weight:300; max-width:500px; margin-bottom:24px;">Descuento directo en los dos restaurantes del club. Solo muestra tu carnet de socio activo al pagar.</p>
+      <div class="rest-tags reveal reveal-delay-3">
+        <div class="rest-tag-item">La Maison — cafetería y pastelería francesa</div>
+        <div class="rest-tag-item">Sabores del Mundo — cocina internacional</div>
+        <div class="rest-tag-item">Válido todos los días con carnet activo</div>
+      </div>
+    </div>
+    <div class="rest-badge reveal">
+      <div class="rest-badge-pct">15%</div>
+      <div class="rest-badge-label">Descuento</div>
+      <div class="rest-badge-sub">para socios activos</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" style="padding: 0;">
+  <div style="background: var(--rojo); padding: 64px 0;">
+    <div class="cta-inner">
+      <div>
+        <h2>¿Aún no eres Socio?</h2>
+        <p>Hazte socio del Stade Français y accede a todos estos beneficios desde el primer día.</p>
+      </div>
+      <a href="hazte-socio.html" class="btn-white">Hazte Socio →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="Logo_stade.png" alt="Stade Français" />
+        <p>Club deportivo y social en el corazón de Las Condes, Santiago. Desde 1929, formando atletas y comunidad.</p>
+      </div>
+      <div class="footer-col">
+        <h5>El Club</h5>
+        <a href="nosotros.html">Nuestra Historia</a>
+        <a href="nosotros.html#directiva">Directiva</a>
+        <a href="nosotros.html#instalaciones">Instalaciones</a>
+        <a href="hazte-socio.html">Hazte Socio</a>
+      </div>
+      <div class="footer-col">
+        <h5>Deportes</h5>
+        <a href="rugby.html">Rugby</a>
+        <a href="tenis.html">Tenis</a>
+        <a href="natacion.html">Natación</a>
+        <a href="deportes.html">Todos los Deportes</a>
+        <a href="gimnasio.html">Gimnasio</a>
+      </div>
+      <div class="footer-col">
+        <h5>Club</h5>
+        <a href="arriendos.html">Arriendos</a>
+        <a href="restaurantes.html">Restaurantes</a>
+        <a href="beneficios.html">Beneficios</a>
+        <a href="hazte-socio.html">Hazte Socio</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Stade Français — Club Deportivo Las Condes. Todos los derechos reservados.</p>
+      <div class="footer-stripe"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  document.getElementById('hamburger').addEventListener('click', () =>
+    document.getElementById('nav-links').classList.toggle('open'));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
