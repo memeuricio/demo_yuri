@@ -20,10 +20,10 @@
     nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
-    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text { font-size: 15px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
     .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
-    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
     .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
     .nav-links li { position: relative; }
     .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
@@ -38,7 +38,7 @@
 
     /* HERO */
     .page-hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
-    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 30%; background-image: url('05_terraza.webp'); }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 30%; background-image: url('fotos-nuevas/acceso-principal.jpg'); }
     .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.98) 0%, rgba(26,26,46,.6) 40%, rgba(41,40,92,.15) 100%); }
     .page-hero-content { position: relative; z-index: 2; padding: 64px; max-width: 1200px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: flex-end; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; }
@@ -48,7 +48,7 @@
     .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
     .page-hero h1 { font-size: clamp(52px, 8.5vw, 108px); font-weight: 900; color: var(--blanco); line-height: .88; text-transform: uppercase; letter-spacing: -.02em; margin-bottom: 18px; }
     .page-hero h1 em { color: var(--dorado); font-style: normal; }
-    .page-hero p { font-size: 17px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
+    .page-hero p { font-size: 18px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
     .hero-quick-facts { display: flex; flex-direction: column; gap: 16px; min-width: 190px; }
     .hqf { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 18px 20px; text-align: center; }
     .hqf-num { font-size: 22px; font-weight: 900; color: var(--dorado); line-height: 1; }
@@ -60,7 +60,7 @@
     .stat-link { display: flex; align-items: center; gap: 10px; text-decoration: none; transition: opacity var(--t); }
     .stat-link:hover { opacity: .75; }
     .stat-ico { font-size: 20px; }
-    .stat-text-num { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1; }
+    .stat-text-num { font-size: 15px; font-weight: 900; color: var(--blanco); line-height: 1; }
     .stat-text-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 2px; }
 
     /* SECTIONS */
@@ -71,19 +71,19 @@
     .section-label.light { color: var(--dorado); } .section-label.light::after { background: var(--dorado); }
     .section-title { font-size: clamp(26px, 3.5vw, 44px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
     .section-title.light { color: var(--blanco); }
-    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
+    .section-sub { font-size: 16px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
 
     /* CONTACTO PRINCIPAL */
     #contacto-main { background: var(--azul-dark); }
     .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
     .contacto-info h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 18px; line-height: 1; }
-    .contacto-info p { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; margin-bottom: 32px; }
+    .contacto-info p { font-size: 16px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; margin-bottom: 32px; }
     .contacto-detail { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
     .cdetail { display: flex; align-items: flex-start; gap: 14px; text-decoration: none; transition: opacity var(--t); }
     .cdetail:hover { opacity: .75; }
     .cdetail-ico { width: 44px; min-width: 44px; height: 44px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
     .cdetail-text strong { display: block; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--dorado); margin-bottom: 3px; }
-    .cdetail-text span { font-size: 14px; color: rgba(255,255,255,.7); font-weight: 400; }
+    .cdetail-text span { font-size: 15px; color: rgba(255,255,255,.7); font-weight: 400; }
     .social-row { display: flex; gap: 12px; margin-top: 8px; }
     .social-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.7); font-family: 'SonnyVol2', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 10px 16px; border-radius: 4px; text-decoration: none; transition: background var(--t), color var(--t); }
     .social-btn:hover { background: rgba(255,255,255,.14); color: var(--blanco); }
@@ -91,11 +91,11 @@
 
     /* FORM */
     .form-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 40px 36px; }
-    .form-card h3 { font-size: 16px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 28px; }
+    .form-card h3 { font-size: 17px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 28px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .form-group { margin-bottom: 16px; }
     label { display: block; font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 7px; }
-    input, select, textarea { width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 5px; color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 14px; font-weight: 400; padding: 12px 14px; outline: none; transition: border-color var(--t); }
+    input, select, textarea { width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 5px; color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 15px; font-weight: 400; padding: 12px 14px; outline: none; transition: border-color var(--t); }
     input::placeholder, textarea::placeholder { color: rgba(255,255,255,.25); }
     input:focus, select:focus, textarea:focus { border-color: var(--dorado); }
     select { appearance: none; }
@@ -110,11 +110,11 @@
     .dep-card { background: var(--blanco); border-radius: 10px; padding: 28px 24px; border-top: 4px solid var(--azul); transition: transform var(--t), box-shadow var(--t), border-color var(--t); }
     .dep-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(41,40,92,.12); border-top-color: var(--rojo); }
     .dep-ico { font-size: 36px; margin-bottom: 14px; }
-    .dep-card h3 { font-size: 14px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
+    .dep-card h3 { font-size: 15px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
     .dep-contacts { display: flex; flex-direction: column; gap: 8px; }
     .dep-contact { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--gris-mid); text-decoration: none; transition: color var(--t); }
     .dep-contact:hover { color: var(--rojo); }
-    .dep-contact-ico { font-size: 13px; min-width: 18px; }
+    .dep-contact-ico { font-size: 14px; min-width: 18px; }
     .dep-person { font-size: 11px; font-weight: 700; color: var(--azul); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
 
     /* MAPA */
@@ -126,7 +126,7 @@
     #rrss { background: var(--azul); padding: 64px 0; }
     .rrss-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
     .rrss-inner h2 { font-size: clamp(22px, 2.5vw, 36px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
-    .rrss-inner p { font-size: 14px; color: rgba(255,255,255,.5); margin-top: 8px; font-weight: 300; }
+    .rrss-inner p { font-size: 15px; color: rgba(255,255,255,.5); margin-top: 8px; font-weight: 300; }
     .rrss-btns { display: flex; gap: 12px; flex-wrap: wrap; }
     .rrss-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 12px 20px; border-radius: 4px; text-decoration: none; transition: background var(--t), transform var(--t); }
     .rrss-btn:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
@@ -159,6 +159,8 @@
     @media (max-width: 768px) {
       nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
       .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .nav-links .dropdown-menu { position: static; box-shadow: none; min-width: unset; background: rgba(255,255,255,.08); border: none; border-radius: 4px; margin: 4px 0 4px 12px; padding: 4px; }
+      .nav-links .dropdown > a::after { content: ' ▾'; }
       .page-hero-content { grid-template-columns: 1fr; padding: 32px 24px; }
       .hero-quick-facts { flex-direction: row; }
       .stats-inner { gap: 12px; }
@@ -169,6 +171,13 @@
       .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
       .map-embed { height: 300px; }
     }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .page-hero-content { padding: 24px 16px 36px; }
+      section { padding: 48px 0; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-card { padding: 24px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -177,7 +186,7 @@
 
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="Logo_stade.png" alt="Stade Français" />
+    <img src="logo_stade.png" alt="Stade Français" />
     <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
   </a>
   <ul class="nav-links" id="nav-links">
@@ -337,29 +346,30 @@
         </div>
       </div>
 
-      <div class="form-card reveal reveal-delay-1">
+      <form class="form-card reveal reveal-delay-1" method="POST" action="https://formspree.io/f/XXXXXXXX">
+        <input type="hidden" name="_subject" value="Consulta General — Stade Français" />
         <h3>Escríbenos</h3>
         <div class="form-row">
           <div class="form-group">
             <label>Nombre</label>
-            <input type="text" placeholder="Tu nombre" />
+            <input type="text" name="nombre" placeholder="Tu nombre" />
           </div>
           <div class="form-group">
             <label>Apellido</label>
-            <input type="text" placeholder="Tu apellido" />
+            <input type="text" name="apellido" placeholder="Tu apellido" />
           </div>
         </div>
         <div class="form-group">
           <label>Correo electrónico</label>
-          <input type="email" placeholder="correo@ejemplo.cl" />
+          <input type="email" name="email" placeholder="correo@ejemplo.cl" />
         </div>
         <div class="form-group">
           <label>Teléfono</label>
-          <input type="tel" placeholder="+56 9 XXXX XXXX" />
+          <input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" />
         </div>
         <div class="form-group">
           <label>Área de consulta</label>
-          <select>
+          <select name="area">
             <option value="" disabled selected>Selecciona un área</option>
             <option>Membresías / Hazte Socio</option>
             <option>Arriendos y Eventos</option>
@@ -375,10 +385,10 @@
         </div>
         <div class="form-group">
           <label>Mensaje</label>
-          <textarea placeholder="Escribe tu consulta o mensaje aquí..."></textarea>
+          <textarea name="mensaje" placeholder="Escribe tu consulta o mensaje aquí..."></textarea>
         </div>
-        <button class="btn-primary" onclick="alert('¡Mensaje enviado! Te contactaremos a la brevedad.')">Enviar mensaje →</button>
-      </div>
+        <button type="submit" class="btn-primary">Enviar mensaje →</button>
+      </form>
     </div>
   </div>
 </section>
@@ -429,10 +439,10 @@
 
       <div class="dep-card reveal reveal-delay-1">
         <div class="dep-ico">🏋️</div>
-        <h3>CrossFit</h3>
-        <div class="dep-person">Cristóbal Sabal</div>
+        <h3>Protrainer</h3>
+        <div class="dep-person">Marcelo Clavero</div>
         <div class="dep-contacts">
-          <a href="https://www.instagram.com/cftobalaba" target="_blank" rel="noopener" class="dep-contact"><span class="dep-contact-ico">📷</span> @cftobalaba</a>
+          <a href="https://wa.me/56993384466" target="_blank" rel="noopener" class="dep-contact"><span class="dep-contact-ico">📱</span> +56 9 9338 4466</a>
         </div>
       </div>
 
@@ -473,7 +483,7 @@
     <div class="container mapa-header reveal">
       <div class="section-label light">Cómo llegar</div>
       <h2 class="section-title light">Encuéntranos</h2>
-      <p style="color: rgba(255,255,255,.5); font-size: 15px; line-height: 1.8; margin-top: 8px;">Av. Mariano Sánchez Fontecilla #498, Las Condes, Santiago, Chile</p>
+      <p style="color: rgba(255,255,255,.5); font-size: 16px; line-height: 1.8; margin-top: 8px;">Av. Mariano Sánchez Fontecilla #498, Las Condes, Santiago, Chile</p>
     </div>
     <iframe
       class="map-embed"
@@ -517,7 +527,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="Logo_stade.png" alt="Stade Français" />
+        <img src="logo_stade.png" alt="Stade Français" />
         <p>Club deportivo y social en el corazón de Las Condes, Santiago. Desde 1929, formando atletas y comunidad.</p>
       </div>
       <div class="footer-col">
@@ -558,10 +568,33 @@
   });
   document.getElementById('hamburger').addEventListener('click', () =>
     document.getElementById('nav-links').classList.toggle('open'));
+
+  document.querySelectorAll('.nav-links .dropdown > a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        const menu = this.parentElement.querySelector('.dropdown-menu');
+        if (menu) menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/TU_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

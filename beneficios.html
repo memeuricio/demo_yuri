@@ -20,10 +20,10 @@
     nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
-    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text { font-size: 15px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
     .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
-    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
     .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
     .nav-links li { position: relative; }
     .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
@@ -38,7 +38,7 @@
 
     /* HERO */
     .page-hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
-    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('BENEFICIOS 2.png'); }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('beneficios-2.png'); }
     .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.98) 0%, rgba(26,26,46,.6) 40%, rgba(41,40,92,.15) 100%); }
     .page-hero-content { position: relative; z-index: 2; padding: 64px; max-width: 1200px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: flex-end; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; }
@@ -48,7 +48,7 @@
     .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
     .page-hero h1 { font-size: clamp(52px, 8.5vw, 108px); font-weight: 900; color: var(--blanco); line-height: .88; text-transform: uppercase; letter-spacing: -.02em; margin-bottom: 18px; }
     .page-hero h1 em { color: var(--dorado); font-style: normal; }
-    .page-hero p { font-size: 17px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
+    .page-hero p { font-size: 18px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
     .hero-quick-facts { display: flex; flex-direction: column; gap: 16px; min-width: 190px; }
     .hqf { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 18px 20px; text-align: center; }
     .hqf-num { font-size: 26px; font-weight: 900; color: var(--dorado); line-height: 1; }
@@ -69,7 +69,7 @@
     .section-label.light { color: var(--dorado); } .section-label.light::after { background: var(--dorado); }
     .section-title { font-size: clamp(26px, 3.5vw, 44px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
     .section-title.light { color: var(--blanco); }
-    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
+    .section-sub { font-size: 16px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
 
     /* FEATURE GRID */
     .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 64px rgba(41,40,92,.12); margin-top: 56px; }
@@ -85,7 +85,7 @@
     .feature-tag.dark::after { background: var(--rojo); }
     .feature-content h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin-bottom: 18px; }
     .feature-content.light h2 { color: var(--azul); }
-    .feature-content > p { font-size: 15px; color: rgba(255,255,255,.65); line-height: 1.85; font-weight: 400; margin-bottom: 24px; }
+    .feature-content > p { font-size: 16px; color: rgba(255,255,255,.65); line-height: 1.85; font-weight: 400; margin-bottom: 24px; }
     .feature-content.light > p { color: var(--gris-mid); }
     .feature-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
     .fspec { background: rgba(255,255,255,.07); border-radius: 6px; padding: 14px 16px; }
@@ -93,18 +93,18 @@
     .fspec-ico { font-size: 20px; margin-bottom: 4px; }
     .fspec-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); }
     .feature-content.light .fspec-label { color: var(--gris-mid); }
-    .fspec-val { font-size: 14px; font-weight: 900; color: var(--blanco); margin-top: 2px; }
+    .fspec-val { font-size: 15px; font-weight: 900; color: var(--blanco); margin-top: 2px; }
     .feature-content.light .fspec-val { color: var(--azul); }
 
     /* DESCUENTOS LIST */
     .desc-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
-    .desc-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.5; }
+    .desc-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,.7); line-height: 1.5; }
     .desc-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--dorado); flex-shrink: 0; margin-top: 5px; }
     .feature-content.light .desc-item { color: var(--gris-mid); }
     .feature-content.light .desc-item::before { background: var(--rojo); }
 
     /* DESCUENTO BADGE */
-    .desc-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--dorado); color: var(--azul); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; padding: 10px 18px; border-radius: 4px; margin-bottom: 24px; }
+    .desc-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--dorado); color: var(--azul); font-size: 14px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; padding: 10px 18px; border-radius: 4px; margin-bottom: 24px; }
     .desc-badge-pct { font-size: 22px; font-weight: 900; }
     .feature-content.light .desc-badge { background: var(--azul); color: var(--blanco); }
 
@@ -122,8 +122,8 @@
     .curso-item { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.08); }
     .curso-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
     .curso-tag { font-size: 9px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--dorado); margin-bottom: 8px; }
-    .curso-item h4 { font-size: 16px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
-    .curso-item p { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.75; }
+    .curso-item h4 { font-size: 17px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+    .curso-item p { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.75; }
     .curso-meta { display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
     .curso-meta-item { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.35); letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
     .curso-meta-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--dorado); display: block; }
@@ -132,9 +132,9 @@
     #rest-beneficio { background: var(--azul); padding: 72px 0; }
     .rest-ben-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
     .rest-ben-inner h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin-bottom: 16px; }
-    .rest-ben-inner p { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; max-width: 500px; margin-bottom: 24px; }
+    .rest-ben-inner p { font-size: 16px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; max-width: 500px; margin-bottom: 24px; }
     .rest-tags { display: flex; flex-direction: column; gap: 10px; }
-    .rest-tag-item { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.7); }
+    .rest-tag-item { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; color: rgba(255,255,255,.7); }
     .rest-tag-item::before { content: '✓'; display: inline-flex; width: 22px; height: 22px; background: rgba(246,170,12,.15); border: 1px solid rgba(246,170,12,.3); border-radius: 50%; align-items: center; justify-content: center; font-size: 10px; color: var(--dorado); flex-shrink: 0; }
     .rest-badge { background: var(--dorado); border-radius: 12px; padding: 36px 44px; text-align: center; flex-shrink: 0; }
     .rest-badge-pct { font-size: 80px; font-weight: 900; color: var(--azul); line-height: 1; }
@@ -145,7 +145,7 @@
     #cta { background: var(--rojo); padding: 64px 0; }
     .cta-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
     .cta-inner h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
-    .cta-inner p { font-size: 14px; color: rgba(255,255,255,.65); margin-top: 8px; font-weight: 300; }
+    .cta-inner p { font-size: 15px; color: rgba(255,255,255,.65); margin-top: 8px; font-weight: 300; }
     .btn-white { display: inline-block; background: var(--blanco); color: var(--rojo); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 16px 32px; border-radius: 4px; text-decoration: none; white-space: nowrap; transition: transform var(--t), box-shadow var(--t); }
     .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
 
@@ -177,6 +177,8 @@
     @media (max-width: 768px) {
       nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
       .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .nav-links .dropdown-menu { position: static; box-shadow: none; min-width: unset; background: rgba(255,255,255,.08); border: none; border-radius: 4px; margin: 4px 0 4px 12px; padding: 4px; }
+      .nav-links .dropdown > a::after { content: ' ▾'; }
       .page-hero-content { grid-template-columns: 1fr; padding: 32px 24px; }
       .hero-quick-facts { flex-direction: row; }
       .stats-inner { flex-wrap: wrap; gap: 16px; justify-content: center; }
@@ -184,6 +186,14 @@
       .rest-ben-inner { grid-template-columns: 1fr; }
       .cta-inner { flex-direction: column; text-align: center; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .ben-cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .page-hero-content { padding: 24px 16px 36px; }
+      section { padding: 48px 0; }
+      .footer-top { grid-template-columns: 1fr; }
+      .ben-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -193,7 +203,7 @@
 
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="Logo_stade.png" alt="Stade Français" />
+    <img src="logo_stade.png" alt="Stade Français" />
     <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
   </a>
   <ul class="nav-links" id="nav-links">
@@ -288,7 +298,7 @@
   <div class="container">
     <div class="feature-grid reveal">
       <div class="feature-img">
-        <img src="BENEFICIOS 2.png" alt="Clínica Care+" />
+        <img src="beneficios-2.png" alt="Clínica Care+" />
         <div class="feature-img-overlay"></div>
       </div>
       <div class="feature-content">
@@ -322,7 +332,7 @@
   <div class="container">
     <div class="feature-grid reveal" style="direction: rtl;">
       <div class="feature-img" style="direction: ltr;">
-        <img src="BENEFICIOS 3.png" alt="Clínica MEDS" />
+        <img src="beneficios-3.png" alt="Clínica MEDS" />
         <div class="feature-img-overlay"></div>
       </div>
       <div class="feature-content light" style="direction: ltr;">
@@ -356,7 +366,7 @@
   <div class="container">
     <div class="instituto-grid reveal">
       <div class="instituto-img">
-        <img src="BENEFICIOS 1.png" alt="Institut Français de Chile" />
+        <img src="beneficios-1.png" alt="Institut Français de Chile" />
       </div>
       <div class="instituto-content">
         <div class="feature-tag" style="margin-bottom: 24px;">🇫🇷 Cultura y lengua francesa</div>
@@ -392,7 +402,7 @@
     <div>
       <div class="section-label light reveal" style="margin-bottom: 14px;">Gastronomía</div>
       <h2 class="reveal reveal-delay-1" style="font-size: clamp(28px,3.5vw,46px); font-weight:900; color:var(--blanco); text-transform:uppercase; letter-spacing:-.01em; line-height:1; margin-bottom:16px;">Come Mejor<br/>como Socio</h2>
-      <p class="reveal reveal-delay-2" style="font-size:15px; color:rgba(255,255,255,.5); line-height:1.85; font-weight:300; max-width:500px; margin-bottom:24px;">Descuento directo en los dos restaurantes del club. Solo muestra tu carnet de socio activo al pagar.</p>
+      <p class="reveal reveal-delay-2" style="font-size: 16px; color:rgba(255,255,255,.5); line-height:1.85; font-weight:300; max-width:500px; margin-bottom:24px;">Descuento directo en los dos restaurantes del club. Solo muestra tu carnet de socio activo al pagar.</p>
       <div class="rest-tags reveal reveal-delay-3">
         <div class="rest-tag-item">La Maison — cafetería y pastelería francesa</div>
         <div class="rest-tag-item">Sabores del Mundo — cocina internacional</div>
@@ -425,7 +435,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="Logo_stade.png" alt="Stade Français" />
+        <img src="logo_stade.png" alt="Stade Français" />
         <p>Club deportivo y social en el corazón de Las Condes, Santiago. Desde 1929, formando atletas y comunidad.</p>
       </div>
       <div class="footer-col">
@@ -465,10 +475,33 @@
   });
   document.getElementById('hamburger').addEventListener('click', () =>
     document.getElementById('nav-links').classList.toggle('open'));
+
+  document.querySelectorAll('.nav-links .dropdown > a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        const menu = this.parentElement.querySelector('.dropdown-menu');
+        if (menu) menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/TU_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

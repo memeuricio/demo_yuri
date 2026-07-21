@@ -47,7 +47,7 @@
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 36px; width: auto; filter: brightness(0) invert(1); }
     .nav-logo-text {
-      font-size: 14px; font-weight: 900; color: var(--blanco);
+      font-size: 15px; font-weight: 900; color: var(--blanco);
       line-height: 1.1; text-transform: uppercase; letter-spacing: .08em;
     }
     .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); margin-top: 2px; }
@@ -55,7 +55,7 @@
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
     .nav-links a {
       display: block; padding: 8px 12px;
-      font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
       color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px;
       transition: color var(--t), background var(--t);
     }
@@ -91,9 +91,9 @@
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(135deg, rgba(41,40,92,.88) 0%, rgba(41,40,92,.6) 50%, rgba(26,26,46,.35) 100%);
     }
-    .hero-slide:nth-child(1) { background-image: url('FOTOS NUEVAS/acceso principal .jpg'); background-position: center 30%; }
-    .hero-slide:nth-child(2) { background-image: url('FOTOS NUEVAS/canchas tenis.jpg'); background-position: center 20%; }
-    .hero-slide:nth-child(3) { background-image: url('FOTOS NUEVAS/cancha rugby.jpg'); background-position: center 40%; }
+    .hero-slide:nth-child(1) { background-image: url('fotos-nuevas/acceso-principal.jpg'); background-position: center 30%; }
+    .hero-slide:nth-child(2) { background-image: url('fotos-nuevas/canchas-tenis.jpg'); background-position: center 20%; }
+    .hero-slide:nth-child(3) { background-image: url('fotos-nuevas/cancha-rugby.jpg'); background-position: center 40%; }
 
     .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 24px; max-width: 860px; }
     .hero-eyebrow {
@@ -128,7 +128,7 @@
     .section-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
     .section-label::after { content: ''; display: block; width: 32px; height: 2px; background: var(--rojo); }
     .section-title { font-size: clamp(26px, 4vw, 44px); font-weight: 900; color: var(--azul); margin-bottom: 16px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
-    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.75; max-width: 520px; font-weight: 400; }
+    .section-sub { font-size: 16px; color: var(--gris-mid); line-height: 1.75; max-width: 520px; font-weight: 400; }
     .section-header { margin-bottom: 56px; }
     .section-header.centered { text-align: center; }
     .section-header.centered .section-sub { margin: 0 auto; }
@@ -154,7 +154,7 @@
     }
     .about-badge-num { font-size: 28px; font-weight: 900; line-height: 1; }
     .about-badge-text { font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; line-height: 1.3; }
-    .about-text p { font-size: 15px; color: #374151; line-height: 1.85; margin-bottom: 20px; font-weight: 400; }
+    .about-text p { font-size: 16px; color: #374151; line-height: 1.85; margin-bottom: 20px; font-weight: 400; }
     .about-text p:last-of-type { margin-bottom: 28px; }
     .about-features { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
     .about-feature { font-size: 11px; font-weight: 700; color: var(--azul); letter-spacing: .06em; text-transform: uppercase; border-left: 3px solid var(--dorado); padding-left: 10px; }
@@ -171,14 +171,14 @@
     .rama-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--rojo); z-index: 3; }
     .rama-card-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.7s ease; }
     .rama-card:hover .rama-card-bg { transform: scale(1.07); }
-    .rama-card-bg.rugby { background-image: url('FOTOS NUEVAS/cancha rugby.jpg'); background-position: center 30%; }
-    .rama-card-bg.tenis { background-image: url('FOTOS NUEVAS/canchas tenis.jpg'); }
-    .rama-card-bg.natacion { background-image: url('FOTOS NUEVAS/piscina 2.jpg'); }
+    .rama-card-bg.rugby { background-image: url('fotos-nuevas/jugador-rugby.jpg'); background-position: center top; }
+    .rama-card-bg.tenis { background-image: url('fotos-nuevas/jugador-tenis.jpg'); background-position: center 30%; }
+    .rama-card-bg.natacion { background-image: url('fotos-nuevas/jugador-natacion.jpg'); background-position: center 20%; }
     .rama-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.96) 0%, rgba(26,26,46,.4) 55%, transparent 100%); }
     .rama-card-content { position: absolute; inset: 0; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; z-index: 2; }
     .rama-icon { width: 44px; height: 44px; border-radius: 6px; background: var(--rojo); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
     .rama-card h3 { font-size: 22px; font-weight: 900; color: var(--blanco); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .04em; }
-    .rama-card p { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.6; margin-bottom: 20px; font-weight: 400; }
+    .rama-card p { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.6; margin-bottom: 20px; font-weight: 400; }
     .rama-link { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); text-decoration: none; transition: gap var(--t); }
     .rama-card:hover .rama-link { gap: 14px; }
 
@@ -189,8 +189,8 @@
     .act-card:hover { box-shadow: 0 12px 36px rgba(41,40,92,.12); transform: translateY(-4px); border-top-color: var(--rojo); }
     .act-card-photo { aspect-ratio: 16/9; background-size: cover; background-position: center; background-color: var(--azul); }
     .act-card-body { padding: 22px 20px; }
-    .act-card h3 { font-size: 15px; font-weight: 900; color: var(--azul); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .04em; }
-    .act-card p { font-size: 13px; color: var(--gris-mid); line-height: 1.7; margin-bottom: 14px; font-weight: 400; }
+    .act-card h3 { font-size: 16px; font-weight: 900; color: var(--azul); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .04em; }
+    .act-card p { font-size: 14px; color: var(--gris-mid); line-height: 1.7; margin-bottom: 14px; font-weight: 400; }
     .act-tag { display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dorado); border: 1px solid rgba(246,170,12,.4); padding: 3px 9px; border-radius: 2px; }
 
     /* ── MEMBRESÍA ── */
@@ -201,13 +201,13 @@
     .mem-text .section-title { color: var(--blanco); }
     .mem-text .section-sub { color: rgba(255,255,255,.55); }
     .mem-benefits { margin: 32px 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .mem-benefits li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,.8); font-weight: 400; line-height: 1.6; }
+    .mem-benefits li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,.8); font-weight: 400; line-height: 1.6; }
     .mem-benefits li::before { content: ''; width: 14px; height: 14px; min-width: 14px; border-radius: 2px; background: var(--rojo); margin-top: 3px; }
     .mem-cards { display: flex; flex-direction: column; gap: 16px; }
     .mem-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-left: 4px solid rgba(255,255,255,.15); border-radius: 8px; padding: 24px; position: relative; }
     .mem-card.featured { background: var(--rojo); border-color: var(--rojo); }
     .mem-card.featured * { color: var(--blanco) !important; }
-    .mem-card h4 { font-size: 13px; font-weight: 900; color: var(--blanco); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .08em; }
+    .mem-card h4 { font-size: 14px; font-weight: 900; color: var(--blanco); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .08em; }
     .mem-card-discount { font-size: 26px; font-weight: 900; color: var(--dorado); line-height: 1.2; }
     .mem-card p { font-size: 12px; color: rgba(255,255,255,.55); margin-top: 6px; font-weight: 400; }
     .mem-card-badge { position: absolute; top: 16px; right: 16px; background: var(--dorado); color: var(--azul-dark); font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
@@ -233,8 +233,8 @@
     .news-thumb::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--rojo); }
     .news-body { padding: 22px; }
     .news-date { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--rojo); margin-bottom: 8px; }
-    .news-body h3 { font-size: 15px; font-weight: 900; color: var(--azul); margin-bottom: 10px; line-height: 1.3; text-transform: uppercase; letter-spacing: .01em; }
-    .news-body p { font-size: 13px; color: var(--gris-mid); line-height: 1.7; margin-bottom: 16px; font-weight: 400; }
+    .news-body h3 { font-size: 16px; font-weight: 900; color: var(--azul); margin-bottom: 10px; line-height: 1.3; text-transform: uppercase; letter-spacing: .01em; }
+    .news-body p { font-size: 14px; color: var(--gris-mid); line-height: 1.7; margin-bottom: 16px; font-weight: 400; }
     .news-link { font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--rojo); text-decoration: none; }
 
     /* ── CONTACTO ── */
@@ -246,8 +246,8 @@
     .contact-info .section-sub { color: rgba(255,255,255,.55); margin-bottom: 36px; }
     .contact-items { display: flex; flex-direction: column; gap: 20px; }
     .contact-item { display: flex; gap: 14px; align-items: flex-start; }
-    .contact-item-icon { width: 40px; height: 40px; min-width: 40px; border-radius: 6px; background: rgba(227,30,39,.2); border: 1px solid rgba(227,30,39,.3); display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    .contact-item-text { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.7; font-weight: 400; }
+    .contact-item-icon { width: 40px; height: 40px; min-width: 40px; border-radius: 6px; background: rgba(227,30,39,.2); border: 1px solid rgba(227,30,39,.3); display: flex; align-items: center; justify-content: center; font-size: 17px; }
+    .contact-item-text { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.7; font-weight: 400; }
     .contact-item-text strong { display: block; font-size: 12px; font-weight: 800; color: var(--blanco); margin-bottom: 2px; text-transform: uppercase; letter-spacing: .06em; }
     .contact-form { display: flex; flex-direction: column; gap: 14px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -255,7 +255,7 @@
     .form-group label { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.4); }
     .form-group input, .form-group textarea, .form-group select {
       background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-      border-radius: 4px; padding: 13px 14px; font-size: 13px;
+      border-radius: 4px; padding: 13px 14px; font-size: 14px;
       font-family: 'SonnyVol2', sans-serif; color: var(--blanco); outline: none;
       transition: border-color var(--t); font-weight: 400;
     }
@@ -270,6 +270,15 @@
     .dept-card h5 { font-size: 10px; font-weight: 900; color: var(--blanco); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .08em; }
     .dept-card p { font-size: 11px; color: rgba(255,255,255,.45); line-height: 1.7; font-weight: 400; }
     .dept-card a { color: var(--dorado); text-decoration: none; }
+
+    /* ── AUSPICIADORES ── */
+    #auspiciadores { background: var(--gris); padding: 72px 0; }
+    .sponsors-grid { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 48px; }
+    .sponsor-item { background: var(--blanco); border: 1px solid rgba(41,40,92,.1); border-radius: 8px; width: 190px; height: 100px; display: flex; align-items: center; justify-content: center; padding: 20px 24px; transition: transform var(--t), box-shadow var(--t), border-color var(--t); }
+    .sponsor-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(41,40,92,.1); border-color: var(--rojo); }
+    .sponsor-item img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%) opacity(.55); transition: filter var(--t); display: block; }
+    .sponsor-item:hover img { filter: grayscale(0%) opacity(1); }
+    @media (max-width: 640px) { .sponsors-grid { gap: 10px; } .sponsor-item { width: 140px; height: 76px; padding: 14px 18px; } }
 
     /* ── FOOTER ── */
     footer { background: var(--azul-dark); border-top: 3px solid var(--rojo); padding: 40px 32px; text-align: center; }
@@ -298,6 +307,8 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .nav-links.open { display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; gap: 2px; border-top: 2px solid var(--rojo); }
+      .nav-links .dropdown-menu { position: static; box-shadow: none; min-width: unset; background: rgba(255,255,255,.08); border: none; border-radius: 4px; margin: 4px 0 4px 12px; padding: 4px; }
+      .nav-links .dropdown > a::after { content: ' ▾'; }
       .about-grid, .mem-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
       .ramas-grid { grid-template-columns: 1fr; }
       .rama-card { aspect-ratio: 16/9; }
@@ -308,11 +319,24 @@
       .stat { min-width: 50%; }
       .valores { grid-template-columns: 1fr; }
       .dept-grid { grid-template-columns: 1fr; }
+      .about-badge { bottom: -10px; right: -10px; width: 80px; height: 80px; }
+      .about-badge-num { font-size: 20px; }
     }
     @media (max-width: 600px) {
       section { padding: 60px 0; }
       .container { padding: 0 18px; }
       .hero-actions { flex-direction: column; align-items: center; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:nth-child(1) { grid-column: 1; }
+      .stat { min-width: 100%; border-right: none; }
+      .act-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 14px; }
+      section { padding: 48px 0; }
+      .ramas-grid { gap: 10px; }
+      .about-grid { gap: 24px; }
+      .hero-year { display: none; }
     }
   </style>
 </head>
@@ -323,7 +347,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="Logo_stade.png" alt="Stade Français" />
+    <img src="logo_stade.png" alt="Stade Français" />
     <div class="nav-logo-text">
       Stade Français
       <span>Club Deportivo · Est. 1929</span>
@@ -397,7 +421,7 @@
     <div class="about-grid">
       <div class="about-visual reveal">
         <div class="about-img">
-          <img src="FOTOS NUEVAS/club.jpg" alt="Club Stade Français" />
+          <img src="fotos-nuevas/club.jpg" alt="Club Stade Français" />
         </div>
         <div class="about-badge">
           <div class="about-badge-num">95+</div>
@@ -414,7 +438,7 @@
           <div class="about-feature">Tenis</div>
           <div class="about-feature">Natación</div>
           <div class="about-feature">Pádel</div>
-          <div class="about-feature">Crossfit</div>
+          <div class="about-feature">Protrainer</div>
           <div class="about-feature">Ballet</div>
         </div>
         <a href="hazte-socio.html" class="btn-primary reveal reveal-delay-3" style="display:inline-block">Conoce los Beneficios</a>
@@ -481,7 +505,7 @@
     </div>
     <div class="act-grid">
       <div class="act-card reveal">
-        <div class="act-card-photo" style="background-image:url('FOTOS NUEVAS/canchas de padel.jpg')"></div>
+        <div class="act-card-photo" style="background-image:url('fotos-nuevas/canchas-de-padel.jpg')"></div>
         <div class="act-card-body">
           <h3>Pádel</h3>
           <p>Canchas de pádel con vista al skyline de Santiago. Clases, arriendo y torneos internos disponibles.</p>
@@ -489,7 +513,7 @@
         </div>
       </div>
       <div class="act-card reveal reveal-delay-1">
-        <div class="act-card-photo" style="background-image:url('FOTOS NUEVAS/zona juegos.jpg'); background-position: center 20%;"></div>
+        <div class="act-card-photo" style="background-image:url('fotos-nuevas/zona-juegos.jpg'); background-position: center 20%;"></div>
         <div class="act-card-body">
           <h3>Academias Infantiles</h3>
           <p>Taekwondo, ballet y fútbol para niños entre 6 y 12 años. Desarrollo deportivo y personal desde pequeños.</p>
@@ -497,15 +521,15 @@
         </div>
       </div>
       <div class="act-card reveal reveal-delay-2">
-        <div class="act-card-photo" style="background-image:url('FOTOS NUEVAS/protrainer.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="act-card-photo" style="background-image:url('fotos-nuevas/protrainer.jpg'); background-size:cover; background-position:center;"></div>
         <div class="act-card-body">
-          <h3>CrossFit</h3>
+          <h3>Protrainer</h3>
           <p>Entrenamiento funcional de alta intensidad adaptado a todos los niveles. Comunidad motivada y resultados reales.</p>
           <span class="act-tag">Todas las edades</span>
         </div>
       </div>
       <div class="act-card reveal reveal-delay-3">
-        <div class="act-card-photo" style="background-image:url('gym 1.webp'); background-size:cover; background-position:center;"></div>
+        <div class="act-card-photo" style="background-image:url('gym-1.webp'); background-size:cover; background-position:center;"></div>
         <div class="act-card-body">
           <h3>Gimnasio</h3>
           <p>Equipamiento de última generación para tus rutinas de fuerza y cardio. Acceso para socios con horarios amplios.</p>
@@ -513,7 +537,7 @@
         </div>
       </div>
       <div class="act-card reveal">
-        <div class="act-card-photo" style="background-image:url('FOTOS NUEVAS/terraza maison.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="act-card-photo" style="background-image:url('fotos-nuevas/terraza-maison.jpg'); background-size:cover; background-position:center;"></div>
         <div class="act-card-body">
           <h3>La Maison</h3>
           <p>Espacios sociales disponibles para eventos privados, celebraciones y reuniones corporativas en ambiente exclusivo.</p>
@@ -521,7 +545,7 @@
         </div>
       </div>
       <div class="act-card reveal reveal-delay-1">
-        <div class="act-card-photo" style="background-image:url('FOTOS NUEVAS/salon principal.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="act-card-photo" style="background-image:url('fotos-nuevas/salon-principal.jpg'); background-size:cover; background-position:center;"></div>
         <div class="act-card-body">
           <h3>Sabores del Mundo</h3>
           <p>Restaurante del club con cocina de autor y ambiente acogedor. Abierto para socios y público general.</p>
@@ -579,13 +603,13 @@
       <h2 class="section-title reveal reveal-delay-1">El Club en Imágenes</h2>
     </div>
     <div class="gallery-grid reveal reveal-delay-2">
-      <div class="gallery-item"><img src="FOTOS NUEVAS/cancha rugby.jpg" alt="Rugby Stade Français" style="object-position:center 30%"/></div>
-      <div class="gallery-item"><img src="FOTOS NUEVAS/cancha tenis 2.jpg" alt="Tenis"/></div>
-      <div class="gallery-item"><img src="FOTOS NUEVAS/canchas de padel.jpg" alt="Pádel"/></div>
-      <div class="gallery-item"><img src="FOTOS NUEVAS/piscina 2.jpg" alt="Natación"/></div>
-      <div class="gallery-item"><img src="FOTOS NUEVAS/mukticancha.jpg" alt="Multicancha"/></div>
-      <div class="gallery-item"><img src="FOTOS NUEVAS/cancha tenis 4.jpg" alt="Tenis femenino"/></div>
-      <div class="gallery-item"><img src="FOTOS NUEVAS/canchas tenis.jpg" alt="Tenis"/></div>
+      <div class="gallery-item"><img src="fotos-nuevas/cancha-rugby.jpg" alt="Rugby Stade Français" style="object-position:center 30%"/></div>
+      <div class="gallery-item"><img src="fotos-nuevas/cancha-tenis-2.jpg" alt="Tenis"/></div>
+      <div class="gallery-item"><img src="fotos-nuevas/canchas-de-padel.jpg" alt="Pádel"/></div>
+      <div class="gallery-item"><img src="fotos-nuevas/piscina-2.jpg" alt="Natación"/></div>
+      <div class="gallery-item"><img src="fotos-nuevas/mukticancha.jpg" alt="Multicancha"/></div>
+      <div class="gallery-item"><img src="fotos-nuevas/cancha-tenis-4.jpg" alt="Tenis femenino"/></div>
+      <div class="gallery-item"><img src="fotos-nuevas/canchas-tenis.jpg" alt="Tenis"/></div>
     </div>
   </div>
 </section>
@@ -600,7 +624,7 @@
     </div>
     <div class="news-grid">
       <div class="news-card reveal">
-        <div class="news-thumb" style="background-image:url('FOTOS NUEVAS/piscina 2.jpg')"></div>
+        <div class="news-thumb" style="background-image:url('fotos-nuevas/piscina-2.jpg')"></div>
         <div class="news-body">
           <div class="news-date">3 Octubre 2025</div>
           <h3>Dos Jóvenes Nadadores a la Copa del Pacífico</h3>
@@ -609,7 +633,7 @@
         </div>
       </div>
       <div class="news-card reveal reveal-delay-1">
-        <div class="news-thumb" style="background-image:url('FOTOS NUEVAS/club 2.jpg')"></div>
+        <div class="news-thumb" style="background-image:url('fotos-nuevas/club-2.jpg')"></div>
         <div class="news-body">
           <div class="news-date">Octubre 2025</div>
           <h3>Versiones Definitivas de los Reglamentos</h3>
@@ -618,7 +642,7 @@
         </div>
       </div>
       <div class="news-card reveal reveal-delay-2">
-        <div class="news-thumb" style="background-image:url('FOTOS NUEVAS/canchas tenis.jpg')"></div>
+        <div class="news-thumb" style="background-image:url('fotos-nuevas/canchas-tenis.jpg')"></div>
         <div class="news-body">
           <div class="news-date">Mayo 2025</div>
           <h3>Torneo Súper Americano de Pádel</h3>
@@ -652,16 +676,17 @@
         </div>
       </div>
       <div class="reveal reveal-delay-2">
-        <form class="contact-form" onsubmit="handleSubmit(event)">
+        <form class="contact-form" method="POST" action="https://formspree.io/f/XXXXXXXX">
+          <input type="hidden" name="_subject" value="Contacto Web — Stade Français" />
           <div class="form-row">
-            <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
-            <div class="form-group"><label>Apellido</label><input type="text" placeholder="Tu apellido" required /></div>
+            <div class="form-group"><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre" required /></div>
+            <div class="form-group"><label>Apellido</label><input type="text" name="apellido" placeholder="Tu apellido" required /></div>
           </div>
-          <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com" required /></div>
-          <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+56 9 XXXX XXXX" /></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="tu@email.com" required /></div>
+          <div class="form-group"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" /></div>
           <div class="form-group">
             <label>Asunto</label>
-            <select>
+            <select name="asunto">
               <option value="">Selecciona un asunto</option>
               <option>Información de membresía</option>
               <option>Arriendo de instalaciones</option>
@@ -671,9 +696,34 @@
               <option>Eventos</option><option>Otro</option>
             </select>
           </div>
-          <div class="form-group"><label>Mensaje</label><textarea placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea></div>
+          <div class="form-group"><label>Mensaje</label><textarea name="mensaje" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea></div>
           <button type="submit" class="btn-submit">Enviar Mensaje</button>
         </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUSPICIADORES -->
+<section id="auspiciadores">
+  <div class="container">
+    <div class="section-label reveal">Partners</div>
+    <h2 class="section-title reveal reveal-delay-1">Auspiciadores Oficiales</h2>
+    <div class="sponsors-grid reveal reveal-delay-2">
+      <div class="sponsor-item">
+        <img src="AUSPICIADORES/icafal.jpg" alt="Icafal" />
+      </div>
+      <div class="sponsor-item" style="padding:10px 14px;">
+        <img src="AUSPICIADORES/ACIERTA.png" alt="Acierta" />
+      </div>
+      <div class="sponsor-item">
+        <img src="AUSPICIADORES/JUMBO.jpg" alt="Jumbo" />
+      </div>
+      <div class="sponsor-item">
+        <img src="AUSPICIADORES/gatorade.png" alt="Gatorade" />
+      </div>
+      <div class="sponsor-item">
+        <img src="AUSPICIADORES/MEDS.jpg" alt="Meds" />
       </div>
     </div>
   </div>
@@ -682,7 +732,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <img src="Logo_stade.png" alt="Stade Français" class="footer-logo-img" />
+    <img src="logo_stade.png" alt="Stade Français" class="footer-logo-img" />
     <div class="footer-tagline">Las Condes · Santiago · Chile · Club Deportivo · Est. 1929</div>
     <div class="footer-social">
       <a href="https://www.instagram.com/stadefrancaiscl" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
@@ -709,6 +759,16 @@
   const navLinks = document.getElementById('nav-links');
   hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 
+  document.querySelectorAll('.nav-links .dropdown > a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        const menu = this.parentElement.querySelector('.dropdown-menu');
+        if (menu) menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
+
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.hero-dot');
   let current = 0, timer;
@@ -722,14 +782,19 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    const orig = btn.textContent;
-    btn.textContent = '✓ Mensaje enviado';
-    btn.style.background = '#27ae60';
-    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; e.target.reset(); }, 3000);
-  }
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/TU_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

@@ -20,10 +20,10 @@
     nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
-    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text { font-size: 15px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
     .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
-    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
     .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
     .nav-links li { position: relative; }
     .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
@@ -38,7 +38,7 @@
 
     /* HERO */
     .page-hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
-    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('RESTAURANTES/rest-sdm-1.png'); }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('restaurantes/rest-lm-1.jpg'); }
     .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.98) 0%, rgba(26,26,46,.6) 40%, rgba(41,40,92,.15) 100%); }
     .page-hero-content { position: relative; z-index: 2; padding: 64px; max-width: 1200px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: flex-end; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; }
@@ -48,7 +48,7 @@
     .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
     .page-hero h1 { font-size: clamp(52px, 8.5vw, 108px); font-weight: 900; color: var(--blanco); line-height: .88; text-transform: uppercase; letter-spacing: -.02em; margin-bottom: 18px; }
     .page-hero h1 em { color: var(--dorado); font-style: normal; }
-    .page-hero p { font-size: 17px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
+    .page-hero p { font-size: 18px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 520px; }
     .hero-quick-facts { display: flex; flex-direction: column; gap: 16px; min-width: 190px; }
     .hqf { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 18px 20px; text-align: center; }
     .hqf-num { font-size: 26px; font-weight: 900; color: var(--dorado); line-height: 1; }
@@ -69,7 +69,7 @@
     .section-label.light { color: var(--dorado); } .section-label.light::after { background: var(--dorado); }
     .section-title { font-size: clamp(26px, 3.5vw, 44px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
     .section-title.light { color: var(--blanco); }
-    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
+    .section-sub { font-size: 16px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
 
     /* FEATURE GRID */
     .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 64px rgba(41,40,92,.12); margin-top: 56px; }
@@ -85,7 +85,7 @@
     .feature-tag.dark::after { background: var(--rojo); }
     .feature-content h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin-bottom: 18px; }
     .feature-content.light h2 { color: var(--azul); }
-    .feature-content p { font-size: 15px; color: rgba(255,255,255,.65); line-height: 1.85; font-weight: 400; margin-bottom: 24px; }
+    .feature-content p { font-size: 16px; color: rgba(255,255,255,.65); line-height: 1.85; font-weight: 400; margin-bottom: 24px; }
     .feature-content.light p { color: var(--gris-mid); }
     .feature-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
     .fspec { background: rgba(255,255,255,.07); border-radius: 6px; padding: 14px 16px; }
@@ -93,7 +93,7 @@
     .fspec-ico { font-size: 20px; margin-bottom: 4px; }
     .fspec-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); }
     .feature-content.light .fspec-label { color: var(--gris-mid); }
-    .fspec-val { font-size: 14px; font-weight: 900; color: var(--blanco); margin-top: 2px; }
+    .fspec-val { font-size: 15px; font-weight: 900; color: var(--blanco); margin-top: 2px; }
     .feature-content.light .fspec-val { color: var(--azul); }
     .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--rojo); color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 14px 28px; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; transition: background var(--t), transform var(--t); }
     .btn-primary:hover { background: #c0161e; transform: translateY(-2px); }
@@ -113,9 +113,9 @@
     #beneficio { background: var(--azul); }
     .beneficio-grid { display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: center; }
     .beneficio-grid h2 { font-size: clamp(28px, 3.5vw, 46px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; margin-bottom: 18px; }
-    .beneficio-grid p { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; max-width: 500px; margin-bottom: 24px; }
+    .beneficio-grid p { font-size: 16px; color: rgba(255,255,255,.5); line-height: 1.85; font-weight: 300; max-width: 500px; margin-bottom: 24px; }
     .beneficio-list { display: flex; flex-direction: column; gap: 10px; }
-    .beneficio-item { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.7); }
+    .beneficio-item { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; color: rgba(255,255,255,.7); }
     .beneficio-item::before { content: '✓'; display: inline-flex; width: 22px; height: 22px; background: rgba(246,170,12,.15); border: 1px solid rgba(246,170,12,.3); border-radius: 50%; align-items: center; justify-content: center; font-size: 10px; color: var(--dorado); flex-shrink: 0; }
     .beneficio-badge { background: var(--dorado); border-radius: 12px; padding: 36px 44px; text-align: center; }
     .beneficio-pct { font-size: 80px; font-weight: 900; color: var(--azul); line-height: 1; }
@@ -129,7 +129,7 @@
     #contacto { background: var(--rojo); padding: 64px 0; }
     .contacto-strip { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
     .contacto-strip h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
-    .contacto-strip p { font-size: 14px; color: rgba(255,255,255,.65); margin-top: 8px; font-weight: 300; }
+    .contacto-strip p { font-size: 15px; color: rgba(255,255,255,.65); margin-top: 8px; font-weight: 300; }
     .contacto-btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--blanco); color: var(--rojo); font-family: 'SonnyVol2', sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 14px 22px; border-radius: 4px; text-decoration: none; white-space: nowrap; transition: transform var(--t), box-shadow var(--t); }
     .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
@@ -162,6 +162,8 @@
     @media (max-width: 768px) {
       nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
       .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .nav-links .dropdown-menu { position: static; box-shadow: none; min-width: unset; background: rgba(255,255,255,.08); border: none; border-radius: 4px; margin: 4px 0 4px 12px; padding: 4px; }
+      .nav-links .dropdown > a::after { content: ' ▾'; }
       .page-hero-content { grid-template-columns: 1fr; padding: 32px 24px; }
       .hero-quick-facts { flex-direction: row; }
       .stats-inner { flex-wrap: wrap; gap: 16px; justify-content: center; }
@@ -172,6 +174,18 @@
       .contacto-strip { flex-direction: column; text-align: center; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
+    @media (max-width: 600px) {
+      .photo-strip { grid-template-columns: 1fr; }
+      .photo-strip .strip-photo:last-child { grid-column: 1; }
+      .cta-inner { padding: 0 16px; }
+      section { padding: 56px 0; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .page-hero-content { padding: 24px 16px 36px; }
+      section { padding: 44px 0; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -180,7 +194,7 @@
 
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="Logo_stade.png" alt="Stade Français" />
+    <img src="logo_stade.png" alt="Stade Français" />
     <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
   </a>
   <ul class="nav-links" id="nav-links">
@@ -275,7 +289,7 @@
   <div class="container">
     <div class="feature-grid reveal">
       <div class="feature-img">
-        <img src="RESTAURANTES/rest-sdm-1.png" alt="La Maison — Stade Français" />
+        <img src="restaurantes/rest-sdm-1.jpg" alt="La Maison — Stade Français" />
         <div class="feature-img-overlay"></div>
       </div>
       <div class="feature-content">
@@ -320,19 +334,19 @@
     <h2 class="section-title light reveal reveal-delay-1">Lo Mejor de Nuestra Mesa</h2>
     <div class="photo-strip reveal reveal-delay-2">
       <div class="strip-photo">
-        <img src="RESTAURANTES/rest-sdm-1.png" alt="La Maison" />
+        <img src="restaurantes/rest-sdm-1.jpg" alt="La Maison" />
         <div class="strip-label">Desayuno <span>La Maison</span></div>
       </div>
       <div class="strip-photo">
-        <img src="RESTAURANTES/rest-lm-1.png" alt="Sabores del Mundo" />
+        <img src="restaurantes/rest-lm-1.jpg" alt="Sabores del Mundo" />
         <div class="strip-label">Clásico <span>Sabores del Mundo</span></div>
       </div>
       <div class="strip-photo">
-        <img src="FOTOS NUEVAS/terraza maison.jpg" alt="La Maison" />
+        <img src="fotos-nuevas/terraza-maison.jpg" alt="La Maison" />
         <div class="strip-label">Terraza <span>La Maison</span></div>
       </div>
       <div class="strip-photo">
-        <img src="RESTAURANTES/rest-lm-2.png" alt="Sabores del Mundo" />
+        <img src="restaurantes/rest-lm-2.jpg" alt="Sabores del Mundo" />
         <div class="strip-label">Especialidad <span>Sabores del Mundo</span></div>
       </div>
     </div>
@@ -349,7 +363,7 @@
   <div class="container">
     <div class="feature-grid reveal" style="direction: rtl;">
       <div class="feature-img" style="direction: ltr;">
-        <img src="RESTAURANTES/rest-lm-1.png" alt="Sabores del Mundo — Stade Français" />
+        <img src="restaurantes/rest-lm-1.jpg" alt="Sabores del Mundo — Stade Français" />
         <div class="feature-img-overlay"></div>
       </div>
       <div class="feature-content light" style="direction: ltr;">
@@ -437,7 +451,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="Logo_stade.png" alt="Stade Français" />
+        <img src="logo_stade.png" alt="Stade Français" />
         <p>Club deportivo y social en el corazón de Las Condes, Santiago. Desde 1929, formando atletas y comunidad.</p>
       </div>
       <div class="footer-col">
@@ -479,10 +493,33 @@
   });
   document.getElementById('hamburger').addEventListener('click', () =>
     document.getElementById('nav-links').classList.toggle('open'));
+
+  document.querySelectorAll('.nav-links .dropdown > a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        const menu = this.parentElement.querySelector('.dropdown-menu');
+        if (menu) menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/TU_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

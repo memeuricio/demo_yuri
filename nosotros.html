@@ -20,10 +20,10 @@
     nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
-    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text { font-size: 15px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
     .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
-    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
     .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
     .nav-links li { position: relative; }
     .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
@@ -38,7 +38,7 @@
 
     /* HERO */
     .page-hero { position: relative; height: 85vh; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
-    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 25%; background-image: url('0Y3A3206.jpg'); }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 25%; background-image: url('0y3a3206.jpg'); }
     .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.98) 0%, rgba(41,40,92,.7) 40%, rgba(41,40,92,.25) 100%); }
     .page-hero-content { position: relative; z-index: 2; padding: 64px; max-width: 1200px; width: 100%; margin: 0 auto; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 20px; }
@@ -48,7 +48,7 @@
     .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
     .page-hero h1 { font-size: clamp(56px, 9vw, 110px); font-weight: 900; color: var(--blanco); line-height: .88; text-transform: uppercase; letter-spacing: -.02em; margin-bottom: 20px; }
     .page-hero h1 em { color: var(--dorado); font-style: normal; }
-    .page-hero p { font-size: 17px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 580px; }
+    .page-hero p { font-size: 18px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 580px; }
     .hero-date-badge { display: inline-flex; align-items: center; gap: 12px; background: rgba(246,170,12,.15); border: 1px solid rgba(246,170,12,.3); border-radius: 4px; padding: 10px 18px; margin-bottom: 24px; }
     .hero-date-badge span { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); }
 
@@ -61,12 +61,12 @@
     .section-label.light::after { background: var(--dorado); }
     .section-title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 900; color: var(--azul); margin-bottom: 16px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
     .section-title.light { color: var(--blanco); }
-    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.8; max-width: 600px; }
+    .section-sub { font-size: 16px; color: var(--gris-mid); line-height: 1.8; max-width: 600px; }
 
     /* HISTORIA */
     #historia { background: var(--gris); }
     .historia-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 72px; }
-    .historia-text p { font-size: 15px; color: #374151; line-height: 1.9; margin-bottom: 16px; font-weight: 400; }
+    .historia-text p { font-size: 16px; color: #374151; line-height: 1.9; margin-bottom: 16px; font-weight: 400; }
     .historia-text p:first-child::first-letter { font-size: 52px; font-weight: 900; float: left; line-height: .85; margin: 4px 10px 0 0; color: var(--rojo); }
     .historia-fotos { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 10px; }
     .historia-fotos img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center; display: block; border-radius: 8px; }
@@ -78,8 +78,8 @@
     .timeline-item:last-child { padding-bottom: 0; }
     .timeline-dot { position: absolute; left: -39px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--rojo); border: 3px solid var(--gris); box-shadow: 0 0 0 2px var(--rojo); }
     .timeline-date { font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--dorado); margin-bottom: 4px; }
-    .timeline-item h4 { font-size: 14px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
-    .timeline-item p { font-size: 13px; color: var(--gris-mid); line-height: 1.65; font-weight: 400; }
+    .timeline-item h4 { font-size: 15px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+    .timeline-item p { font-size: 14px; color: var(--gris-mid); line-height: 1.65; font-weight: 400; }
 
     /* MISIÓN VISIÓN VALORES */
     #mvv { background: var(--azul); position: relative; overflow: hidden; }
@@ -90,7 +90,7 @@
     .mvv-card:first-child { border-top-color: var(--rojo); }
     .mvv-icon { font-size: 32px; margin-bottom: 18px; }
     .mvv-card h3 { font-size: 18px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
-    .mvv-card p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.85; font-weight: 400; }
+    .mvv-card p { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.85; font-weight: 400; }
 
     /* ESTRUCTURA */
     #estructura { background: var(--gris); }
@@ -98,7 +98,7 @@
     .est-card { background: var(--blanco); border-radius: 8px; padding: 28px 22px; border-bottom: 3px solid var(--azul); transition: transform var(--t), box-shadow var(--t), border-color var(--t); }
     .est-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(41,40,92,.1); border-bottom-color: var(--rojo); }
     .est-num { font-size: 40px; font-weight: 900; color: rgba(41,40,92,.08); line-height: 1; margin-bottom: 8px; }
-    .est-card h4 { font-size: 14px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+    .est-card h4 { font-size: 15px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
     .est-card p { font-size: 12px; color: var(--gris-mid); line-height: 1.7; font-weight: 400; }
 
     /* DIRECTIVA */
@@ -112,7 +112,7 @@
     .dir-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     .dir-info { padding: 16px 16px 20px; }
     .dir-role { font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--rojo); margin-bottom: 5px; }
-    .dir-card h4 { font-size: 15px; font-weight: 900; color: var(--azul); letter-spacing: .02em; line-height: 1.3; }
+    .dir-card h4 { font-size: 16px; font-weight: 900; color: var(--azul); letter-spacing: .02em; line-height: 1.3; }
     .dir-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(41,40,92,.13); }
 
     /* EQUIPO EJECUTIVO */
@@ -121,7 +121,7 @@
     .exec-card { background: var(--blanco); border-radius: 6px; padding: 20px 16px; border-left: 3px solid var(--dorado); transition: transform var(--t); }
     .exec-card:hover { transform: translateY(-2px); }
     .exec-role { font-size: 8px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gris-mid); margin-bottom: 4px; }
-    .exec-card h5 { font-size: 13px; font-weight: 900; color: var(--azul); line-height: 1.25; }
+    .exec-card h5 { font-size: 14px; font-weight: 900; color: var(--azul); line-height: 1.25; }
 
     /* DIRECTIVAS RAMAS */
     #ramas-dir { background: var(--azul-dark); }
@@ -133,7 +133,7 @@
     .rama-dir-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 24px 20px; transition: transform var(--t); }
     .rama-dir-card:hover { transform: translateY(-3px); }
     .rama-dir-role { font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); margin-bottom: 6px; }
-    .rama-dir-card h5 { font-size: 15px; font-weight: 900; color: var(--blanco); margin-bottom: 8px; line-height: 1.2; }
+    .rama-dir-card h5 { font-size: 16px; font-weight: 900; color: var(--blanco); margin-bottom: 8px; line-height: 1.2; }
     .rama-dir-card p { font-size: 12px; color: rgba(255,255,255,.4); line-height: 1.6; font-weight: 400; }
 
     /* INSTALACIONES */
@@ -141,7 +141,7 @@
     .inst-groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
     .inst-group h4 { font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--rojo); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid rgba(227,30,39,.15); }
     .inst-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .inst-list li { font-size: 13px; color: var(--azul); font-weight: 400; display: flex; align-items: center; gap: 8px; }
+    .inst-list li { font-size: 14px; color: var(--azul); font-weight: 400; display: flex; align-items: center; gap: 8px; }
     .inst-list li::before { content: ''; width: 6px; height: 6px; min-width: 6px; background: var(--dorado); border-radius: 50%; }
     .inst-cta { margin-top: 48px; text-align: center; }
     .btn-outline { display: inline-block; padding: 14px 32px; border: 2px solid var(--azul); color: var(--azul); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all var(--t); }
@@ -151,7 +151,7 @@
     .contacto-strip { background: var(--rojo); padding: 40px; }
     .contacto-strip-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
     .contacto-strip h3 { font-size: 22px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: -.01em; }
-    .contacto-strip p { font-size: 13px; color: rgba(255,255,255,.7); margin-top: 4px; font-weight: 400; }
+    .contacto-strip p { font-size: 14px; color: rgba(255,255,255,.7); margin-top: 4px; font-weight: 400; }
     .btn-white { background: var(--blanco); color: var(--rojo); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; padding: 14px 28px; border-radius: 4px; text-decoration: none; white-space: nowrap; transition: transform var(--t); display: inline-block; }
     .btn-white:hover { transform: translateY(-2px); }
 
@@ -172,19 +172,30 @@
     @media (max-width: 900px) {
       nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
       .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .nav-links .dropdown-menu { position: static; box-shadow: none; min-width: unset; background: rgba(255,255,255,.08); border: none; border-radius: 4px; margin: 4px 0 4px 12px; padding: 4px; }
+      .nav-links .dropdown > a::after { content: ' ▾'; }
       .historia-intro { grid-template-columns: 1fr; gap: 40px; }
       .historia-fotos { position: static; }
       .page-hero-content { padding: 36px 24px; }
       .contacto-strip-inner { flex-direction: column; text-align: center; }
+      .dir-tabs { gap: 8px; flex-wrap: wrap; }
     }
     @media (max-width: 640px) { .estructura-grid, .inst-groups { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .page-hero-content { padding: 24px 16px 36px; }
+      section { padding: 48px 0; }
+      .dir-tabs { gap: 6px; }
+      .dir-tab { font-size: 9px; padding: 8px 14px; }
+      .dir-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+    }
   </style>
 </head>
 <body>
 <div class="top-stripe"></div>
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="Logo_stade.png" alt="Stade Français" />
+    <img src="logo_stade.png" alt="Stade Français" />
     <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
   </a>
   <ul class="nav-links" id="nav-links">
@@ -270,9 +281,9 @@
         </div>
       </div>
       <div class="historia-fotos reveal reveal-delay-1">
-        <img src="HISTORIA/hist-1.jpg" alt="Edificio histórico Stade Français" />
-        <img src="HISTORIA/hist-2.jpg" alt="Fundadores inspeccionando los terrenos" />
-        <img src="HISTORIA/hist-3.jpg" alt="Partido de tenis con los Andes" />
+        <img src="historia/hist-1.jpg" alt="Edificio histórico Stade Français" />
+        <img src="historia/hist-2.jpg" alt="Fundadores inspeccionando los terrenos" />
+        <img src="historia/hist-3.jpg" alt="Partido de tenis con los Andes" />
       </div>
     </div>
   </div>
@@ -342,23 +353,23 @@
     <p class="section-sub reveal reveal-delay-2">Nuestra directiva está conformada por socios comprometidos con el desarrollo del club y sus comunidades.</p>
     <div class="dir-grid">
       <div class="dir-card reveal">
-        <div class="dir-avatar"><img src="DIRECTORIO/Rodrigo Elzo Rojas.jpg" alt="Rodrigo Elzo Rojas"/></div>
+        <div class="dir-avatar"><img src="directorio/rodrigo-elzo-rojas.jpg" alt="Rodrigo Elzo Rojas"/></div>
         <div class="dir-info"><div class="dir-role">Presidente</div><h4>Rodrigo Elzo Rojas</h4></div>
       </div>
       <div class="dir-card reveal reveal-delay-1">
-        <div class="dir-avatar"><img src="DIRECTORIO/Andrés Reynolds Cañas.JPG" alt="Andrés Reynolds Cañas"/></div>
+        <div class="dir-avatar"><img src="directorio/andres-reynolds-canas.jpg" alt="Andrés Reynolds Cañas"/></div>
         <div class="dir-info"><div class="dir-role">Vicepresidente</div><h4>Andrés Reynolds Cañas</h4></div>
       </div>
       <div class="dir-card reveal reveal-delay-2">
-        <div class="dir-avatar"><img src="DIRECTORIO/ Liliana Martínez Covarrubias.jpg" alt="Liliana Martínez Covarrubias"/></div>
+        <div class="dir-avatar"><img src="directorio/liliana-martinez-covarrubias.jpg" alt="Liliana Martínez Covarrubias"/></div>
         <div class="dir-info"><div class="dir-role">Segunda Vicepresidenta</div><h4>Liliana Martínez Covarrubias</h4></div>
       </div>
       <div class="dir-card reveal">
-        <div class="dir-avatar"><img src="DIRECTORIO/Rodrigo Antonio Vial Dumas.jpg" alt="Rodrigo Antonio Vial Dumas"/></div>
+        <div class="dir-avatar"><img src="directorio/rodrigo-antonio-vial-dumas.jpg" alt="Rodrigo Antonio Vial Dumas"/></div>
         <div class="dir-info"><div class="dir-role">Director Financiero</div><h4>Rodrigo Antonio Vial Dumas</h4></div>
       </div>
       <div class="dir-card reveal reveal-delay-1">
-        <div class="dir-avatar"><img src="DIRECTORIO/Mi Na Santander Ha.jpg" alt="Mi Na Santander Ha"/></div>
+        <div class="dir-avatar"><img src="directorio/mi-na-santander-ha.jpg" alt="Mi Na Santander Ha"/></div>
         <div class="dir-info"><div class="dir-role">Secretaria General</div><h4>Mi Na Santander Ha</h4></div>
       </div>
       <div class="dir-card reveal reveal-delay-2">
@@ -366,7 +377,7 @@
         <div class="dir-info"><div class="dir-role">Directora Social</div><h4>Soledad Maureira Soruco</h4></div>
       </div>
       <div class="dir-card reveal">
-        <div class="dir-avatar"><img src="DIRECTORIO/LUIS ROMERO.jpg" alt="Luis Romero Cors"/></div>
+        <div class="dir-avatar"><img src="directorio/luis-romero.jpg" alt="Luis Romero Cors"/></div>
         <div class="dir-info"><div class="dir-role">Director Deportivo</div><h4>Luis Romero Cors</h4></div>
       </div>
     </div>
@@ -515,7 +526,7 @@
           <li>Frontón Tenis</li>
           <li>Pelota Vasca</li>
           <li>Gimnasio</li>
-          <li>Crossfit</li>
+          <li>Protrainer</li>
         </ul>
       </div>
       <div class="inst-group reveal reveal-delay-2">
@@ -560,7 +571,7 @@
 
 <footer>
   <div style="max-width:1200px;margin:0 auto">
-    <img src="Logo_stade.png" alt="Stade Français" class="footer-logo-img" />
+    <img src="logo_stade.png" alt="Stade Français" class="footer-logo-img" />
     <div class="footer-links">
       <a href="index.html">Inicio</a><a href="nosotros.html">Nosotros</a>
       <a href="rugby.html">Rugby</a><a href="tenis.html">Tenis</a><a href="natacion.html">Natación</a>
@@ -589,5 +600,18 @@
   }), { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/TU_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

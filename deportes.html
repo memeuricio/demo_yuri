@@ -20,10 +20,10 @@
     nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
-    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text { font-size: 15px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
     .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
-    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
     .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
     .nav-links li { position: relative; }
     .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
@@ -38,7 +38,7 @@
 
     /* HERO */
     .page-hero { position: relative; height: 80vh; min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; }
-    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 20%; background-image: url('FOTOS NUEVAS/academia tenis.jpg'); }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 20%; background-image: url('fotos-nuevas/academia-tenis.jpg'); }
     .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.97) 0%, rgba(41,40,92,.6) 45%, rgba(41,40,92,.2) 100%); }
     .page-hero-content { position: relative; z-index: 2; padding: 56px 64px; max-width: 1200px; width: 100%; margin: 0 auto; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 16px; }
@@ -48,7 +48,7 @@
     .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
     .page-hero h1 { font-size: clamp(52px, 8vw, 96px); font-weight: 900; color: var(--blanco); line-height: .9; text-transform: uppercase; letter-spacing: -.02em; margin-bottom: 16px; }
     .page-hero h1 em { color: var(--dorado); font-style: normal; }
-    .page-hero p { font-size: 16px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 560px; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,.6); font-weight: 300; line-height: 1.8; max-width: 560px; }
 
     /* FILTROS */
     .filtros-bar { background: var(--azul); padding: 0 40px; position: sticky; top: 72px; z-index: 100; }
@@ -65,7 +65,7 @@
     .section-label.light { color: var(--dorado); } .section-label.light::after { background: var(--dorado); }
     .section-title { font-size: clamp(24px, 3.5vw, 42px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
     .section-title.light { color: var(--blanco); }
-    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
+    .section-sub { font-size: 16px; color: var(--gris-mid); line-height: 1.8; max-width: 580px; }
 
     /* GRID ACTIVIDADES */
     #actividades { background: var(--gris); }
@@ -77,7 +77,7 @@
     .act-card:hover .act-card-img-inner { transform: scale(1.06); }
     .act-card-body { padding: 20px 18px; }
     .act-tag { display: inline-block; font-size: 8px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--rojo); border: 1px solid rgba(227,30,39,.3); padding: 3px 8px; border-radius: 2px; margin-bottom: 8px; }
-    .act-card h3 { font-size: 16px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+    .act-card h3 { font-size: 17px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
     .act-card p { font-size: 12px; color: var(--gris-mid); line-height: 1.65; font-weight: 400; margin-bottom: 12px; }
     .act-meta { display: flex; gap: 12px; flex-wrap: wrap; }
     .act-meta-item { font-size: 10px; font-weight: 700; color: var(--azul); letter-spacing: .04em; display: flex; align-items: center; gap: 4px; }
@@ -91,11 +91,11 @@
     .act-detail-img { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; }
     .act-detail-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .act-detail-body {}
-    .act-detail-body p { font-size: 15px; color: #374151; line-height: 1.85; margin-bottom: 16px; font-weight: 400; }
+    .act-detail-body p { font-size: 16px; color: #374151; line-height: 1.85; margin-bottom: 16px; font-weight: 400; }
     .info-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
     .info-table tr { border-bottom: 1px solid rgba(41,40,92,.08); }
     .info-table tr:last-child { border-bottom: none; }
-    .info-table td { padding: 10px 0; font-size: 13px; vertical-align: top; }
+    .info-table td { padding: 10px 0; font-size: 14px; vertical-align: top; }
     .info-table td:first-child { font-weight: 800; color: var(--azul); text-transform: uppercase; letter-spacing: .06em; font-size: 10px; width: 120px; padding-right: 16px; padding-top: 12px; }
     .info-table td:last-child { color: #374151; line-height: 1.6; font-weight: 400; }
     .precio-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--azul); color: var(--blanco); border-radius: 4px; padding: 6px 14px; font-size: 12px; font-weight: 800; margin-right: 6px; margin-bottom: 6px; }
@@ -115,7 +115,7 @@
     .acad-card:hover { background: rgba(255,255,255,.11); border-top-color: var(--dorado); }
     .acad-icon { font-size: 40px; margin-bottom: 18px; }
     .acad-card h3 { font-size: 20px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
-    .acad-card p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.8; font-weight: 400; margin-bottom: 20px; }
+    .acad-card p { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.8; font-weight: 400; margin-bottom: 20px; }
     .acad-cats { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
     .acad-cat { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--dorado); background: rgba(246,170,12,.12); border: 1px solid rgba(246,170,12,.25); padding: 4px 10px; border-radius: 3px; }
     .btn-acad { display: inline-block; background: var(--rojo); color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; padding: 12px 22px; border-radius: 4px; text-decoration: none; transition: all var(--t); }
@@ -126,16 +126,16 @@
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
     .form-info h3 { font-size: 18px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 12px; margin-top: 28px; }
     .form-info h3:first-child { margin-top: 0; }
-    .form-info p { font-size: 14px; color: var(--gris-mid); line-height: 1.8; margin-bottom: 10px; }
+    .form-info p { font-size: 15px; color: var(--gris-mid); line-height: 1.8; margin-bottom: 10px; }
     .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
-    .contact-ico { width: 38px; min-width: 38px; height: 38px; background: var(--azul); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    .contact-body { font-size: 13px; color: var(--azul); line-height: 1.6; }
+    .contact-ico { width: 38px; min-width: 38px; height: 38px; background: var(--azul); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 17px; }
+    .contact-body { font-size: 14px; color: var(--azul); line-height: 1.6; }
     .contact-body strong { display: block; font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--rojo); margin-bottom: 2px; }
     .form-card { background: var(--blanco); border-radius: 10px; padding: 36px; border-top: 4px solid var(--rojo); box-shadow: 0 4px 24px rgba(41,40,92,.08); }
     .form-card h3 { font-size: 18px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 20px; }
     .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
     .form-group label { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(41,40,92,.5); }
-    .form-group input, .form-group select, .form-group textarea { background: var(--gris); border: 1px solid rgba(41,40,92,.1); border-radius: 4px; padding: 12px 14px; font-size: 13px; font-family: 'SonnyVol2', sans-serif; color: var(--azul); outline: none; transition: border-color var(--t); font-weight: 400; }
+    .form-group input, .form-group select, .form-group textarea { background: var(--gris); border: 1px solid rgba(41,40,92,.1); border-radius: 4px; padding: 12px 14px; font-size: 14px; font-family: 'SonnyVol2', sans-serif; color: var(--azul); outline: none; transition: border-color var(--t); font-weight: 400; }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--rojo); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .btn-submit { background: var(--rojo); color: var(--blanco); font-family: 'SonnyVol2', sans-serif; font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; padding: 15px; border-radius: 4px; border: none; cursor: pointer; width: 100%; margin-top: 4px; transition: background var(--t); }
@@ -156,10 +156,24 @@
     @media (max-width: 900px) {
       nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
       .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .nav-links .dropdown-menu { position: static; box-shadow: none; min-width: unset; background: rgba(255,255,255,.08); border: none; border-radius: 4px; margin: 4px 0 4px 12px; padding: 4px; }
+      .nav-links .dropdown > a::after { content: ' ▾'; }
       .page-hero-content { padding: 36px 24px; }
       .act-detail-grid, .act-detail-grid.reverse { grid-template-columns: 1fr; direction: ltr; gap: 36px; }
       .acad-grid, .form-grid { grid-template-columns: 1fr; gap: 36px; }
       .form-row { grid-template-columns: 1fr; }
+      .act-cards-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .act-cards-grid { grid-template-columns: 1fr; }
+      .act-detail-img { aspect-ratio: 16/9; min-height: unset; }
+      section { padding: 56px 0; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .page-hero-content { padding: 24px 16px; }
+      section { padding: 44px 0; }
+      .filtros-btn { font-size: 9px; padding: 10px 16px; }
     }
   </style>
 </head>
@@ -167,7 +181,7 @@
 <div class="top-stripe"></div>
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="Logo_stade.png" alt="Stade Français" />
+    <img src="logo_stade.png" alt="Stade Français" />
     <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
   </a>
   <ul class="nav-links" id="nav-links">
@@ -218,6 +232,7 @@
     <button class="filtro-btn" onclick="scrollTo('tenis-act')">🎾 Tenis</button>
     <button class="filtro-btn" onclick="scrollTo('taekwondo')">🥋 Taekwondo</button>
     <button class="filtro-btn" onclick="scrollTo('hidrogimnasia')">💧 Hidrogimnasia</button>
+    <button class="filtro-btn" onclick="scrollTo('kinesiologia')">🩺 Kinesiología</button>
     <button class="filtro-btn" onclick="scrollTo('academias')">🌟 Academias</button>
     <button class="filtro-btn" onclick="scrollTo('inscripcion')">📋 Inscríbete</button>
   </div>
@@ -231,7 +246,7 @@
     <p class="section-sub reveal reveal-delay-2">Más de 10 disciplinas disponibles para socios y usuarios. Elige la tuya.</p>
     <div class="act-grid">
       <div class="act-card reveal" onclick="scrollTo('padel')">
-        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('FOTOS NUEVAS/canchas de padel.jpg');background-position:center 40%"></div></div>
+        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('fotos-nuevas/canchas-de-padel.jpg');background-position:center 40%"></div></div>
         <div class="act-card-body">
           <span class="act-tag">Raqueta</span>
           <h3>Clases de Pádel</h3>
@@ -243,7 +258,7 @@
         </div>
       </div>
       <div class="act-card reveal reveal-delay-1" onclick="scrollTo('natacion-act')">
-        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('FOTOS NUEVAS/piscina 3.jpg');background-position:center 30%"></div></div>
+        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('fotos-nuevas/piscina-3.jpg');background-position:center 30%"></div></div>
         <div class="act-card-body">
           <span class="act-tag">Acuático</span>
           <h3>Natación Adultos</h3>
@@ -255,7 +270,7 @@
         </div>
       </div>
       <div class="act-card reveal reveal-delay-2" onclick="scrollTo('natacion-act')">
-        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('FOTOS NUEVAS/piscina 2.jpg');background-position:center 40%"></div></div>
+        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('fotos-nuevas/piscina-2.jpg');background-position:center 40%"></div></div>
         <div class="act-card-body">
           <span class="act-tag">Acuático · Libre</span>
           <h3>Nado Libre</h3>
@@ -267,7 +282,7 @@
         </div>
       </div>
       <div class="act-card reveal" onclick="scrollTo('tenis-act')">
-        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('FOTOS NUEVAS/academia tenis.jpg');background-position:center top"></div></div>
+        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('fotos-nuevas/academia-tenis.jpg');background-position:center top"></div></div>
         <div class="act-card-body">
           <span class="act-tag">Raqueta</span>
           <h3>Clases de Tenis</h3>
@@ -279,7 +294,7 @@
         </div>
       </div>
       <div class="act-card reveal reveal-delay-1" onclick="scrollTo('taekwondo')">
-        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('FOTOS NUEVAS/taekwondo.jpg');background-position:center;filter:grayscale(20%)"></div></div>
+        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('fotos-nuevas/taekwondo.jpg');background-position:center;filter:grayscale(20%)"></div></div>
         <div class="act-card-body">
           <span class="act-tag">Artes Marciales</span>
           <h3>Taekwondo</h3>
@@ -291,7 +306,7 @@
         </div>
       </div>
       <div class="act-card reveal reveal-delay-2" onclick="scrollTo('hidrogimnasia')">
-        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('FOTOS NUEVAS/piscina 3.jpg');background-position:center 60%"></div></div>
+        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('fotos-nuevas/piscina-3.jpg');background-position:center 60%"></div></div>
         <div class="act-card-body">
           <span class="act-tag">Acuático · Fitness</span>
           <h3>Hidrogimnasia</h3>
@@ -299,6 +314,18 @@
           <div class="act-meta">
             <div class="act-meta-item">💧 Piscina temperada</div>
             <div class="act-meta-item">📋 Consultar valor 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="act-card reveal" onclick="scrollTo('kinesiologia')">
+        <div class="act-card-img"><div class="act-card-img-inner" style="background-image:url('kinesiologia.jpg');background-position:center 30%"></div></div>
+        <div class="act-card-body">
+          <span class="act-tag">Salud · Bienestar</span>
+          <h3>Kinesiología Deportiva</h3>
+          <p>KINEMAT ofrece atención integral al deportista: prevención, rehabilitación y optimización del rendimiento.</p>
+          <div class="act-meta">
+            <div class="act-meta-item">🩺 En el club</div>
+            <div class="act-meta-item">📋 Consultar disponibilidad</div>
           </div>
         </div>
       </div>
@@ -311,7 +338,7 @@
   <div class="container">
     <div class="act-detail-grid">
       <div class="act-detail-img reveal">
-        <img src="FOTOS NUEVAS/canchas de padel.jpg" alt="Pádel Stade Français" style="object-position:center 40%" />
+        <img src="fotos-nuevas/canchas-de-padel.jpg" alt="Pádel Stade Français" style="object-position:center 40%" />
       </div>
       <div class="act-detail-body">
         <div class="section-label reveal">Pádel</div>
@@ -320,38 +347,39 @@
 
         <table class="info-table reveal reveal-delay-2">
           <tr>
-            <td>Niños 7–11 años</td>
+            <td>Academia Pádel Menores<br/><span style="font-size:11px;color:var(--gris-mid);font-weight:400">6 a 11 años</span></td>
             <td>
               <div class="horario-pills">
                 <span class="pill">Martes y/o Jueves</span>
                 <span class="pill dest">17:00 – 18:00 hrs</span>
+                <span class="pill">4 clases / mes</span>
               </div>
             </td>
           </tr>
           <tr>
-            <td>Niños 12–16 años</td>
+            <td>Academia Pádel Menores<br/><span style="font-size:11px;color:var(--gris-mid);font-weight:400">12 a 16 años</span></td>
             <td>
               <div class="horario-pills">
                 <span class="pill">Lunes y/o Miércoles</span>
                 <span class="pill dest">17:00 – 18:00 hrs</span>
+                <span class="pill">4 clases / mes</span>
               </div>
             </td>
-          </tr>
-          <tr>
-            <td>Adultos</td>
-            <td>Clases individuales y grupales · Consultar disponibilidad</td>
           </tr>
           <tr>
             <td>Valores</td>
             <td>
               <span class="precio-badge">Socios: $48.000 / mes</span>
-              <span class="precio-badge ext">Externos: $60.000 / mes</span>
-              <div style="font-size:11px;color:var(--gris-mid);margin-top:6px">Valor por 1 clase semanal</div>
+              <span class="precio-badge ext">No Socios: $60.000 / mes</span>
             </td>
           </tr>
           <tr>
             <td>Informaciones</td>
-            <td><a href="https://wa.me/56990210287" style="color:var(--azul);text-decoration:none;font-weight:700">WhatsApp +56 9 9021 0287</a><br/><a href="mailto:informaciones@stadefrancais.cl" style="color:var(--azul);text-decoration:none;">informaciones@stadefrancais.cl</a></td>
+            <td>
+              <a href="https://wa.me/56990210287" style="color:var(--azul);text-decoration:none;font-weight:700">WhatsApp +56 9 9021 0287</a><br/>
+              <a href="mailto:patriciaceceres@stadefrancais.cl" style="color:var(--azul);text-decoration:none;">patriciaceceres@stadefrancais.cl</a><br/>
+              <a href="mailto:americotapia@stadefrancais.cl" style="color:var(--azul);text-decoration:none;">americotapia@stadefrancais.cl</a>
+            </td>
           </tr>
         </table>
         <a href="contacto.html" class="btn-detalle">Inscribirse</a>
@@ -366,7 +394,7 @@
   <div class="container">
     <div class="act-detail-grid reverse">
       <div class="act-detail-img reveal">
-        <img src="FOTOS NUEVAS/piscina 2.jpg" alt="Natación Stade Français" style="object-position:center 40%" />
+        <img src="fotos-nuevas/piscina-2.jpg" alt="Natación Stade Français" style="object-position:center 40%" />
       </div>
       <div class="act-detail-body">
         <div class="section-label reveal">Acuático</div>
@@ -376,15 +404,20 @@
         <table class="info-table reveal reveal-delay-2">
           <tr>
             <td>Natación Adultos</td>
-            <td>Clases técnicas por niveles · Horarios mañana y tarde · Consultar programación 2025</td>
+            <td>
+              <strong>Lun · Mié · Vie</strong> — 07:00–08:00 / 19:00–20:00 hrs · 12 clases<br/>
+              <span style="color:var(--rojo);font-weight:700">Socio: 1.08 UF</span> · No Socio: 2.24 UF<br/><br/>
+              <strong>Mar · Jue</strong> — 07:00–08:00 / 19:00–20:00 hrs · 8 clases<br/>
+              <span style="color:var(--rojo);font-weight:700">Socio: 0.97 UF</span> · No Socio: 1.49 UF
+            </td>
           </tr>
           <tr>
             <td>Nado Libre</td>
-            <td>Carriles abiertos para socios y usuarios externos · Sin inscripción previa · Horarios en recepción</td>
-          </tr>
-          <tr>
-            <td>Valores 2025</td>
-            <td>Consultar en recepción o escribir a informaciones@stadefrancais.cl</td>
+            <td>
+              <strong>Lunes a Viernes</strong> — franjas de 06:00 a 19:00 hrs<br/>
+              1 Ticket: $10.505 · 4 Tickets: 1.07 UF · 8 Tickets: 1.50 UF · 12 Tickets: 1.97 UF<br/>
+              <span style="font-size:11px;color:var(--gris-mid)">Precios + IVA</span>
+            </td>
           </tr>
           <tr>
             <td>Más info</td>
@@ -403,7 +436,7 @@
   <div class="container">
     <div class="act-detail-grid">
       <div class="act-detail-img reveal">
-        <img src="FOTOS NUEVAS/academia tenis.jpg" alt="Academia W-Tenis Pro Stade Français" style="object-position:center top" />
+        <img src="fotos-nuevas/academia-tenis.jpg" alt="Academia W-Tenis Pro Stade Français" style="object-position:center top" />
       </div>
       <div class="act-detail-body">
         <div class="section-label reveal">Tenis</div>
@@ -439,25 +472,36 @@
 <section id="taekwondo" class="act-detail">
   <div class="container">
     <div class="act-detail-grid reverse">
-      <div class="act-detail-img reveal" style="background-image:url('FOTOS NUEVAS/taekwondo.jpg');background-size:cover;background-position:center;border-radius:8px;min-height:400px">
+      <div class="act-detail-img reveal">
+        <img src="fotos-nuevas/taekwondo.jpg" alt="Taekwondo Stade Français" style="object-position:center;filter:grayscale(20%)" />
       </div>
       <div class="act-detail-body">
         <div class="section-label reveal">Artes Marciales</div>
         <h2 class="section-title reveal reveal-delay-1">Taekwondo:<br/>Concentración y Destreza</h2>
-        <p class="reveal reveal-delay-2">El Taekwondo desarrolla disciplina mental, reflejos, autocontrol y condición física. Nuestro programa está disponible para niños, jóvenes y adultos, con instructores certificados por la Federación de Taekwondo de Chile.</p>
+        <p class="reveal reveal-delay-2">El Taekwondo desarrolla disciplina mental, reflejos, autocontrol y condición física. Programa para niños de 5 a 12 años con instructores certificados por la Federación de Taekwondo de Chile.</p>
 
         <table class="info-table reveal reveal-delay-2">
           <tr>
-            <td>¿Para quién?</td>
-            <td>Niños desde 5 años · Jóvenes · Adultos · Sin experiencia previa necesaria</td>
-          </tr>
-          <tr>
             <td>Horarios</td>
-            <td>Consultar programación vigente en recepción del club</td>
+            <td>
+              <strong>Martes</strong> 17:30–18:30 hrs &nbsp;·&nbsp; <strong>Jueves</strong> 17:00–18:00 hrs &nbsp;·&nbsp; <strong>Sábado</strong> 10:00–11:00 hrs
+            </td>
           </tr>
           <tr>
-            <td>Valores</td>
-            <td>Consultar en recepción o a través del formulario de inscripción</td>
+            <td>1 día / semana</td>
+            <td>
+              Mensual: <span style="color:var(--rojo);font-weight:700">Socio $34.500</span> / No Socio $48.800<br/>
+              Marzo a Julio: Socio $143.000 / No Socio $202.850<br/>
+              Marzo a Dic.: Socio $248.400 / No Socio $351.930
+            </td>
+          </tr>
+          <tr>
+            <td>2 días / semana</td>
+            <td>
+              Mensual: <span style="color:var(--rojo);font-weight:700">Socio $53.500</span> / No Socio $75.920<br/>
+              Marzo a Julio: Socio $222.000 / No Socio $315.110<br/>
+              Marzo a Dic.: Socio $385.200 / No Socio $546.620
+            </td>
           </tr>
         </table>
         <a href="contacto.html" class="btn-detalle">Solicitar Información</a>
@@ -471,7 +515,7 @@
   <div class="container">
     <div class="act-detail-grid">
       <div class="act-detail-img reveal">
-        <img src="FOTOS NUEVAS/piscina 3.jpg" alt="Hidrogimnasia Stade Français" style="object-position:center 50%" />
+        <img src="fotos-nuevas/piscina-3.jpg" alt="Hidrogimnasia Stade Français" style="object-position:center 50%" />
       </div>
       <div class="act-detail-body">
         <div class="section-label reveal">Acuático · Fitness</div>
@@ -484,15 +528,63 @@
             <td>Adultos · Adultos mayores · Personas con lesiones articulares · Embarazadas</td>
           </tr>
           <tr>
-            <td>Horarios 2025</td>
-            <td>Consultar programación vigente en recepción o por email</td>
+            <td>Horarios</td>
+            <td><strong>Lunes · Miércoles · Viernes</strong> — 10:00 a 11:00 hrs · 12 clases al mes</td>
           </tr>
           <tr>
-            <td>Valores 2025</td>
-            <td>Consultar en recepción o a través del formulario de inscripción</td>
+            <td>Valores</td>
+            <td>
+              <span style="color:var(--rojo);font-weight:700">Socio: 1.13 UF</span> / mes &nbsp;·&nbsp; No Socio: 1.83 UF / mes
+            </td>
           </tr>
         </table>
         <a href="contacto.html" class="btn-detalle">Solicitar Información</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KINESIOLOGÍA -->
+<section id="kinesiologia" class="act-detail">
+  <div class="container">
+    <div class="act-detail-grid reverse">
+      <div class="act-detail-img reveal">
+        <img src="kinesiologia.jpg" alt="Kinesiología Deportiva KINEMAT" style="object-position:center 30%" />
+      </div>
+      <div class="act-detail-body">
+        <div class="section-label reveal">Salud · Bienestar</div>
+        <h2 class="section-title reveal reveal-delay-1">Kinesiología<br/>Deportiva</h2>
+        <p class="reveal reveal-delay-2">Servicio especializado integrado al club para acompañar a nuestros socios y deportistas. <strong>KINEMAT</strong> es un equipo dedicado a la atención integral del deportista, acompañando a tenistas y atletas de todos los niveles con un enfoque humano, profesional y personalizado.</p>
+        <p class="reveal reveal-delay-2" style="margin-top:10px">Prevenir lesiones, optimizar el rendimiento y cuidar la salud de cada jugador, dentro y fuera de la cancha.</p>
+
+        <table class="info-table reveal reveal-delay-3">
+          <tr>
+            <td>📍 Atención</td>
+            <td>Especializada · En el club</td>
+          </tr>
+          <tr>
+            <td>🎯 Enfoque</td>
+            <td>Prevención · Rehabilitación · Rendimiento</td>
+          </tr>
+          <tr>
+            <td>✔️ Servicios</td>
+            <td>
+              Kinesiología deportiva y traumatología<br/>
+              Rehabilitación deportiva<br/>
+              Masoterapia<br/>
+              Masajes de relajación y descontracturantes<br/>
+              Drenaje linfático<br/>
+              Punción seca<br/>
+              Tratamiento con ventosas<br/>
+              Terapia manual<br/>
+              Kinesioterapia respiratoria
+            </td>
+          </tr>
+          <tr>
+            <td>Información</td>
+            <td><a href="contacto.html" style="color:var(--azul);text-decoration:none;font-weight:700">Consultar disponibilidad →</a></td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -583,17 +675,18 @@
         </div>
       </div>
 
-      <div class="form-card reveal reveal-delay-2">
+      <form class="form-card reveal reveal-delay-2" method="POST" action="https://formspree.io/f/XXXXXXXX">
+        <input type="hidden" name="_subject" value="Inscripción Deportes — Stade Français" />
         <h3>Formulario de Inscripción</h3>
         <div class="form-row">
-          <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
-          <div class="form-group"><label>Apellido</label><input type="text" placeholder="Tu apellido" required /></div>
+          <div class="form-group"><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre" required /></div>
+          <div class="form-group"><label>Apellido</label><input type="text" name="apellido" placeholder="Tu apellido" required /></div>
         </div>
-        <div class="form-group"><label>Correo Electrónico</label><input type="email" placeholder="tu@email.com" required /></div>
-        <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+56 9 XXXX XXXX" /></div>
+        <div class="form-group"><label>Correo Electrónico</label><input type="email" name="email" placeholder="tu@email.com" required /></div>
+        <div class="form-group"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" /></div>
         <div class="form-group">
           <label>¿Qué actividad te interesa?</label>
-          <select required>
+          <select name="actividad" required>
             <option value="">Selecciona una actividad</option>
             <option>Academia de Pádel (Niños 7–11 años)</option>
             <option>Academia de Pádel (Niños 12–16 años)</option>
@@ -607,7 +700,7 @@
             <option>Academia de Verano</option>
             <option>Playgroup</option>
             <option>Fútbol</option>
-            <option>Gimnasio / Crossfit</option>
+            <option>Gimnasio / Protrainer</option>
             <option>Ballet</option>
             <option>Convenio Empresa</option>
             <option>Otra actividad</option>
@@ -615,17 +708,17 @@
         </div>
         <div class="form-group">
           <label>Mensaje</label>
-          <textarea placeholder="¿Tienes alguna pregunta sobre horarios, valores o disponibilidad?" style="min-height:80px;resize:vertical"></textarea>
+          <textarea name="mensaje" placeholder="¿Tienes alguna pregunta sobre horarios, valores o disponibilidad?" style="min-height:80px;resize:vertical"></textarea>
         </div>
-        <button class="btn-submit" onclick="this.textContent='✓ Solicitud enviada — te contactamos pronto';this.style.background='#27ae60';this.disabled=true">Solicitar Información</button>
-      </div>
+        <button type="submit" class="btn-submit">Solicitar Información</button>
+      </form>
     </div>
   </div>
 </section>
 
 <footer>
   <div style="max-width:1200px;margin:0 auto">
-    <img src="Logo_stade.png" alt="Stade Français" class="footer-logo-img" />
+    <img src="logo_stade.png" alt="Stade Français" class="footer-logo-img" />
     <div class="footer-links">
       <a href="index.html">Inicio</a><a href="nosotros.html">Nosotros</a>
       <a href="rugby.html">Rugby</a><a href="tenis.html">Tenis</a><a href="natacion.html">Natación</a>
@@ -641,6 +734,16 @@
   document.getElementById('hamburger').addEventListener('click', () =>
     document.getElementById('nav-links').classList.toggle('open'));
 
+  document.querySelectorAll('.nav-links .dropdown > a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        const menu = this.parentElement.querySelector('.dropdown-menu');
+        if (menu) menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
+
   function scrollTo(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
@@ -652,5 +755,18 @@
   }), { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/TU_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

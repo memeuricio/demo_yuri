@@ -18,10 +18,10 @@
     nav.scrolled { background: rgba(41,40,92,.97); box-shadow: 0 2px 24px rgba(0,0,0,.3); }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
-    .nav-logo-text { font-size: 14px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-logo-text { font-size: 15px; font-weight: 900; color: var(--blanco); line-height: 1.1; text-transform: uppercase; letter-spacing: .08em; }
     .nav-logo-text span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .16em; color: var(--dorado); }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
-    .nav-links a { display: block; padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
+    .nav-links a { display: block; padding: 8px 12px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.8); text-decoration: none; border-radius: 4px; transition: color var(--t); }
     .nav-links a:hover, .nav-links a.active { color: var(--dorado); }
     .nav-links li { position: relative; }
     .nav-links .dropdown > a::after { content: ' ▾'; font-size: 8px; }
@@ -35,7 +35,7 @@
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--blanco); border-radius: 2px; }
 
     .page-hero { position: relative; height: 80vh; min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; }
-    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 40%; background-image: url('FOTOS NUEVAS/piscina 2.jpg'); }
+    .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 40%; background-image: url('fotos-nuevas/piscina-2.jpg'); }
     .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.97) 0%, rgba(41,40,92,.6) 45%, rgba(41,40,92,.2) 100%); }
     .page-hero-content { position: relative; z-index: 2; padding: 56px 64px; max-width: 1200px; width: 100%; margin: 0 auto; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 16px; }
@@ -46,20 +46,20 @@
     .page-hero-label::after { content: ''; display: block; width: 36px; height: 2px; background: var(--dorado); }
     .page-hero h1 { font-size: clamp(52px, 8vw, 96px); font-weight: 900; color: var(--blanco); line-height: .9; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 16px; }
     .page-hero h1 span { color: var(--dorado); }
-    .page-hero p { font-size: 16px; color: rgba(255,255,255,.65); font-weight: 300; line-height: 1.75; max-width: 560px; }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,.65); font-weight: 300; line-height: 1.75; max-width: 560px; }
 
     section { padding: 80px 0; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
     .section-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rojo); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
     .section-label::after { content: ''; display: block; width: 32px; height: 2px; background: var(--rojo); }
     .section-title { font-size: clamp(24px, 3.5vw, 40px); font-weight: 900; color: var(--azul); margin-bottom: 14px; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
-    .section-sub { font-size: 15px; color: var(--gris-mid); line-height: 1.75; max-width: 540px; font-weight: 400; }
+    .section-sub { font-size: 16px; color: var(--gris-mid); line-height: 1.75; max-width: 540px; font-weight: 400; }
 
     #sobre { background: var(--gris); }
     .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
     .sobre-img { border-radius: 8px; overflow: hidden; aspect-ratio: 16/10; }
     .sobre-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
-    .sobre-text p { font-size: 15px; color: #374151; line-height: 1.85; margin-bottom: 18px; font-weight: 400; }
+    .sobre-text p { font-size: 16px; color: #374151; line-height: 1.85; margin-bottom: 18px; font-weight: 400; }
     .stats-inline { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
     .stat-box { background: var(--azul); border-radius: 8px; padding: 20px 16px; text-align: center; }
     .stat-box-num { font-size: 30px; font-weight: 900; color: var(--dorado); line-height: 1; }
@@ -75,7 +75,7 @@
     .cat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(41,40,92,.12); border-top-color: var(--rojo); }
     .cat-card-body { padding: 22px 18px; }
     .cat-age { display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--dorado); border: 1px solid rgba(246,170,12,.4); padding: 3px 8px; border-radius: 2px; margin-bottom: 10px; }
-    .cat-card h3 { font-size: 16px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+    .cat-card h3 { font-size: 17px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
     .cat-card p { font-size: 12px; color: var(--gris-mid); line-height: 1.6; font-weight: 400; }
     .cat-schedule { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.08); font-size: 11px; font-weight: 700; color: var(--azul); letter-spacing: .04em; }
 
@@ -87,26 +87,41 @@
     .staff-role { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dorado); margin-bottom: 8px; }
     .staff-card h4 { font-size: 22px; font-weight: 900; color: var(--blanco); text-transform: uppercase; letter-spacing: .04em; line-height: 1.1; }
     .staff-body { padding: 20px 28px 28px; }
-    .staff-body p { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.7; font-weight: 400; margin-bottom: 16px; }
+    .staff-body p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.7; font-weight: 400; margin-bottom: 16px; }
     .staff-logros { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .staff-logros li { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: rgba(255,255,255,.75); font-weight: 400; line-height: 1.5; }
     .staff-logros li::before { content: ''; width: 6px; height: 6px; min-width: 6px; border-radius: 50%; background: var(--dorado); margin-top: 6px; }
     @media (max-width: 900px) { .staff-grid { grid-template-columns: 1fr; } }
 
+    /* VALORES */
+    #valores { background: var(--blanco); }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; border: 1px solid rgba(41,40,92,.1); }
+    .valores-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 640px; }
+    .valores-table thead tr { background: var(--azul); color: var(--blanco); }
+    .valores-table thead th { padding: 14px 16px; text-align: left; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+    .valores-table tbody tr:nth-child(even) { background: var(--gris); }
+    .valores-table tbody tr:hover { background: rgba(41,40,92,.04); }
+    .valores-table tbody td { padding: 13px 16px; color: #374151; border-bottom: 1px solid rgba(41,40,92,.06); vertical-align: middle; white-space: nowrap; }
+    .valores-table tbody td:first-child { font-weight: 700; color: var(--azul); }
+    .valores-table .total-col { font-weight: 900; color: var(--rojo); }
+    .valores-table .sep-col { border-left: 2px solid rgba(41,40,92,.12); }
+    .valores-table thead th.sep-col { border-left: 2px solid rgba(255,255,255,.2); }
+    .valores-note { font-size: 12px; color: var(--gris-mid); margin-top: 16px; font-style: italic; }
+
     #inscripcion { background: var(--gris); }
     .inscripcion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
     .inscripcion-info h3 { font-size: 20px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 16px; margin-top: 32px; }
     .inscripcion-info h3:first-child { margin-top: 0; }
-    .inscripcion-info p { font-size: 14px; color: var(--gris-mid); line-height: 1.75; margin-bottom: 12px; font-weight: 400; }
+    .inscripcion-info p { font-size: 15px; color: var(--gris-mid); line-height: 1.75; margin-bottom: 12px; font-weight: 400; }
     .req-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .req-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #374151; font-weight: 400; line-height: 1.5; }
+    .req-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: #374151; font-weight: 400; line-height: 1.5; }
     .req-list li::before { content: ''; width: 14px; min-width: 14px; height: 14px; border-radius: 2px; background: var(--rojo); margin-top: 2px; }
     .contact-form { background: var(--blanco); border-radius: 8px; padding: 36px; border-top: 4px solid var(--rojo); box-shadow: 0 4px 24px rgba(41,40,92,.08); display: flex; flex-direction: column; gap: 14px; }
     .contact-form h3 { font-size: 18px; font-weight: 900; color: var(--azul); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .form-group { display: flex; flex-direction: column; gap: 5px; }
     .form-group label { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(41,40,92,.5); }
-    .form-group input, .form-group textarea, .form-group select { background: var(--gris); border: 1px solid rgba(41,40,92,.12); border-radius: 4px; padding: 12px 14px; font-size: 13px; font-family: 'SonnyVol2', sans-serif; color: var(--azul); outline: none; transition: border-color var(--t); font-weight: 400; }
+    .form-group input, .form-group textarea, .form-group select { background: var(--gris); border: 1px solid rgba(41,40,92,.12); border-radius: 4px; padding: 12px 14px; font-size: 14px; font-family: 'SonnyVol2', sans-serif; color: var(--azul); outline: none; transition: border-color var(--t); font-weight: 400; }
     .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--rojo); }
     .form-group textarea { resize: vertical; min-height: 90px; }
     .btn-primary { background: var(--rojo); color: var(--blanco); font-weight: 900; font-family: 'SonnyVol2', sans-serif; padding: 15px 32px; border-radius: 4px; border: none; cursor: pointer; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; transition: var(--t); align-self: flex-start; }
@@ -126,9 +141,20 @@
     @media (max-width: 900px) {
       nav { padding: 0 20px; } .nav-links { display: none; } .hamburger { display: flex; }
       .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--azul); padding: 12px; border-top: 2px solid var(--rojo); }
+      .nav-links .dropdown-menu { position: static; box-shadow: none; min-width: unset; background: rgba(255,255,255,.08); border: none; border-radius: 4px; margin: 4px 0 4px 12px; padding: 4px; }
+      .nav-links .dropdown > a::after { content: ' ▾'; }
       .sobre-grid, .inscripcion-grid { grid-template-columns: 1fr; gap: 36px; }
       .page-hero-content { padding: 36px 24px; }
       .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 56px 0; }
+      .contact-form { padding: 24px 20px; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .page-hero-content { padding: 24px 16px 36px; }
+      section { padding: 44px 0; }
     }
   </style>
 </head>
@@ -136,7 +162,7 @@
 <div class="top-stripe"></div>
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="Logo_stade.png" alt="Stade Français" />
+    <img src="logo_stade.png" alt="Stade Français" />
     <div class="nav-logo-text">Stade Français<span>Club Deportivo · Est. 1929</span></div>
   </a>
   <ul class="nav-links" id="nav-links">
@@ -175,7 +201,7 @@
   <div class="container">
     <div class="sobre-grid">
       <div class="sobre-img reveal">
-        <img src="FOTOS NUEVAS/piscina.jpg" alt="Natación Stade Français" />
+        <img src="fotos-nuevas/piscina.jpg" alt="Natación Stade Français" />
       </div>
       <div class="sobre-text">
         <div class="section-label reveal">Nuestra Rama</div>
@@ -197,7 +223,7 @@
     <div class="section-label reveal">En el Agua</div>
     <h2 class="section-title reveal reveal-delay-1">Partida en Stade</h2>
     <div class="photo-feature reveal reveal-delay-2">
-      <img src="FOTOS NUEVAS/piscina 2.jpg" alt="Nadador Stade Français" />
+      <img src="fotos-nuevas/piscina-2.jpg" alt="Nadador Stade Français" />
     </div>
   </div>
 </section>
@@ -304,6 +330,69 @@
   </div>
 </section>
 
+<!-- VALORES -->
+<section id="valores">
+  <div class="container">
+    <div class="section-label reveal">Aranceles</div>
+    <h2 class="section-title reveal reveal-delay-1">Valores Anuales</h2>
+    <p class="section-sub reveal reveal-delay-2">Cuotas anuales de la Rama Natación temporada 2026. Los valores en UF corresponden a la incorporación y cuota social del club.</p>
+    <div class="table-wrap reveal reveal-delay-2">
+      <table class="valores-table">
+        <thead>
+          <tr>
+            <th>Categoría</th>
+            <th>Matrícula</th>
+            <th>Cuota Rama</th>
+            <th>Incorp. Socio</th>
+            <th>Cuota Social</th>
+            <th class="sep-col">Cuota Rama No Socio</th>
+            <th>Incorp. No Socio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Menores</td>
+            <td>$170.000</td>
+            <td>$550.000</td>
+            <td>55 UF</td>
+            <td>15,54 UF</td>
+            <td class="sep-col total-col">$650.000</td>
+            <td>$1.000.000</td>
+          </tr>
+          <tr>
+            <td>Infantiles</td>
+            <td>$170.000</td>
+            <td>$730.000</td>
+            <td>55 UF</td>
+            <td>15,54 UF</td>
+            <td class="sep-col total-col">$1.080.000</td>
+            <td>$1.000.000</td>
+          </tr>
+          <tr>
+            <td>Juveniles y Mayores</td>
+            <td>$170.000</td>
+            <td>$770.000</td>
+            <td>55 UF</td>
+            <td>18,28 UF</td>
+            <td class="sep-col total-col">$1.200.000</td>
+            <td>$1.000.000</td>
+          </tr>
+          <tr>
+            <td>Universitarios</td>
+            <td>$170.000</td>
+            <td>$560.000</td>
+            <td>55 UF</td>
+            <td>18,28 UF</td>
+            <td class="sep-col total-col">$800.000</td>
+            <td>$1.000.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="valores-note reveal reveal-delay-3">* Incorporación Socio y Cuota Social corresponden a la incorporación al club y no son parte de la cuota de rama. Los valores No Socio incluyen cuota de rama anual.</p>
+  </div>
+</section>
+
 <section id="inscripcion">
   <div class="container">
     <div class="inscripcion-grid">
@@ -322,20 +411,21 @@
         <h3 class="reveal reveal-delay-2">Temporadas</h3>
         <p class="reveal reveal-delay-3">El programa funciona todo el año en piscina temperada. Las inscripciones se realizan en marzo (temporada invierno) y octubre (temporada verano). Nuevos ingresos previo cupo disponible.</p>
       </div>
-      <div class="contact-form reveal reveal-delay-2">
+      <form class="contact-form reveal reveal-delay-2" method="POST" action="https://formspree.io/f/XXXXXXXX">
+        <input type="hidden" name="_subject" value="Inscripción Natación — Stade Français" />
         <h3>Formulario de Inscripción</h3>
         <div class="form-row">
-          <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
-          <div class="form-group"><label>Apellido</label><input type="text" placeholder="Tu apellido" required /></div>
+          <div class="form-group"><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre" required /></div>
+          <div class="form-group"><label>Apellido</label><input type="text" name="apellido" placeholder="Tu apellido" required /></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>Fecha de nacimiento</label><input type="date" /></div>
-          <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+56 9 XXXX XXXX" /></div>
+          <div class="form-group"><label>Fecha de nacimiento</label><input type="date" name="fecha_nacimiento" /></div>
+          <div class="form-group"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" /></div>
         </div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com" required /></div>
+        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="tu@email.com" required /></div>
         <div class="form-group">
           <label>Programa de interés</label>
-          <select>
+          <select name="programa">
             <option value="">Selecciona un programa</option>
             <option>Bebés Acuáticos (3–5 años)</option>
             <option>Escuelita (5–8 años)</option>
@@ -345,17 +435,17 @@
             <option>Nado Libre</option>
           </select>
         </div>
-        <div class="form-group"><label>Nivel de natación</label><select><option>Selecciona tu nivel</option><option>No sé nadar</option><option>Principiante (flotar / bracear)</option><option>Intermedio (domino los estilos básicos)</option><option>Avanzado (competitivo)</option></select></div>
-        <div class="form-group"><label>Mensaje (opcional)</label><textarea placeholder="¿Alguna pregunta sobre el programa?"></textarea></div>
-        <button type="button" class="btn-primary" onclick="this.textContent='✓ Enviado';this.style.background='#27ae60';setTimeout(()=>{this.textContent='Enviar Inscripción';this.style.background='';},3000)">Enviar Inscripción</button>
-      </div>
+        <div class="form-group"><label>Nivel de natación</label><select name="nivel"><option>Selecciona tu nivel</option><option>No sé nadar</option><option>Principiante (flotar / bracear)</option><option>Intermedio (domino los estilos básicos)</option><option>Avanzado (competitivo)</option></select></div>
+        <div class="form-group"><label>Mensaje (opcional)</label><textarea name="mensaje" placeholder="¿Alguna pregunta sobre el programa?"></textarea></div>
+        <button type="submit" class="btn-primary">Enviar Inscripción</button>
+      </form>
     </div>
   </div>
 </section>
 
 <footer>
   <div style="max-width:1200px;margin:0 auto">
-    <img src="Logo_stade.png" alt="Stade Français" class="footer-logo-img" />
+    <img src="logo_stade.png" alt="Stade Français" class="footer-logo-img" />
     <div class="footer-links">
       <a href="index.html">Inicio</a><a href="rugby.html">Rugby</a>
       <a href="tenis.html">Tenis</a><a href="natacion.html">Natación</a>
@@ -374,5 +464,18 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/TU_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
